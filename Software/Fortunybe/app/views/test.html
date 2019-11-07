@@ -1,0 +1,227 @@
+<html>
+	<head>
+	<meta charset="UTF-8">
+	</head>
+	<body>
+	<style>
+	body{
+		font-size: 10px;
+		padding:10px;
+		width:21cm;
+	}
+	
+	
+	.colIzq{
+		width:50%;
+	}
+	.colDer{
+		width:50%;
+	}
+	.tableDetail{
+		 border-collapse: collapse;
+	}
+	.detailHeader th{
+		 padding: 2px;
+		 border-color: black;
+		 border-bottom: 2px;
+		 border-top: 2px; 
+		 border-left: 0px;
+		 border-right:0px;
+		 border-style: solid;
+
+    
+	}
+	.detailSection td{
+		padding-top:10px;
+		padding-bottom:10px;
+			
+	}
+	.tableDetail tr.detailRow:first-child td{
+		width:5%;
+	}
+	.tableDetail tr.detailRow:nth-child(2) td{
+		width:10%;
+	}
+	.tableDetail tr.detailRow:nth-child(3) td{
+		width:10%;
+	}
+	.tableDetail tr.detailRow:nth-child(4) td{
+		width:5%;
+	}
+	.tableDetail tr.detailRow:nth-child(5) td{
+		width:10%;
+	}
+	.tableDetail tr.detailRow:nth-child(6) td{
+		width:10%;
+	}
+	.regionMontos{
+		float:right;
+	}
+	.regionTerminos{
+		clear:both;
+		font-size: 10px;
+	}
+	.regionFirmas{
+		margin-left: 20%;
+		margin-right: 20%;
+
+	}
+
+	.middleSpace{
+		width:20%;
+	}
+
+	</style>
+	 <!-- CABECERA -->
+		<div>
+			<table>
+				<Tr>
+					<td class="colIzq" valign="top">
+						 <!-- COL IZQUIERDA -->
+				  <img src="http://localhost:8051/serv/img/logoman" width="100px">	
+				  <br>	 
+					<table >
+						<tr><td><b>{{ClienteNombre}}</b></td></tr>
+						<tr><td>{{ClienteDirec1}}</td></tr>
+						<tr><td>{{ClienteDirec2}}</td></tr>
+						<tr><td></td></tr>
+						<tr ><td rowspan=8><b>{{ClientePais}}</b></td></tr>
+
+
+					</table></td>
+					<td class="colDer">	
+				 <!-- COL DERECHA -->
+				 		<h2>Original</h2>
+						<table>
+								<tr><td>Cotización N°.</td><td>{{NumCotizacion}}</td></tr>
+								<tr><td>Lima</td><td>{{FechaCotizacion}}</td></tr>
+								<tr><td>Pagina </td><td>{{NumPagina}}</td></tr>
+								<tr><td>Numero de oferta nuestra</td><td>{{NumOferta}}</td></tr>
+								<tr><td>Numero de Cliente </td><td>{{ClienteNumero}}</td></tr>
+								<tr><td>Ruc del Cliente</td><td>{{ClienteRUC}}</td></tr>
+								<tr><td>Dia requerimiento </td><td>{{FechaRequerimiento}}</td></tr>
+								<tr><td>Referencia</td><td>{{Referencia}}</td></tr>
+								<tr><td>Persona de Contacto</td><td>{{NombreContacto}}</td></tr>
+								<tr><td>Telefono </td><td>{{TelefonoContacto}}</td></tr>
+								<tr><td>Celular </td><td>{{CelularContacto}}</td></tr>
+								<tr><td>E-mail </td><td>{{CorreoContacto}}</td></tr>
+								<tr><td></td><td>PrimeServ-PE@mandieselturbo.com</td></tr>
+
+						</table>
+					</td>
+				</Tr>
+				<tr><td>Notes:</td></tr>
+				<tr><td>{{Notas}}</td></tr>
+
+			</table>
+
+
+
+		</div>
+	 <!-- DETALLE -->
+
+		<div>
+			<table class='tableDetail'>
+				<tr class='detailHeader'>
+					<th colspan="2"> Embarcación-Planta:{{Barco}}</th>
+					<th> IMO:{{IMO}}</th>
+					<th> MAN</th>
+					<th colspan="3"> Moneda:{{Moneda}}</th>
+				</th>
+				<tr class="detailHeader detailRow">
+					<th> Pos.</th>
+					<th> Descripción</th>
+					<th> Código</th>
+					<th> Cantidad</th>
+					<th> Unit</th>
+					<th> Precio Unit</th>
+					<th> Total Precio</th>
+
+				</tr>
+				<tr class="detailSection">
+					<td></td>
+					<td colspan="6">Product ID:{{MotorId}} Product Type: {{TipoMotor}}	</td>
+				</tr>
+				{{#each lineas}}
+	
+				<tr class="detailRow">
+					<td> {{lineas.num}}</td>
+					<td> {{lineas.articulo}}</td>
+					<td> {{lineas.codigo}}</td>
+					<td> {{lineas.catnidad}}</td>
+					<td> {{lineas.unidad}}</td>
+					<td> {{lineas.pventa}}</td>
+					<td> {{lineas.total}}</td>
+				</tr>	
+				{{/each}}	
+			</table>	
+				
+
+		</div>
+	 <!-- SUM Montos -->
+<br>
+ 		<br>
+ 		<br><br>
+ 		<br>
+ 		<br>
+		<div class="regionMontos">
+			<table>
+				<tr><td><b>Total Exw Frederikshavn</b></td><td>{{MontoExWork}}</td></tr>
+				<tr><td><b>FCA Charges, Air freight & Insurance, Customs Expenses</b></td><td>{{MontoImportacion}}</td></tr>
+				<tr><td></td><td>{{SubTotal}}</td></tr>
+				<tr><td>	{{Impuesto}}</td><td>{{MontoImpuesto}}</td></tr>
+				<tr><td>	{{Impuesto}}</td><td><b>{{MontoTotal}}</b></td></tr>
+
+			</table>
+
+		</div>
+ <!-- TERMINOS -->
+ 		<br>
+ 		<br>
+ 		<br>
+
+		<div class="regionTerminos">
+		{{#each Terminos}}
+			{{Terminos.termino}}
+		{{/each}}
+		</div>
+		<br>
+		 <!-- FIRMAS -->
+
+		<br><br><br><br>
+		<div class="regionFirmas">
+			<table width=100%>
+				<tr>
+					<td class="colIzq">
+						<table width=100%>
+							<tr>
+								<td><img src='http://localhost:8051/serv/img/{{idAprovador1}}'></td>
+							</tr>	
+							<tr>
+								<td>{{NombreAprobador1}}</td>
+							</tr>
+							<tr>
+								<td>{{CargoAprobador1}}</td>
+							</tr>
+						</table>
+					</td>
+					<td class="middleSpace">  </td>
+					<td class="colDer">
+						<table  width=100% >
+							<tr>
+								<td><img  src='http://localhost:8051/serv/img/{{idAprovador1}}'></td>
+							</tr>	
+							<tr>
+								<td>{{NombreAprobador2}}</td>
+							</tr>
+							<tr>
+								<td>{{NombreAprobador2}}</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+		</div>
+	 
+	 </body>
+	 </html>

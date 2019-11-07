@@ -1,0 +1,1165 @@
+
+<div  ng-controller='networkController' >
+<div style="display: flex;
+-webkit-box-align: center;
+align-items: center;
+height: 56px;
+flex-shrink: 0;
+background-color: rgb(255, 255, 255);
+-webkit-box-pack: justify;
+justify-content: space-between;
+padding: 0px 32px;
+border-bottom: 1px solid rgb(234, 234, 242);">
+
+    <h1 size="20" style="   font-family: Rubik, sans-serif;
+    color: rgb(39, 0, 56);
+    font-size: 20px;
+    margin: 0px;
+    font-weight: 600px;
+    transition: all 0.1s ease-in-out 0s;">Overview</h1>
+
+    <div class="Flex__StyledFlex-sc-1akhess-0 giADlB" style="
+    margin: 0px;
+   
+    display: flex;">
+       
+        <button color="primary" style="    font-family: Rubik, sans-serif;
+        box-sizing: border-box;
+        text-align: center;
+        display: flex;
+        -webkit-box-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        justify-content: center;
+        cursor: pointer;
+        font-weight: 600;
+        flex-shrink: 0;
+        -webkit-box-flex: initial;
+        flex-grow: initial;
+        line-height: 16px;
+        font-size: 14px;
+        height: 32px;
+        color: white;
+        border-radius: 4px;
+        transition: all 0.2s ease-in-out 0s;
+        background: rgb(238, 13, 97);
+        padding: 0px 16px;
+        border-width: initial;
+        border-style: none;
+        border-color: initial;
+        border-image: initial;" class="Button__StyledButton-sc-1lzph0c-0 kSkklH" ng-click="nuevoInfluencer()" >
+            
+            Create influencer
+        </button>
+        <div size="8"  style="margin-bottom:0px;width: 8px; height: 100%;"></div>
+        <button color="primary" style="    font-family: Rubik, sans-serif;
+        box-sizing: border-box;
+        text-align: center;
+        display: flex;
+        -webkit-box-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        justify-content: center;
+        cursor: pointer;
+        font-weight: 600;
+        flex-shrink: 0;
+        -webkit-box-flex: initial;
+        flex-grow: initial;
+        line-height: 16px;
+        font-size: 14px;
+        height: 32px;
+        color: rgb(238, 13, 97);
+        border-radius: 4px;
+        border-width: 1px;
+        border-style: solid;
+        transition: all 0.2s ease-in-out 0s;
+        padding: 0px 16px;
+        border-color: rgb(238, 13, 97);
+        background: none !important;"
+         ng-click="nuevaLista()">
+            <svg color="primary" width="16px" height="16px" viewBox="0 0 1024 1024" 
+            class="Svg-sc-14aerh-0 iYKOmp">
+            </svg>Create list</button>
+        </div>
+
+
+
+</div>
+<div  style="display: flex; -webkit-box-pack: justify; justify-content: space-between;
+background-color: white; height: 100%;">
+<!--PANEL 1-->
+<div style="box-shadow: rgba(0, 0, 0, 0.04) 2px 0px 4px 0px; z-index: 1;">
+
+
+    <div style="display: flex; flex-direction: column;height: 100%; flex-shrink: 0;
+    margin-right: 6px; width: 370px;padding: 24px 0px 0px 28px;">
+        <div style="display: flex; -webkit-box-pack: justify;justify-content: space-between;-webkit-box-align:center;
+        align-items: center;padding-right: 12px; padding-left: 4px;flex-shrink: 0;">
+            <p color="purpleTitle" size="3" style="    font-size: 16px;font-family: Rubik, sans-serif;
+            color: rgb(39, 0, 56);text-transform: none;font-weight: 600;margin: 0px;">
+                Influencers
+            </p>
+            <div style="display: flex;-webkit-box-align: center;align-items: center;
+            -webkit-box-pack: center;justify-content: center;">
+                <button ng-click="filterPage()" style="font-family: Rubik, sans-serif;
+                box-sizing: border-box; text-align: center;display: flex;
+                -webkit-box-align: center; align-items: center; -webkit-box-pack: center;
+                justify-content: center; cursor: pointer; font-weight: 600; flex-shrink: 0;
+                -webkit-box-flex: initial;flex-grow: initial;font-size: 12px; height: 24px;
+                color: rgb(124, 113, 148);border-radius: 4px; transition: all 0.2s ease-in-out 0s;
+                padding: 0px 16px; border-width: initial; border-style: none;
+                border-color: initial;border-image: initial;margin: 0px; background: none !important;">
+                    <img color="inherit" src="/img/filter.svg" width="20px" height="20px" viewBox="0 0 1024 1024" 
+                    style="vertical-align: middle;display: flex;color: inherit;transition: all 0.1s ease-in-out 0s;">
+                    
+                </button>
+                <button ng-click="allPage()" color="default" style="    font-family: Rubik, sans-serif; box-sizing: border-box;
+                text-align: center; display: flex; -webkit-box-align: center;
+                align-items: center; -webkit-box-pack: center; justify-content: center; cursor: pointer;
+                font-weight: 600;flex-shrink: 0;-webkit-box-flex: initial; flex-grow: initial;
+                font-size: 12px;height: 24px;color: rgb(124, 113, 148); border-radius: 4px;
+                border-width: 1px;border-style: solid;transition: all 0.2s ease-in-out 0s;
+                padding: 0px 16px; border-color: rgb(124, 113, 148); margin: 0px;background: none !important;">
+                    See all
+                </button>
+            </div>
+        </div>
+        <div size="12" style="width: 100%;margin-bottom: 12px;">
+        </div>
+        <div style="display: flex;">
+            <div size="4" style="height: 100%;margin-bottom: 0px;width: 4px;">
+            </div>
+            <div style="display: flex;-webkit-box-align: center;align-items: center;
+            flex-direction: column; cursor: pointer;">
+                <svg color="primary" width="20px" height="20px" viewBox="0 0 1024 1024" 
+                class="Svg-sc-14aerh-0 iYKOmp">
+                </svg>
+                <p color="primary" size="12" style="    font-family: Rubik, sans-serif;color: rgb(238, 13, 97);
+                font-size: 12px;margin: 0px;transition: all 0.1s ease-in-out 0s;">
+                    Network
+                </p>
+            </div>
+            <div size="32" style="    height: 100%;margin-bottom: 0px;width: 32px;">
+            </div>
+            <div style="display: flex;-webkit-box-align: center;align-items: center;
+            flex-direction: column;cursor: pointer;">
+                <svg color="lightText" width="20px" height="20px" viewBox="0 0 1024 1024" 
+                class="Svg-sc-14aerh-0 efAQSq">
+                </svg>
+                <p color="lightText" style="font-family: Rubik, sans-serif;
+                color: rgb(150, 142, 169);
+                font-size: 12px;
+                margin: 0px;
+                transition: all 0.1s ease-in-out 0s;"size="12" class="Text__StyledText-sc-14s2wwi-0 GYxsE">
+                    Favorites
+                </p>
+            </div>
+        </div>
+        <div style="padding-right: 12px;margin-left: 4px;">
+            <div size="8" style="width: 100%;margin-bottom: 8px;">
+            </div>
+            <div>
+               
+               
+                <div style="position: relative;">
+                   
+                    <input type="text"    name="search" value="" id="search" placeholder="Search" 
+                    ng-model="test"  style="width: 100%; box-sizing: border-box; font-size: 13px;
+                    line-height: 17px;background-color: rgb(237, 237, 243);
+                    color: rgb(150, 142, 169);height: 24px;border-radius: 3px;
+                    padding: 8px 8px 8px 24px; border-width: 0px; transition: padding 0.1s ease-in-out 0s;">
+                    <span style="font-family: Rubik, sans-serif; font-size: 10px;
+                    line-height: 16px; margin-top: 4px;color: rgb(124, 113, 148);">
+                    </span>
+                </div>
+            </div>
+            <div size="8" style="    width: 100%;margin-bottom: 8px;">
+            </div>
+        </div>
+        <div height="calc( 100vh - 262px )" id=" content " style="display: flex; flex-direction: column;
+        overflow-y: auto;height: calc(100vh - 262px);min-width: 336px;">
+        <div  ng-repeat="all in allInfluencers | filter:test"  id="pointer" ng-click="pointer(all.username_instagram)"  style="display: flex; flex-direction: row; height: 72px; width: 310px;
+        box-shadow: rgb(197, 197, 210) 0px 0px 3px 0px; background-color: white;
+        flex-shrink: 0;transform: scale(1); position: relative; cursor: pointer;
+        border-radius: 4px; margin: 4px 6px 4px 4px; transition: all 0.1s ease-in-out 0s;">
+           
+            <img style="height: 70px;width: 72px; display: block; border-radius: 4px 9px 36px 9px 36px 4px;"
+             src="{{all.profile_url}}"> 
+             <div class="toggle"style="margin-left: 8px; margin-top: 8px;display: flex;flex-direction: column;">
+                <p style="font-family: Rubik, sans-serif; color: rgb(39, 0, 56); font-size: 14px;
+                text-overflow: ellipsis;
+                text-transform: capitalize;
+                white-space: nowrap;
+                font-weight: 600;
+                margin: 0px;
+                transition: all 0.1s ease-in-out 0s;
+                overflow: hidden;">{{all.nombre}} {{all.apellido}} </p>
+                 <p style="    font-family: Rubik, cursive;
+                 color: rgba(39, 0, 56, 0.73);
+                 font-size: 11px;
+                 text-overflow: ellipsis;
+                 white-space: nowrap;
+                 margin: 6px;
+                 transition: all 0.1s ease-in-out 0s;
+                 overflow: hidden;
+                 padding-left: 5px;
+                 font-style: italic;"> @{{all.username_instagram}}</p>
+             </div>
+             <div id="options"  class="toggle" style="position: absolute; top: 30px; bottom: 0px; right: 5px;
+             left: 0px; display: flex; -webkit-box-align: center;border-radius: 4px;
+             align-items: center; -webkit-box-pack: end;justify-content: flex-end;">
+             <div onmoveover="select()" ng-click="preview(all)" style="display: inline-block;cursor: pointer;padding: 4px;
+             transition: all 0.1s ease-in-out 0s;">
+                 <img color="purpleTitle" width="20px" height="20px" viewBox="0 0 1024 1024" 
+                 class="Svg-sc-14aerh-0 llfPyk" src="/img/view.svg">
+                
+          <!--      <p size="12" color="purpleText" style="font-family: Rubik, sans-serif;
+                color: rgba(39, 0, 56, 0.73);font-size: 11px;margin: 0px;
+                transition: all 0.1s ease-in-out 0s;">Preview
+                </p>-->
+            </div>
+            <div style="display: inline-block;cursor: pointer;padding: 4px;
+             transition: all 0.1s ease-in-out 0s;">
+                <img color="purpleTitle" width="18px" height="18px" viewBox="0 0 1024 1024" 
+                class="Svg-sc-14aerh-0 llfPyk" src="/img/edit.svg">
+               
+           <!--    <p size="12" color="purpleText" style="font-family: Rubik, sans-serif;
+               color: rgba(39, 0, 56, 0.73);font-size: 11px;margin: 0px;
+               transition: all 0.1s ease-in-out 0s;">Edit
+               </p>-->
+            </div>
+        </div>
+        </div>
+       
+        <div style="    display: flex;
+        -webkit-box-flex: 1;
+        flex-grow: 1;
+        cursor: pointer;
+        height: 100%;">
+
+        </div>
+        </div>
+    </div>
+
+</div>
+<!--PANEL 1-->
+<!--PANEL 2-->
+    <div style="display: flex; flex-direction: column;-webkit-box-flex: 1;flex-grow: 1; 
+    background-color: rgb(248, 248, 250); height: calc(100vh - 120px); overflow-y: auto; 
+    padding: 24px 16px;">
+
+        <div class="Flex__StyledFlex-sc-1akhess-0 dGwcQX" style="display: flex;-webkit-box-align: center; align-items: center;
+        -webkit-box-pack: start;justify-content: flex-start; height: 32px;">
+            <p size="14" color="purpleTitle" style="font-family: Rubik, sans-serif;
+            color: rgb(39, 0, 56);
+            font-size: 14px;
+            font-weight: 600;
+            margin: 0px;
+            transition: all 0.1s ease-in-out 0s;
+        "class="Text__StyledText-sc-14s2wwi-0 kwdjib">
+                Your Network Summary</p>
+        </div>
+
+        <div size="24" class="Spacing__StyledSpacing-sc-1vai9yd-0 brBquP" style="width: 100%;margin-bottom: 24px;
+        display: flex; -webkit-box-pack: justify; justify-content: space-between; -webkit-box-align: center;
+        align-items: center;">
+
+        </div>
+
+        <div style="display: flex;align-items: flex-start;" class="Flex__StyledFlex-sc-1akhess-0 ivUeOy">
+            <div style="display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding-left: 4px;
+            margin-bottom: 16px;
+            flex: 1 1 0%;
+            border-left: 1px solid rgb(234, 234, 242);">
+                <img width="20px" height="20px" viewBox="0 0 1024 1024" 
+                class="Svg-sc-14aerh-0 dDCBpD"  src="https://cdn3.iconfinder.com/data/icons/faticons/32/user-01-256.png"></svg>
+                 
+                <div size="4" class="Spacing__StyledSpacing-sc-1vai9yd-0 hijVnY">
+
+                </div>
+                <p style="font-family: Rubik, sans-serif; color: rgba(39, 0, 56, 0.73);
+                font-size: 12px;margin: 0px; transition: all 0.1s ease-in-out 0s;"
+                size="12" color="purpleText" class="Text__StyledText-sc-14s2wwi-0 jxoxgw">
+                    Influencers</p>
+                <p style="font-family: Rubik, sans-serif;
+                color: rgb(39, 0, 56);font-size: 16px;font-weight: 600; margin: 0px;
+                transition: all 0.1s ease-in-out 0s;" size="16" color="purpleTitle" class="Text__StyledText-sc-14s2wwi-0 dBhnq">
+                        <span class="Number__NumberWrapper-sc-1ae33ra-0 ilxBrt">{{cantidadInfluencers}}
+                            </span>
+                </p>
+            </div>
+            <div style="display: flex; flex-direction: column; align-items: flex-start;
+            padding-left: 4px; margin-bottom: 16px; flex: 1 1 0%;
+            border-left: 1px solid rgb(234, 234, 242);" class="styles__Network-sc-18xeupp-1 kCHZIr">
+                <img src="img/instagram.png" alt="instagram icon" width="20px" 
+                height="20px" placeholder="/static/img/placeholders/placeholder.jpg" 
+                class="Image__Img-yd875y-0 bNaqEG">
+                <div size="4" class="Spacing__StyledSpacing-sc-1vai9yd-0 hijVnY">
+
+                </div>
+                <p style="font-family: Rubik, sans-serif; color: rgba(39, 0, 56, 0.73);
+                font-size: 12px;margin: 0px; transition: all 0.1s ease-in-out 0s;" size="12" color="purpleText" class="Text__StyledText-sc-14s2wwi-0 jxoxgw">
+                    Instagram Accounts</p>
+                <p size="16" color="purpleTitle" class="Text__StyledText-sc-14s2wwi-0 dBhnq" style="font-family: Rubik, sans-serif;
+                color: rgb(39, 0, 56);font-size: 16px;font-weight: 600; margin: 0px;
+                transition: all 0.1s ease-in-out 0s;">
+                    <span class="Number__NumberWrapper-sc-1ae33ra-0 ilxBrt">
+                            {{cantidadInfluencers}}
+                    </span>
+                </p>
+            </div>
+            <div class="styles__Divider-sc-18xeupp-0 dObkRL">
+
+            </div>
+            <div style="display: flex; flex-direction: column; align-items: flex-start;
+            padding-left: 4px; margin-bottom: 16px; flex: 1 1 0%;
+            border-left: 1px solid rgb(234, 234, 242);" class="styles__Network-sc-18xeupp-1 kCHZIr">
+                <img src="img/youtube.png" alt="instagram icon" 
+                width="20px" height="20px" placeholder="/static/img/placeholders/placeholder.jpg" 
+                class="Image__Img-yd875y-0 bNaqEG">
+                <div size="4" class="Spacing__StyledSpacing-sc-1vai9yd-0 hijVnY">
+
+                </div>
+                <p size="12" style="font-family: Rubik, sans-serif; color: rgba(39, 0, 56, 0.73);
+                font-size: 12px;margin: 0px; transition: all 0.1s ease-in-out 0s;"color="purpleText" class="Text__StyledText-sc-14s2wwi-0 jxoxgw">
+                    Youtube Accounts</p>
+                <p style="font-family: Rubik, sans-serif;
+                color: rgb(39, 0, 56);font-size: 16px;font-weight: 600; margin: 0px;
+                transition: all 0.1s ease-in-out 0s;" size="16" color="purpleTitle" class="Text__StyledText-sc-14s2wwi-0 dBhnq">
+                    <span class="Number__NumberWrapper-sc-1ae33ra-0 ilxBrt">
+                        0
+                    </span>
+                </p>
+            </div>
+            <div class="styles__Divider-sc-18xeupp-0 dObkRL">
+
+            </div>
+            <div  style="display: flex; flex-direction: column; align-items: flex-start;
+            padding-left: 4px; margin-bottom: 16px; flex: 1 1 0%;
+            border-left: 1px solid rgb(234, 234, 242);"class="styles__Network-sc-18xeupp-1 kCHZIr">
+                <img src="img/twitter.png" 
+                alt="instagram icon" width="20px" height="20px" 
+                placeholder="/static/img/placeholders/placeholder.jpg"
+                 class="Image__Img-yd875y-0 bNaqEG">
+                 <div size="4" class="Spacing__StyledSpacing-sc-1vai9yd-0 hijVnY">
+                </div>
+                  <p style="font-family: Rubik, sans-serif; color: rgba(39, 0, 56, 0.73);
+                  font-size: 12px;margin: 0px; transition: all 0.1s ease-in-out 0s;"size="12" color="purpleText" class="Text__StyledText-sc-14s2wwi-0 jxoxgw">
+                      Twitter Accounts</p>
+                    <p style="font-family: Rubik, sans-serif;
+                    color: rgb(39, 0, 56);font-size: 16px;font-weight: 600; margin: 0px;
+                    transition: all 0.1s ease-in-out 0s;" size="16" color="purpleTitle" class="Text__StyledText-sc-14s2wwi-0 dBhnq">
+                        <span class="Number__NumberWrapper-sc-1ae33ra-0 ilxBrt">
+                            0
+                        </span>
+                    </p>
+            </div>
+            <div style="display: flex; flex-direction: column; align-items: flex-start;
+            padding-left: 4px; margin-bottom: 16px; flex: 1 1 0%;
+            border-left: 1px solid rgb(234, 234, 242);" class="styles__Network-sc-18xeupp-1 kCHZIr">
+                <svg width="20px" height="20px" viewBox="0 0 1024 1024" 
+                class="Svg-sc-14aerh-0 dDCBpD">
+                </svg>
+                <div size="4" class="Spacing__StyledSpacing-sc-1vai9yd-0 hijVnY">
+
+                </div>
+                <p style="font-family: Rubik, sans-serif; color: rgba(39, 0, 56, 0.73);
+                font-size: 12px;margin: 0px; transition: all 0.1s ease-in-out 0s;" size="12" color="purpleText" class="Text__StyledText-sc-14s2wwi-0 jxoxgw">
+                    Lists</p>
+                <p style="font-family: Rubik, sans-serif;
+                color: rgb(39, 0, 56);font-size: 16px;font-weight: 600; margin: 0px;
+                transition: all 0.1s ease-in-out 0s;" size="16" color="purpleTitle" class="Text__StyledText-sc-14s2wwi-0 dBhnq">
+                    <span class="Number__NumberWrapper-sc-1ae33ra-0 ilxBrt"> {{cantidadListas}}
+
+                    </span>
+                </p>
+            </div>
+        </div>
+
+        <div size="24" class="Spacing__StyledSpacing-sc-1vai9yd-0 brBquP" style="width: 100%;margin-bottom: 24px;
+        display: flex; -webkit-box-pack: justify; justify-content: space-between; -webkit-box-align: center;
+        align-items: center;">
+
+        </div>
+        <div style="display: flex;-webkit-box-align: center; align-items: center;
+        -webkit-box-pack: justify; justify-content: space-between;"class="Flex__StyledFlex-sc-1akhess-0 bFelEE">
+            <p size="14" color="purpleTitle" style="font-family: Rubik, sans-serif;
+            color: rgb(39, 0, 56);
+            font-size: 14px;
+            font-weight: 600;
+            margin: 0px;
+            transition: all 0.1s ease-in-out 0s;"
+             class="Text__StyledText-sc-14s2wwi-0 kwdjib">
+             Last Influencers Added</p>
+             <button color="default" class="Button__StyledButton-sc-1lzph0c-0 fKNcui" style="font-family: Rubik, sans-serif;
+             box-sizing: border-box;
+             text-align: center;
+             display: flex;
+             -webkit-box-align: center;
+             align-items: center;
+             -webkit-box-pack: center;
+             justify-content: center;
+             cursor: pointer;
+             font-weight: 600;
+             flex-shrink: 0;
+             -webkit-box-flex: initial;
+             flex-grow: initial;
+             font-size: 12px;
+             height: 24px;
+             color: rgb(124, 113, 148);
+             margin-right: 0px;
+             border-radius: 4px;
+             transition: all 0.2s ease-in-out 0s;
+             padding: 0px 0px 0px 16px;
+             border-width: initial;
+             border-style: none;
+             border-color: initial;
+             border-image: initial;
+             background: none !important;">
+                 See all</button>
+        </div>
+        <div size="16" class="Spacing__StyledSpacing-sc-1vai9yd-0 jkJCXj">
+
+        </div>
+        <div size="24" class="Spacing__StyledSpacing-sc-1vai9yd-0 bJMqKM">
+            <div class="slick-slider CarouselSlider-sc-1xbbj8j-0 dcdpNx slick-initialized" 
+            dir="ltr">
+            <div direction="left" data-role="none" 
+            class="slick-arrow slick-prev CarouselArrow-ghsj16-0 fVFzwN" 
+            style="display: block;">
+            <svg width="16px" height="16px" viewBox="0 0 1024 1024" class="Svg-sc-14aerh-0 dDCBpD">
+            </svg>
+            </div>
+            <div class="slick-list" style="margin-left: 26px;margin-right: 26px;">
+                <div class="slick-track" style="width: 4900px; opacity: 1; 
+                transform: translate3d(-700px, 0px, 0px); display: contents;" >
+                    <div data-index="-7" tabindex="-1" class="slick-slide slick-cloned" 
+                    aria-hidden="true" style="width: 100px;" class="col-lg-9">
+                    <div class="row" style="  display: flex;" >
+                        <div  class="col-lg-4" ng-repeat="influencer in nombres" tabindex="-1" class="CarouselChild-bxjrn-0 jVDYxy" 
+                            style="width: 65%; display: inline-block;">
+                            <div  class="Flex__StyledFlex-sc-1akhess-0 dwzPPl" style="display: flex;
+                            flex-direction: column;-webkit-box-align: center; align-items: center;flex-shrink: 0;">
+                                <div id="pointer" ng-click="pointer(influencer.username_instagram)"  class="InfluencerAvatar__AvatarWrapper-sc-2akwjs-0 gCyiqu" style="position: relative;
+                                cursor: pointer;">
+                                    <div style="position: relative; flex-shrink: 0;transform: scale(1);
+                                    box-shadow: rgba(212, 212, 212, 0.73) 0px 2px 4px 0px;  height: 58px;
+                                    width: 58px;  margin: 8px;  border-radius: 50%; overflow: hidden;
+                                    transition: all 0.1s ease-in-out 0s;">
+                                        <img id ="imagen"  style="display: block;     width: 100%;" src="{{influencer.profile_url}}" alt="contact avatar" 
+                                        placeholder="/static/img/placeholders/avatarPlaceholder.png" 
+                                        class="ContactImage__Img-sc-1d83o98-0 fAnSfg">
+                                    </div>
+                                </div>
+                                <div style="display: flex;  -webkit-box-align: center; align-items: center;
+                                -webkit-box-pack: center; justify-content: center; flex-direction: column;">
+                                    <p style="font-family: Rubik, sans-serif; color: rgb(39, 0, 56);
+                                    font-size: 14px; margin: 0px; transition: all 0.1s ease-in-out 0s;"
+                                    size="14" color="purpleTitle" class="Text__StyledText-sc-14s2wwi-0 gQooTu">
+
+                                    </p>
+                                    <p style="font-family: Rubik, sans-serif; text-transform: capitalize;  color: rgba(39, 0, 56, 0.73);
+                                    font-size: 11px; text-align: center; word-break: break-word;
+                                    max-height: 32px; margin: 0px; transition: all 0.1s ease-in-out 0s;
+                                    overflow: hidden;"size="12" color="purpleText" class="Text__StyledText-sc-14s2wwi-0 kiquVk">
+                                        {{influencer.nombre}}  {{influencer.apellido}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div> 
+            
+            <div direction="right" data-role="none" class="slick-arrow slick-next CarouselArrow-ghsj16-0 fzFyTC" style="display: block;">
+                <svg width="16px" height="16px" viewBox="0 0 1024 1024" class="Svg-sc-14aerh-0 dDCBpD"> </svg>
+             </div>
+             
+            </div>
+        </div>
+            <div style="display: flex;-webkit-box-align: center; align-items: center;
+            -webkit-box-pack: justify; justify-content: space-between;" class="Flex__StyledFlex-sc-1akhess-0 bFelEE">
+                <p size="14" color="purpleTitle" style="font-family: Rubik, sans-serif;
+                color: rgb(39, 0, 56);
+                font-size: 14px;
+                font-weight: 600;
+                margin: 0px;
+                transition: all 0.1s ease-in-out 0s;"
+                class="Text__StyledText-sc-14s2wwi-0 kwdjib">Last Lists Added</p>
+                <button color="default" class="Button__StyledButton-sc-1lzph0c-0 fKNcui" style="font-family: Rubik, sans-serif;
+                box-sizing: border-box;
+                text-align: center;
+                display: flex;
+                -webkit-box-align: center;
+                align-items: center;
+                -webkit-box-pack: center;
+                justify-content: center;
+                cursor: pointer;
+                font-weight: 600;
+                flex-shrink: 0;
+                -webkit-box-flex: initial;
+                flex-grow: initial;
+                font-size: 12px;
+                height: 24px;
+                color: rgb(124, 113, 148);
+                margin-right: 0px;
+                border-radius: 4px;
+                transition: all 0.2s ease-in-out 0s;
+                padding: 0px 0px 0px 16px;
+                border-width: initial;
+                border-style: none;
+                border-color: initial;
+                border-image: initial;
+                background: none !important;">See all</button>
+            </div>   
+            <div size="16" class="Spacing__StyledSpacing-sc-1vai9yd-0 jkJCXj"></div>
+            <div class="styles__CarouselWrapper-ba6nkw-0 bUHrrD">
+                    <div class="slick-slider CarouselSlider-sc-1xbbj8j-0 dcdpNx slick-initialized" dir="ltr">
+                        <div direction="left" data-role="none" class="slick-arrow slick-prev CarouselArrow-ghsj16-0 gYGmPA" 
+                        style="display: block;">
+                            <svg width="16px" height="16px" viewBox="0 0 1024 1024" 
+                            class="Svg-sc-14aerh-0 dDCBpD"></svg>
+                        </div>
+
+                        <div class="slick-list">
+                                <div class="slick-track" style="width: 4900px; opacity: 1; 
+                                transform: translate3d(-700px, 0px, 0px); display: contents;" >
+                                    <div data-index="-7" tabindex="-1" class="slick-slide slick-cloned" 
+                                    aria-hidden="true" style="width: 100px;" class="col-lg-9">
+                                    <div class="row" style="  display: flex;" >
+                                        <div  class="col-lg-4" ng-repeat="lista in photos"  tabindex="-1" class="CarouselChild-bxjrn-0 jVDYxy" 
+                                            style="width: 100%;display: flex; margin-left: 16px;
+                                            margin-right: 16px;">
+                                            <div  class="Flex__StyledFlex-sc-1akhess-0 dwzPPl" style="display: flex;
+                                            flex-direction: column;-webkit-box-align: center; align-items: center;flex-shrink: 0;margin-left: 10px;
+                                            margin-right: 10px">
+                                                <div id="pointer" ng-click="listView(lista.id)"  class="InfluencerAvatar__AvatarWrapper-sc-2akwjs-0 gCyiqu" style="position: relative;
+                                                cursor: pointer;">
+                                                    <div style="display: flex;flex-wrap: wrap;background-color: rgb(239, 239, 245);
+                                                    width: 128px;border-radius: 8px; overflow: hidden;">
+                                                      <!--  <img id ="imagen"style="display: block;     width: 100%;" src="/img/list_placeholder.png" alt="contact avatar" 
+                                                        placeholder="/img/list_placeholder.png" 
+                                                        class="ContactImage__Img-sc-1d83o98-0 fAnSfg">-->
+                                                        <div ng-repeat="photo in lista.influencers"  >
+                                                        <img placeholder="/img/list_placeholder.png" 
+                                                        width="64" height="64" src="{{photo.profile_url}}"
+                                                         class="Image__Img-yd875y-0 bNaqEG" style="background: '/img/list_placeholder.png' ">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div style="display: flex;  -webkit-box-align: center; align-items: center;
+                                                -webkit-box-pack: center; justify-content: center; flex-direction: column;">
+                                                    <p style="font-family: Rubik, sans-serif; color: rgb(39, 0, 56);
+                                                    font-size: 14px; text-align: center; font-weight: 600;
+                                                    margin: 0px; transition: all 0.1s ease-in-out 0s;text-transform: capitalize; "
+                                                    size="14" color="purpleTitle" class="Text__StyledText-sc-14s2wwi-0 gQooTu">
+                                                    {{lista.nombre}}
+                                                    </p>
+                                                    <p style="font-family: Rubik, sans-serif;   color: rgba(39, 0, 56, 0.73);
+                                                    font-size: 12px; text-align: center;  margin: 0px;
+                                                     transition: all 0.1s ease-in-out 0s;
+                                                    "size="12" color="purpleText" class="Text__StyledText-sc-14s2wwi-0 kiquVk">
+                                                        {{lista.nombre}}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+                            </div> 
+
+                        <div direction="right" data-role="none" class="slick-arrow slick-next CarouselArrow-ghsj16-0 giHiYL" style="display: block;">
+                                <svg width="16px" height="16px" viewBox="0 0 1024 1024" class="Svg-sc-14aerh-0 dDCBpD">
+                            </svg>
+                        </div>
+                     </div>
+            </div>
+    </div>
+<!--PANEL 2-->
+
+    <!--PANEL 3-->
+    <div style="box-shadow: rgba(0, 0, 0, 0.04) -2px 0px 4px 0px; z-index: 1;">
+    <div id="reload" style="display: flex; flex-direction: column; height: 100%; flex-shrink: 0;
+    min-width: 256px; padding: 24px 32px 0px 12px;">
+        <div style="display: flex; -webkit-box-pack: justify; justify-content: space-between;
+        -webkit-box-align: center; align-items: center; padding-right: 12px; ">
+            <p color="purpleTitle" size="3" style="font-size: 16px; font-family: Rubik, sans-serif;
+            color: rgb(39, 0, 56); text-transform: none; font-weight: 600; margin: 0px;">
+                Lists</p>
+            <button color="default" style="font-family: Rubik, sans-serif; box-sizing: border-box;
+             text-align: center; display: flex; -webkit-box-align: center; align-items: center;-webkit-box-pack: center;
+            justify-content: center; cursor: pointer; font-weight: 600; flex-shrink: 0;
+            -webkit-box-flex: initial; flex-grow: initial; font-size: 12px; height: 24px;
+            color: rgb(124, 113, 148); border-radius: 4px; border-width: 1px;
+            border-style: solid;  transition: all 0.2s ease-in-out 0s; padding: 0px 16px;
+            border-color: rgb(124, 113, 148); margin: 0px; background: none !important;margin-right: 0px;">
+                See all
+            </button>
+        </div> 
+        <div size="12" style="width: 100%;  margin-bottom: 12px;"></div>
+        <div style="display: flex;">
+            <div style="display: flex;-webkit-box-align: center;align-items: center;
+            flex-direction: column; cursor: pointer;">
+            <svg color="primary" width="20px" height="20px" viewBox="0 0 1024 1024" 
+            style="vertical-align: middle; display: flex; color: rgb(238, 13, 97);
+            transition: all 0.1s ease-in-out 0s;">
+            </svg>
+            <p color="primary" size="12" style="font-family: Rubik, sans-serif; color: rgb(238, 13, 97);
+            font-size: 12px; margin: 0px; transition: all 0.1s ease-in-out 0s;">
+            Network</p>
+            </div>
+            <div size="32" style="height: 100%; margin-bottom: 0px;  width: 32px;">
+            </div>
+            <div style="display: flex; -webkit-box-align: center; align-items: center;
+            flex-direction: column; cursor: pointer;">
+            <svg color="lightText" width="20px" height="20px" viewBox="0 0 1024 1024" 
+            style="vertical-align: middle; display: flex; color: rgb(150, 142, 169); transition: all 0.1s ease-in-out 0s;">
+            </svg>
+            <p color="lightText" size="12" style="font-family: Rubik, sans-serif; color: rgb(150, 142, 169);
+            font-size: 12px; margin: 0px; transition: all 0.1s ease-in-out 0s;">
+            Favorites</p>
+            </div>
+        </div>       
+        <div style="padding-right: 12px;">
+            <div size="8" style="width: 100%; margin-bottom: 8px;">
+            </div>
+            <div>
+                <label for="search" style="font-family: Rubik, sans-serif; font-size: 12px; font-weight: 600;
+                line-height: 16px; margin-bottom: 4px; text-transform: capitalize; color: rgb(39, 0, 56);">
+                </label>
+                <div style="position: relative;">
+                <svg width="20px" height="20px" viewBox="0 0 1024 1024" style="vertical-align: middle;
+                display: flex; position: absolute; left: 4px; color: rgb(150, 142, 169);
+                top: 2px; max-width: 20px; transition: all 0.1s ease-in-out 0s;">
+                </svg>
+                <input name="search" type="text" id="search" placeholder="Search" 
+                style="width: 100%;box-sizing: border-box;font-size: 13px;line-height: 17px;
+                background-color: rgb(237, 237, 243); color: rgb(150, 142, 169); height: 24px;
+                border-radius: 3px; padding: 8px 8px 8px 24px; border-width: 0px;
+                transition: padding 0.1s ease-in-out 0s;" value="">
+                <span style="font-family: Rubik, sans-serif; font-size: 10px; line-height: 16px;
+                margin-top: 4px; color: rgb(124, 113, 148);"></span>
+                </div>
+
+            </div>
+        </div>
+
+        <div size="8" style="width: 100%; margin-bottom: 8px;"></div>
+
+        <div height="calc( 100vh - 260px )" style="display: flex; flex-direction: column;
+        overflow-y: auto; height: calc(100vh - 260px);">
+            <div ng-repeat="lista in listas"  ng-click="inList(lista);"style="height: 32px;display: flex;-webkit-box-align: center;align-items: center;
+            flex-shrink: 0;width: 196px;margin-right: 4px;position: relative;cursor: pointer;">
+                <div style="position: absolute; top: 0px;bottom: 0px;right: 0px;left: 0px;
+                display: none;-webkit-box-align: center;align-items: center;-webkit-box-pack: end;
+                justify-content: flex-end;border-radius: 4px;
+                background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.95) 33%);">
+                    <div style="cursor: pointer;display: flex; -webkit-box-flex: 1; flex-grow: 1; height: 100%;">
+                    </div>
+                    <div data-tip="true" data-for="edit5c9297b9a626e65067d9b24e" 
+                    style="display: inline-block;cursor: pointer;padding: 4px;
+                    transition: all 0.1s ease-in-out 0s;"currentitem="false">
+                    <svg color="purpleTitle" width="20px" height="20px" viewBox="0 0 1024 1024" 
+                    style="margin: 0px auto;vertical-align: middle; display: flex;
+                    color: rgb(39, 0, 56);transition: all 0.1s ease-in-out 0s;">
+                    </svg>
+                    </div>
+                    <div style="margin-top: 10px;color: #fff;background-color: #222;
+                        border-radius: 3px; display: inline-block; font-size: 13px;
+                        left: -999em;opacity: 0;padding: 8px 21px;position: fixed;
+                        pointer-events: none;transition: opacity 0.3s ease-out;
+                        top: -999em;visibility: hidden;z-index: 999;"
+                    id="edit5c9297b9a626e65067d9b24e" data-id="tooltip">
+                    Edit
+                    </div>
+                    <div data-tip="true" data-for="share5c9297b9a626e65067d9b24e" 
+                    style="display: inline-block; cursor: pointer;padding: 4px;
+                    transition: all 0.1s ease-in-out 0s;" currentitem="false">
+                    <svg color="purpleTitle" width="20px" height="20px" viewBox="0 0 1024 1024" 
+                    style="margin: 0px auto;vertical-align: middle;display: flex;
+                    color: rgb(39, 0, 56); transition: all 0.1s ease-in-out 0s;">
+                    </svg>
+                    </div>
+                    <div style="margin-top: 10px; color: #fff;background-color: #222;border-radius: 3px;
+                    display: inline-block;font-size: 13px;left: -999em;opacity: 0;padding: 8px 21px;
+                    position: fixed;pointer-events: none;transition: opacity 0.3s ease-out;top: -999em;
+                    visibility: hidden;z-index: 999;" id="share5c9297b9a626e65067d9b24e" data-id="tooltip">
+                    Share
+                    </div>
+                </div>
+                <p color="purpleTitle" size="12" style="transform: scale(1); transition: all 0.1s ease-in-out 0s;font-family: Rubik, sans-serif;
+                color: rgb(39, 0, 56);font-size: 12px;text-overflow: ellipsis;white-space: nowrap;margin: 0px;
+                transition: all 0.1s ease-in-out 0s;overflow: hidden;">
+                   {{lista.nombre}}</p>
+            </div>
+        </div>
+        
+    </div>
+    </div>
+
+    <!--PANEL 3-->
+</div>
+</div>
+
+<!--POPUP DE LA NUEVA LISTAAAAAAA-->
+<div class="modal fade" id="popupNuevaLista" tabindex="-1" role="dialog" aria-labelledby="popupNuevaLista"
+aria-hidden="true">
+<div class="modal-dialog">
+    <div class="modal-content">
+        <form  name="ListForm">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title">Create List </h4>
+        </div>
+        <div class="modal-body">
+
+                <ul class="form-group">
+                        <li class="formTitulo" style="width: 20%">
+                            <span>List Details</span>
+                        </li>
+                        
+                    </ul>
+            <ul class="form-group">
+                <li class="formTitulo" style="width: 20%">
+                    <span>List name</span>
+                </li>
+                <li class="formControl dtpicker" ng-class="{ 'has-error' : ListForm.nombre.$invalid   && submitted  }" >
+                        <span>:</span><input class="k-textbox" ng-model="formGrabarLista.nombre" />
+                    </li>
+            </ul>
+
+            <ul class="form-group">
+                <li class="formTitulo" style="width: 20%">
+                    <span>List Description</span>
+                </li>
+                <li class="formControl dtpicker"  ng-class="{ 'has-error' : ListForm.descripcion.$invalid   && submitted  }">
+                    <span>:</span><input class="k-textbox" ng-model="formGrabarLista.descripcion" />
+                </li>
+            </ul>
+
+            <!-- <p class="errorText" ng-if="tipo_cambio_vacio">Campo Obligatorio</p> -->
+        </div>
+        </form>
+        <div class="modal-footer">
+            <div style="position: relative;margin-bottom: 20px;margin-top: 5px;" ng-show="mostrarMensajeAviso">
+                <div class="k-widget k-notification k-notification-info" style="width:48%;padding-right: 30px;position: absolute;right: 0px;">El tipo de cambio ha sido actualizado</div>
+            </div>
+            <button type="button" class="k-button btn-aceptar" ng-click="crearLista(formGrabarLista,ListForm.$valid)">Aceptar</button>
+            <button type="button" class="k-button btn-cancelar" data-dismiss="modal">Cancelar</button>
+        </div>
+    </div>
+</div>
+</div>
+
+
+
+
+<!---->
+<div  class="modal fade"  id="popupNuevoInfluencer" tabindex="-1" role="dialog" 
+aria-labelledby="popupNuevoInfluencer" style="
+height: 100vh;
+position: absolute;
+top: 0px;
+right: 0px;
+box-shadow: rgba(0, 0, 0, 0.04) -4px 0px 4px 0px;
+border-radius: 4px;
+overflow: auto;
+max-width: 600px;
+width: 600px;"
+>
+<div class="modal-dialog">
+<div class="modal-content">
+        <div style="    display: flex;
+        -webkit-box-pack: justify;
+        justify-content: space-between;
+        -webkit-box-align: center;
+        align-items: center;
+        height: 64px;
+        background-color: rgb(119, 208, 220);
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+        padding: 0px 32px;">
+            <p color="white" size="4" style="font-size: 20px;
+            font-family: Rubik, sans-serif;
+            color: rgb(255, 255, 255);
+            text-transform: capitalize;
+            font-weight: 600;
+            margin: 0px;">Create influencer</p>
+                <div class="IconWrapper-sc-8ivo6e-0 oGAOt">
+                    <svg color="white" width="24px" height="24px" viewBox="0 0 1024 1024" 
+                    class="Svg-sc-14aerh-0 gxUcnk">
+                    </svg>
+                </div>
+        </div>
+        <div style="    width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        background-color: rgb(246, 246, 249);
+        border-bottom-left-radius: 4px;
+        border-bottom-right-radius: 4px;
+        margin: 0px auto;
+        overflow: auto;
+        padding: 16px 32px 64px;">
+                <div  style="box-shadow: rgba(0, 0, 0, 0.04) 2px 0px 4px 0px;
+                margin-bottom: 16px; border-radius: 4px; padding: 16px; background: white;" >
+                    <p color="purpleTitle" size="3" class="H__Sb-dy2l6u-3 gzQFJF">
+                        <div>Influencer social networks*
+                        </div>
+                    </p>
+                    <div size="24" class="Spacing__StyledSpacing-sc-1vai9yd-0 lkjTSE">
+                    </div>
+                    <p size="14" color="purpleText" class="Text__StyledText-sc-14s2wwi-0 jVWGSm">
+                    This is where the influencer's social networks will go</p>
+                    <div size="24" class="Spacing__StyledSpacing-sc-1vai9yd-0 lkjTSE">
+                    </div>
+                    <div style="display: flex;
+                    flex-direction: column;
+                    -webkit-box-align: center;
+                    align-items: center;
+                    -webkit-box-pack: center;
+                    justify-content: center;"class="Flex__StyledFlex-sc-1akhess-0 ikwNsG">
+                        <button color="default" class="Button__StyledButton-sc-1lzph0c-0 cusFuw"  
+                        ng-click="addLink()" style="font-family: Rubik, sans-serif;
+                        box-sizing: border-box;
+                        text-align: center;
+                        display: flex;
+                        -webkit-box-align: center;
+                        align-items: center;
+                        -webkit-box-pack: center;
+                        justify-content: center;
+                        cursor: pointer;
+                        font-weight: 500;
+                        flex-shrink: 0;
+                        -webkit-box-flex: initial;
+                        flex-grow: initial;
+                        font-size: 12px;
+                        height: 24px;
+                        color: rgb(124, 113, 148);
+                        border-radius: 4px;
+                        border-width: 1px;
+                        border-style: solid;
+                        transition: all 0.2s ease-in-out 0s;
+                        padding: 0px 16px;
+                        border-color: rgb(124, 113, 148);
+                        background: none !important;">
+                        Add social network</button>
+                    </div>
+                    <div size="24" class="Spacing__StyledSpacing-sc-1vai9yd-0 lkjTSE">
+                    </div>
+                </div>
+                <div style="display: flex;
+                flex-direction: column;
+                -webkit-box-align: center;
+                align-items: center;
+                flex-shrink: 0;
+                padding-left: 32px;
+                padding-right: 32px;
+                padding-top: 48px;
+                position: absolute;
+                top: 270px;
+                bottom: 56px;
+                left: 0px;
+                right: 0px;
+                background: rgba(246, 246, 249, 0.9); " id="hideThis">
+                    <p size="14" color="purpleText" 
+                    class="Text__StyledText-sc-14s2wwi-0 jVWGSm">Start by adding the social networks</p>
+                </div>
+                <form name="informationForm">
+                <div style="box-shadow: rgba(0, 0, 0, 0.04) 2px 0px 4px 0px;
+                margin-bottom: 16px; border-radius: 4px; padding: 16px; background: white;">
+                <p color="purpleTitle" size="3" class="H__Sb-dy2l6u-3 gzQFJF">
+                Influencer personal info</p>
+                    <div size="24" class="Spacing__StyledSpacing-sc-1vai9yd-0 lkjTSE">
+                    </div>
+                <div class="Flex__StyledFlex-sc-1akhess-0 eiYDZt">
+                            <label for="firstName" class="Label-zj8xco-0 IWhHU">
+                            <div>First name*</div>
+                            </label>
+                            <div size="4" class="Spacing__StyledSpacing-sc-1vai9yd-0 hijVnY">
+                            </div>
+                            <input name="firstName"  ng-model="formGrabarInfluencer.nombre"
+                            type="text" id="firstName" 
+                            class="InputBox__InputStyled-ymt7e0-0 iHXhoG" value="">
+                </div>
+                        <span class="HelperText-sc-13orsye-0 bIoqXK">
+                        </span>
+                <div size="24" class="Spacing__StyledSpacing-sc-1vai9yd-0 lkjTSE">
+                </div>
+                <div class="Flex__StyledFlex-sc-1akhess-0 eiYDZt">
+                        <label for="lastName" class="Label-zj8xco-0 IWhHU">
+                        Last name</label>
+                        <div size="4" class="Spacing__StyledSpacing-sc-1vai9yd-0 hijVnY">
+                        </div>
+                        <input name="lastName" ng-model="formGrabarInfluencer.apellido"
+                         type="text" id="lastName" 
+                        class="InputBox__InputStyled-ymt7e0-0 iHXhoG"  value="">
+                </div>
+                <span class="HelperText-sc-13orsye-0 bIoqXK">
+                </span>
+                <div size="24" class="Spacing__StyledSpacing-sc-1vai9yd-0 lkjTSE">
+                </div>
+                <div class="Flex__StyledFlex-sc-1akhess-0 eiYDZt">
+                        <label for="personalNote" class="Label-zj8xco-0 IWhHU">
+                        Personal note</label>
+                        <div size="4" class="Spacing__StyledSpacing-sc-1vai9yd-0 hijVnY">
+                        </div>
+                        <input name="personalNote" type="text" ng-model="formGrabarInfluencer.nota_personal"
+                        id="personalNote" class="InputBox__InputStyled-ymt7e0-0 iHXhoG" 
+                        value="">
+                </div>
+                <span class="HelperText-sc-13orsye-0 bIoqXK">
+                </span>
+                <div size="24" class="Spacing__StyledSpacing-sc-1vai9yd-0 lkjTSE">
+                </div>
+                <div class="Flex__StyledFlex-sc-1akhess-0 eiYDZt">
+                        <label for="email" class="Label-zj8xco-0 IWhHU">
+                        Email</label>
+                        <div size="4" class="Spacing__StyledSpacing-sc-1vai9yd-0 hijVnY">
+                        </div>
+                        <input name="email" type="text" id="email" ng-model="formGrabarInfluencer.email"
+                        class="InputBox__InputStyled-ymt7e0-0 iHXhoG" value="">
+                </div>
+                <span class="HelperText-sc-13orsye-0 bIoqXK">
+                </span>
+                <div size="24" class="Spacing__StyledSpacing-sc-1vai9yd-0 lkjTSE">
+                </div>
+                <div class="Flex__StyledFlex-sc-1akhess-0 eiYDZt">
+                        <label for="phone" class="Label-zj8xco-0 IWhHU">
+                        Phone</label>
+                        <div size="4" class="Spacing__StyledSpacing-sc-1vai9yd-0 hijVnY">
+                        </div>
+                        <input name="phone" type="number" id="phone" ng-model="formGrabarInfluencer.telefono"
+                        class="InputBox__InputStyled-ymt7e0-0 iHXhoG" value="">
+                </div>
+                <span class="HelperText-sc-13orsye-0 bIoqXK">
+                </span>
+                <div size="24" class="Spacing__StyledSpacing-sc-1vai9yd-0 lkjTSE">
+                </div>
+                </div>
+            </form>
+                <div style="    display: flex;
+                -webkit-box-pack: start;
+                justify-content: flex-start;
+                -webkit-box-align: center;
+                align-items: center;
+                flex-shrink: 0;
+                height: 64px;
+                padding-left: 32px;
+                padding-right: 32px;
+                background-color: white;
+                border-bottom-left-radius: 4px;
+                border-bottom-right-radius: 4px;
+                position: absolute;
+                bottom: 0px;
+                left: 0px;
+                right: 0px;">
+                <button color="primary" class="Button__StyledButton-sc-1lzph0c-0 ceXhAB" 
+                ng-click="createInfluencer(formGrabarInfluencer,informationForm.$valid)" >
+                <div>Create Influencer</div>
+                </button>
+                <div size="16" class="Spacing__StyledSpacing-sc-1vai9yd-0 iTHLLf">
+                </div>
+                <button color="primary" class="Button__StyledButton-sc-1lzph0c-0 huTOpk">
+                Create and add another</button>
+                <div size="16" class="Spacing__StyledSpacing-sc-1vai9yd-0 iTHLLf">
+                </div>
+                <button type="button" class="k-button btn-cancelar" data-dismiss="modal" 
+                color="primary" class="Button__StyledButton-sc-1lzph0c-0 biFDOZ">
+                Cancel</button>
+                </div>
+        </div>
+        </div>
+        </div>
+    </div>
+
+
+
+    <!--POP INGRESAR LINK-->
+
+
+    <div class="modal fade"  id="link" tabindex="-1" role="dialog" 
+    aria-labelledby=""> <!--height="320" width="600"  class="ModalWrapper-sc-1xdl4rr-0 hBEkWi"-->
+    <div class="modal-dialog">
+    <div class="modal-content">   
+           
+                <div>
+                        <form  name="List"> 
+               
+    <div style="display: flex; flex-direction: column; flex-shrink: 0; background-color: rgb(119, 208, 220);
+    border-top-left-radius: 4px; border-top-right-radius: 4px; padding: 18px 32px;">
+            <div style="display: flex; -webkit-box-align: center; align-items: center; -webkit-box-pack: justify;
+            justify-content: space-between;">
+                <p color="white" size="4" style="font-size: 20px;font-family: Rubik, sans-serif;
+                color: rgb(255, 255, 255);text-transform: capitalize;font-weight: 600;
+                margin: 0px;">
+                     Add social network </p>
+                <div style="cursor: pointer; width: 24px;">
+                         <svg color="white" width="24px" height="24px" viewBox="0 0 1024 1024" 
+                         class="Svg-sc-14aerh-0 gxUcnk">
+                         </svg>
+                </div>
+            </div>
+        </div>
+        <div style="display: flex; flex-direction: column;-webkit-box-flex: 1;
+        flex-grow: 1;  padding: 32px 32px 16px;">
+            <div class="Flex__StyledFlex-sc-1akhess-0 jWNLdF">
+                <div class="Flex__StyledFlex-sc-1akhess-0 ivUeOy">
+                    <div width="90px" class="Select__Container-ecn2xm-0 besmuf">
+                        <div class="css-1pcexqc-container">
+                            <div class="css-1d5pdhd-control">
+                                <div class="css-g0s4pt">
+                                    <div class="css-1i7npvl-singleValue">
+                                        <img src="/static/img/icons/networks/instagram.png" 
+                                        alt="instagram icon" width="16px" height="16px" 
+                                        placeholder="/static/img/placeholders/placeholder.jpg" 
+                                        class="Image__Img-yd875y-0 bNaqEG">
+                                    </div>
+                                    <input id="react-select-21-input" readonly="" tabindex="0" 
+                                    class="css-gj7qu5-dummyInput" value="">
+                                </div>
+                                <div class="css-1wy0on6">
+                                    <span class="css-0">
+                                    </span>
+                                    <div aria-hidden="true" class="css-16ddxg1-indicatorContainer">
+                                        <svg height="20" width="20" viewBox="0 0 20 20" 
+                                        aria-hidden="true" focusable="false" class="css-19bqh2r">
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="Flex__StyledFlex-sc-1akhess-0 jXTfat">
+                        <div class="Flex__StyledFlex-sc-1akhess-0 eiYDZt">
+                            <input name="url" type="text" id="url" ng-model="user.nombre"
+                             placeholder="Enter a url, example: www.instagram.com/username" 
+                             class="InputBox__InputStyled-ymt7e0-0 iHXhoG" value="">
+                        </div>
+                        <span class="HelperText-sc-13orsye-0 bIoqXK"></span>
+                    </div>
+                </div>
+            </div>
+            </form>
+        </div>
+            <div class="Flex__StyledFlex-sc-1akhess-0 giADlB">
+                <button  ng-click="nuevo(user)"  color="primary" class="Button__StyledButton-sc-1lzph0c-0 ceXhAB" >
+                    Add</button>
+            <div size="16" class="Spacing__StyledSpacing-sc-1vai9yd-0 iTHLLf">
+
+            </div>
+            <button type="button" class="k-button btn-cancelar" data-dismiss="modal"
+            color="primary" class="Button__StyledButton-sc-1lzph0c-0 biFDOZ">Cancel</button>
+        </div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+
+
+<!--PRUEBA0-->
+<div class="modal fade" id="popupLink" tabindex="-1" role="dialog" aria-labelledby="popupLink"
+aria-hidden="true">
+<div class="modal-dialog">
+    <div class="modal-content">
+        <form  name="ListForm">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 style="font-size: 20px;
+            font-family: Rubik, sans-serif;
+            color: rgb(255, 255, 255);
+            text-transform: capitalize;
+            font-weight:600;
+            margin: 0px; "class="modal-title">Add social network</h4>
+        </div>
+        <div class="modal-body">
+
+                
+            <ul class="form-group">
+                
+                <input style="    width: 100%;
+                box-sizing: border-box;
+                font-size: 13px;
+                line-height: 17px;
+                background-color: rgb(255, 255, 255);
+                color: rgb(39, 0, 56);
+                border-radius: 3px;
+                border-width: 1px;
+                border-style: solid;
+                padding: 8px;
+                outline: none;
+                border-color: rgb(197, 197, 210);" name="url" type="text" id="url" ng-model="user.nombre"
+                placeholder="Enter only the username"
+                class="InputBox__InputStyled-ymt7e0-0 iHXhoG" value="">
+            </ul>
+
+           
+
+            <!-- <p class="errorText" ng-if="tipo_cambio_vacio">Campo Obligatorio</p> -->
+        </div>
+        <div></div>
+        </form>
+        <div class="modal-footer">
+            <!--<div style="position: relative;margin-bottom: 20px;margin-top: 5px;" ng-show="mostrarMensajeAviso">
+                <div class="k-widget k-notification k-notification-info" style="width:48%;padding-right: 30px;position: absolute;right: 0px;">Enter only username</div>
+            </div>-->
+            <button style="font-family: Rubik, sans-serif;box-sizing: border-box;
+            text-align: center;-webkit-box-align: center; align-items: center;
+            -webkit-box-pack: center;justify-content: center;cursor: pointer;
+            font-weight: 600;flex-shrink: 0;-webkit-box-flex: initial;
+            flex-grow: initial;line-height: 16px; font-size: 14px;
+            height: 32px; color: white;border-radius: 4px;
+            transition: all 0.2s ease-in-out 0s;background: rgb(238, 13, 97);
+            padding: 0px 16px;border-width: initial; border-style: none;
+            border-color: initial;
+                 border-image: initial;" type="button" class="k-button btn-aceptar" ng_click="nuevo(user)">Add</button>
+            <button style="    font-family: Rubik, sans-serif;
+            box-sizing: border-box;
+            text-align: center;
+            
+            -webkit-box-align: center;
+            align-items: center;
+            -webkit-box-pack: center;
+            justify-content: center;
+            cursor: pointer;
+            font-weight: 600;
+            flex-shrink: 0;
+            -webkit-box-flex: initial;
+            flex-grow: initial;
+            line-height: 16px;
+            font-size: 14px;
+            height: 32px;
+            color: rgb(238, 13, 97);
+            border-radius: 4px;
+            border-width: 1px;
+            border-style: solid;
+            transition: all 0.2s ease-in-out 0s;
+            padding: 0px 16px;
+            border-color: rgb(238, 13, 97);
+            background: none !important;" type="button" class="k-button btn-cancelar" data-dismiss="modal">Cancel</button>
+        </div>
+    </div>
+</div>
+</div>
+<confirmar-eliminacion></confirmar-eliminacion>
+
+<script>
+            function bigImg(x) {
+                document.getElementById("options").style.display="flex";
+                console.log(x)
+                //document.getElementById("data").style.display="none";
+
+        }
+        
+        function normalImg(x) {
+            document.getElementById("options").style.display="none";
+               // document.getElementById("data").style.display="flex";
+        }
+        </script>

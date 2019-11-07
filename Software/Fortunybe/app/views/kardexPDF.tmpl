@@ -1,0 +1,236 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <style>
+            
+            html{
+                margin: 10;
+                
+            }
+            body
+            {
+                font-size: 10px;
+                font-weight: normal;
+                font-family: Arial, "Liberation Sans";
+                margin: 0;
+                padding: 0;
+            }
+            .cabecera{
+                text-align: center;
+                font-weight: bold;
+               /* font-size: 18;*/
+                width:100%;
+            }
+            .tablaCabecera{
+                margin-top: 1em;
+               /* font-size: 14;*/
+                font-weight: bold;
+            }
+            .tablaCabecera tr td{
+                padding-left: 1em;
+            }
+            .tablaProducto{
+                margin-top: 1em;
+                /*font-size: 14;*/
+                font-weight: bold;
+                width: 100%;
+            }
+            .tablaProducto tr td{
+                padding-left: 1em;
+            }
+            .lista{
+                display:block;
+                width:100%;
+                list-style: none;
+                /*font-size: 14;*/
+                font-weight: bold;
+                padding-left: 1em;
+            }
+            .paginaNueva {
+			height: 18cm;
+			position: relative;
+			padding-top: 15px;
+			margin-right: 40px;
+            
+                 
+		    }
+            .lista li{
+               
+                margin-top: 0.5em;
+            }
+            .lista li label{
+                display: inline;
+            }
+            .tabla{
+                text-align:center;
+                width:100%;
+                border-collapse: collapse;
+            }
+            .tabla tr td{
+                border: 1px solid black;
+                /*font-size: 14;*/
+                padding: 5px;
+                /*word-break: break-all;*/
+                word-wrap: break-word;
+            }
+            .negrita{
+                font-weight: bold;
+            }
+        </style>
+       
+        <section class="kardex">
+            <div class="cabecera">
+                <label style="font-size: 18px; margin-top:5px">LIBRO DE INVENTARIO Y BALANCES, REGISTRO DE INVENTARIO PERMANENTE VALORIZADO</label>
+            </div>
+            <table class="tablaCabecera">
+                <tr>
+                    <td>PERIODO:</td>
+                    <td>{{periodo}}</td>
+                </tr>
+                <tr>
+                    <td>RUC:</td>
+                    <td>{{ruc}}</td>
+                </tr>
+                <tr>
+                    <td>APELLIDOS Y NOMBRES, DENOMINACIÓN O RAZÓN SOCIAL:</td>
+                    <td>{{entity}}</td>
+                </tr>
+                <tr>
+                    <td>ESTABLECIMIENTO:</td>
+                    <td></td>
+                </tr>
+            </table>            
+            {{#each articulos as |textoParametro|}}
+            <br/>
+            <div class="paginaNueva" style="page-break-after: always;position:relative;">
+            {{#each textoParametro}}
+            <div>
+                <ul class="lista" style="display:block; width:100%;">
+                    <li>
+                        <label style="width:10%">CÓDIGO DE LA EXISTENCIA:</label>
+                        <label style="width:50%">{{codigo}}</label>
+                        <label style="width:10%">TIPO:</label>
+                        <label style="width:30%"></label>
+                    </li>
+                    <li>
+                        <label style="width:10%">DESCRIPCIÓN:</label>
+                        <label style="width:50%">{{descripcion}}</label>
+                        <label style="width:10%">UNIDAD DE MEDIDA:</label>
+                        <label style="width:30%">{{unidad_medida}}</label>
+                    </li>
+                    <li>
+                        <label style="width:10%">MÉTODO DE LA EVALUACIÓN:</label>
+                        <label style="width:50%">Costo promedio</label>
+                    </li>
+                </ul>
+            </div>
+            <table class="tabla">
+                <tr class="negrita">
+                    <td colspan="4" style="width: 23%;">DOCUMENTO DE TRASLADO, COMPROBANTE DE PAGO, DOCUMENTO INTERNO O SIMILAR</td>
+                    <td rowspan="2" style="width: 8%;">TIPO DE OPERACIÓN</td>
+                    <td colspan="3" style="width: 23%;">ENTRADAS</td>
+                    <td colspan="3" style="width: 23%;">SALIDAS</td>
+                    <td colspan="3" style="width: 23%;">SALDO FINAL</td>
+                </tr>
+                <tr class="negrita">
+                    <td>FECHA</td>
+                    <td>TIPO</td>
+                    <td>SERIE</td>
+                    <td>NÚMERO</td>
+                    <td>CANTIDAD</td>
+                    <td>COSTO UNITARIO</td>
+                    <td>COSTO TOTAL</td>
+                    <td>CANTIDAD</td>
+                    <td>COSTO UNITARIO</td>
+                    <td>COSTO TOTAL</td>
+                    <td>CANTIDAD</td>
+                    <td>COSTO UNITARIO</td>
+                    <td>COSTO TOTAL</td>
+                </tr>
+                {{#each lineas}}
+                <tr>
+                    <td>{{fecha}}</td>
+                    <td>{{tipo_documento}}</td>
+                    <td>{{serie_documento}}</td>
+                    <td>{{numero_documento}}</td>
+                    <td>{{tipo_operacion}}</td>
+                    <td style="text-align:right">{{ingreso_cantidad}}</td>
+                    <td style="text-align:right">{{numeroFixed ingreso_costo_unitario}}</td>
+                    <td style="text-align:right">{{numeroFixed ingreso_costo_total}}</td>
+                    <td style="text-align:right">{{egreso_cantidad}}</td>
+                    <td style="text-align:right">{{numeroFixed egreso_costo_unitario}}</td>
+                    <td style="text-align:right">{{numeroFixed egreso_costo_total}}</td>
+                    <td style="text-align:right">{{final_cantidad}}</td>
+                    <td style="text-align:right">{{numeroFixed final_costo_unitario}}</td>
+                    <td style="text-align:right">{{numeroFixed final_costo_total}}</td>
+                </tr>
+                {{/each}}
+                <tr class="negrita">
+                    <td style="border:none;"></td>
+                    <td style="border:none;"></td>
+                    <td style="border:none;"></td>
+                    <td style="border:none;"></td>
+                    <td>TOTALES</td>
+                    <td style="text-align:right">{{total_ingreso_cantidad}}</td>
+                    <td style="border:none;"></td>
+                    <td style="text-align:right">{{numeroFixed total_ingreso_costo}}</td>
+                    <td style="text-align:right">{{total_egreso_cantidad}}</td>
+                    <td style="border:none;"></td>
+                    <td style="text-align:right">{{numeroFixed total_egreso_costo}}</td>
+                    <td style="border:none;"></td>
+                    <td style="border:none;"></td>
+                    <td style="border:none;"></td>
+                </tr>
+            </table>
+            <br/>
+            {{/each}}
+            </div>
+            <br/>
+            {{/each}}
+             <table class="tabla">
+                  <tr class="negrita">
+                    <td colspan="4" style="width: 23%;">DOCUMENTO DE TRASLADO, COMPROBANTE DE PAGO, DOCUMENTO INTERNO O SIMILAR</td>
+                    <td rowspan="2" style="width: 8%;">TIPO DE OPERACIÓN</td>
+                    <td colspan="3" style="width: 23%;">ENTRADAS</td>
+                    <td colspan="3" style="width: 23%;">SALIDAS</td>
+                    <td colspan="3" style="width: 23%;">SALDO FINAL</td>
+                </tr>
+                 <td>FECHA</td>
+                    <td>TIPO</td>
+                    <td>SERIE</td>
+                    <td>NÚMERO</td>
+                    <td>CANTIDAD</td>
+                    <td>COSTO UNITARIO</td>
+                    <td>COSTO TOTAL</td>
+                    <td>CANTIDAD</td>
+                    <td>COSTO UNITARIO</td>
+                    <td>COSTO TOTAL</td>
+                    <td>CANTIDAD</td>
+                    <td>COSTO UNITARIO</td>
+                    <td>COSTO TOTAL</td>
+                </tr>
+                
+                <tr class="negrita">
+                    <td style="border:none;"></td>
+                    <td style="border:none;"></td>
+                    <td style="border:none;"></td>
+                    <td style="border:none;"></td>
+                    <td>TOTAL FINAL</td>
+                    <td style="text-align:right"></td>
+                    <td style="border:none;"></td>
+                    <td style="text-align:right">{{numeroFixed totales.ingreso_costo}}</td>
+                    <td style="text-align:right"></td>
+                    <td style="border:none;"></td>
+                    <td style="text-align:right">{{numeroFixed totales.egreso_costo}}</td>
+                    <td style="border:none;"></td>
+                    <td style="border:none;"></td>
+                    <td style="text-align:right">{{numeroFixed totales.final_costo}}</td>
+                </tr>
+        </table>
+        </section>
+       
+            
+    </body>
+</html>

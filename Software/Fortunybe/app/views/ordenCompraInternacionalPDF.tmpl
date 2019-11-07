@@ -1,0 +1,284 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>{{numeroOrdenCompra numero}}</title>
+</head>
+
+<body>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'calibri', arial, "Liberation Sans";
+            font-size: 11px;
+        }
+        
+        html,
+        body {
+            display: block;
+            height: 100%;
+            margin: 0;
+            position: relative;
+            
+        }
+        
+        .infoFlotanteInicio {
+            position: absolute;
+            top: 20px;
+            left: 0;
+            right: 0;
+            font-size: 7px;
+            margin: 0 auto;
+            text-align: center;
+            width: 100px;
+        }
+        
+        .infoFlotanteInicio > p {
+            font-size: 9px;
+        }
+        
+        .cabecera {
+            width: 100%;
+            padding-top: 30px;
+            position: relative;
+            display: block;
+        }
+        
+        .cabecera > span {
+            display: inline-block;
+            font-size: 22pt;
+        }
+        
+        .cabecera > img {
+            width: 80px;
+            position: absolute;
+            right: 40px;
+            top: 30px;
+        }
+        .cabecera > p {
+            width: 80px;
+            position: absolute;
+            right: 25px;
+            top: 80px;
+        }
+        
+        .contenedor {
+            padding-top: 0px;
+            width: 100%;
+            display: block;
+            margin-bottom: 20px;
+        }
+        
+        .datosFilial {
+            padding-top: 60px;
+            width: 40%;
+            float: left;
+        }
+        
+        .datosFilial p,
+        .datosFilial h1 {
+            font-size: 16px;
+        }
+        
+        .wrapper {
+            font-size: 12px;
+            margin-right: 40px;
+        }
+        
+        .wrapper td {
+            font-size: 14px;
+        }
+        
+        .contenidoWrapper {
+            display: block;
+        }
+        
+        .descripcion {
+            width: 100%;
+            border-top: 2px solid black;
+        }
+        
+        .termsFooter {
+            margin-bottom: 20px;
+        }
+        .terminosCondiciones p
+        {
+                font-size: 10px;
+        }
+    </style>
+
+    {{#each pagina }}
+    <div class="paginaNueva" style="page-break-after: always;position:relative; height:29cm">
+
+        <div class="cabecera" style="margin-bottom:30px;">
+            <span style="font-size: 15px;">MAN Diesel Turbo Peru S.A.C</span>
+            <img src="http://localhost:8051/serv/img/logoman" />
+            <p style="margin: 0px;font-size: 12px;">Pág. {{paginaActual}} de {{cantPaginas}}</p>
+        </div>
+        {{#ifCond paginaActual '==' 1}}
+        <div class="contenedor">
+            <div class="datosFilial">
+                <h1 style="margin-bottom:5px">{{nombre_proveedor}}</h1>
+                <p style="font-size:13px;margin-bottom:5px">{{ruc_proveedor}}</p>
+                <p style="font-size:13px;margin-bottom:5px">{{direccion_proveedor}}</p>
+                <p style="font-size:13px;margin-bottom:5px">{{direccion_proveedor2}}</p>
+            </div>
+            <div class="wrapper">
+                <table style="padding-left: 7em;margin-top:50px">
+                    <tr>
+                        <td style="font-size:13px;padding-bottom: 10px"><b style="font-size:12px;">Purchase order</b></td>
+                        <td style="font-size:13px;padding-bottom: 10px"><b style="font-size:12px;padding-left:7px">{{numero}}</b></td>
+                    </tr>
+                    <tr>
+                        <td style="font-size:11px;padding-bottom: 5px">Lima</td>
+                        <td style="font-size:11px;padding-bottom: 5px;padding-left:7px">{{fecha_emision}}</td>
+                    </tr>
+                    <tr>
+                        <td style="font-size:11px;padding-bottom: 5px">Our Ref N°</td>
+                        <td style="font-size:11px;padding-bottom: 5px;padding-left:7px">{{our_ref}}</td>
+                    </tr>
+                    <tr>
+                        <td style="font-size:11px;padding-bottom: 5px">Your Ref N°</td>
+                        <td style="font-size:11px;padding-bottom: 5px;padding-left:7px">{{your_ref}}</td>
+                    </tr>
+                    <tr>
+                        <td style="font-size:11px;padding-bottom: 5px">Your VAT reg. N°</td>
+                        <td style="font-size:11px;padding-bottom: 5px;padding-left:7px">{{parametros.1.valorParam}}</td>
+                    </tr>
+                    <tr>
+                        <td style="font-size:11px;padding-bottom: 15px">OC Customer</td>
+                        <td style="font-size:11px;padding-bottom: 15px;padding-left:7px">{{oc_customer}}</td>
+                    </tr>
+                    <tr>
+                        <td style="font-size:11px;padding-bottom: 5px">Contact person</td>
+                        <td style="font-size:11px;padding-bottom: 5px;padding-left:7px"> {{#if internationalUserInfo.0.isMan}} Mr.{{/if}} {{#unless internationalUserInfo.0.isMan}} Ms.{{/unless}}
+                            {{internationalUserInfo.0.nombres}} {{internationalUserInfo.0.apellidos}}</td>
+                    </tr>
+                    <tr>
+                        <td style="font-size:11px;padding-bottom: 5px">Telephone</td>
+                        <td style="font-size:11px;padding-bottom: 5px;padding-left:7px">{{internationalUserInfo.0.telefono}}</td>
+                    </tr>
+                    <tr>
+                        <td style="font-size:11px;padding-bottom: 5px">Celular Phone</td>
+                        <td style="font-size:11px;padding-bottom: 5px;padding-left:7px">{{internationalUserInfo.0.celular}}</td>
+                    </tr>
+                    <tr>
+                        <td style="font-size:11px;padding-bottom: 5px">E-Mail</td>
+                        <td style="font-size:11px;padding-bottom: 5px;padding-left:7px">{{internationalUserInfo.0.correo}}
+                            <br/>PrimeServ-PE@mandieselturbo.com</br>www.mandieselturbo.com
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        {{/ifCond}}
+        {{#ifCond paginaActual '==' 1}}
+        <div class="wrapper" style="border-bottom: 2px solid black; min-height:400px; position:relative">
+        {{/ifCond}}
+
+        {{#ifCond paginaActual '>' 1}}
+        <div class="wrapper" style="border-bottom: 2px solid black; position:relative;top:20px">
+        {{/ifCond}}
+            {{#if mostrarCabecera}}
+            <table style="width:100%; border-top: 2px solid black;">
+                <tr>
+                    <td><b>Vessel/Plant :</b> <span style="font-size:11px;">{{barcoPlanta}}</span></td>
+                    <td><b>IMO :</b> <span style="font-size:11px;">{{imo}}</span></td>
+                    <td><b>Product ID :</b> <span style="font-size:11px;">{{producto_id}}</span></td>
+                    <td><b>Product Type :</b> <span style="font-size:11px;">{{poducto_type}}</span></td>
+                    <!-- <td><b>Supplier Ref :</b> <span style="font-size:11px;">{{supplier_ref}}</span></td> -->
+                    <td><b> Currency:</b> <span style="font-size:11px;">{{moneda}}</span></td>
+                </tr>
+            </table>
+            <table class="descripcion">
+                <tr style="border-bottom: 2px solid black; text-align:center">
+                    <td style="border-bottom: 2px solid black;"><b>Pos.</b></td>
+                    <td style="border-bottom: 2px solid black; text-align:left;"><b>Description</b></td>
+                    <td style="border-bottom: 2px solid black; text-align:left;"><b>Code</b></td>
+                    <td style="border-bottom: 2px solid black;"><b>Qty.</b></td>
+                    <td style="border-bottom: 2px solid black;"><b>Unit</b></td>
+                    <td style="border-bottom: 2px solid black;"><b>Unit Price</b></td>
+                    <td style="border-bottom: 2px solid black;"><b>Total Price</b></td>
+                </tr>
+                {{#each detalles}}
+                <tr>
+                    <td style="text-align:right;font-size:11px;">{{pos}} &nbsp;</td>
+                    <td style="text-align:left;font-size:11px;">{{nombre_articulo}} &nbsp;</td>
+                    <td style="text-align:left;font-size:11px;">{{codigo_articulo}} &nbsp;</td>
+                    <td style="text-align:right;font-size:11px;">{{cantidad}} &nbsp;</td>
+                    <td style="text-align:center;font-size:11px;">{{tipo_articulo}} &nbsp;</td>
+                    <td style="text-align:right;font-size:11px;">{{precio_unitario}} &nbsp;</td>
+                    <td style="text-align:right;font-size:11px;">{{total}} &nbsp;</td>
+                </tr>
+                {{/each}}
+            </table>
+            {{/if}}
+            <img src="http://localhost:8051/serv/img/logoman" style="opacity:0.15; margin: 0; padding:0; top:25%; left:28%; bottom:0; right: 0; width:300px; height:150px; position:absolute; "
+            />
+        </div>
+        {{#if ultimaPagina}}
+        <div class="wrapper" style="margin-top:1.8em;font-size: 16px;">
+            <div style="float:left;" class="terminosCondiciones">
+                {{{terminos_condiciones}}}
+            </div>
+            <table style="float:right">
+              
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td><b>Exworks</b></td>
+                            <td style="text-align:right;  font-size:11px;">{{total_detalle}}</td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td><b>Special Discount</b><p style="display: inline-block;margin-left:15px">{{porc_desc_especial}}%</p></td>
+                            <td style="text-align:right;  font-size:11px;">{{desc_especial}}</td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td><b>ExWorks</b></td>
+                            <td style="text-align:right;  font-size:11px;">{{exworks}}</td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td><b>GO Discount</b> <p style="display: inline-block;;margin-left:25px">{{porc_go_discount}}%</p></td>
+                            <td style="text-align:right;  font-size:11px;"><span style="border-bottom: 3px double black; width:110px; display: block; text-align: right; float:right;  font-size:11px;">{{numeroFixed go_discount}}</span></td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td><b>Total Exworks</b></td>
+                            <td style="text-align:right;  font-size:11px;">{{total}}</td>
+                        </tr>
+                
+            </table>
+        </div>
+
+
+        <div class="wrapper" style="clear:both">
+            <table style="margin-top:110px;margin:0 auto">
+                <tr>
+                    <td width="49%" style="text-align:center;display:block"><img width="200px" src='http://localhost:8051/serv/img/firma{{idAprovador1}}'></td>
+                    <td width="49%" style="text-align:center;display:block"><img width="200px" src='http://localhost:8051/serv/img/firma{{idAprovador2}}'></td>
+                </tr>
+                <tr>
+                    <td width="49%" style="text-align:center;display:block">{{NombreAprobador1}}</br>{{CargoAprobador1}}</td>
+                    <td width="49%" style="text-align:center;display:block">{{NombreAprobador2}}</br>{{CargoAprobador2}}</td>
+                </tr>
+            </table>
+        </div>
+        {{/if}}
+        
+        <div style=" position:absolute; left:0px; bottom:20px;"> Man Diesel Turbo PERU SAC<br/>Centro Empresarial Burgos<br/>Av. Enrique Palacios 335<br/>Miraflores, Lima 18<br/>Peru</div>
+        
+        <div style=" position:absolute; right:40px; bottom:20px;"> Tel: +51 (1) 6284753<br/>PrimeServ-pe@mandieselturbo.com<br/>RUC: 20563282381</div> 
+    </div>
+    {{/each}}
+</body>
+
+</html>

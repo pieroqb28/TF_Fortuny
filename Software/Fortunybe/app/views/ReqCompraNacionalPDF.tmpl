@@ -1,0 +1,371 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>{{numeroOrdenCompra numero}}</title>
+</head>
+
+<body>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'calibri', arial, "Liberation Sans";
+            font-size: 12px;
+        }
+        
+        html,
+        body {
+            display: block;
+            height: 100%;
+            margin: 0;
+            position: relative;
+        }
+        
+        .infoFlotanteInicio {
+            position: absolute;
+            top: 20px;
+            left: 0;
+            right: 0;
+            font-size: 7px;
+            margin: 0 auto;
+            text-align: center;
+            width: 100px;
+        }
+        
+        .infoFlotanteInicio > p {
+            font-size: 9px;
+        }
+        
+        .cabecera {
+            width: 100%;
+            padding-top: 30px;
+            position: relative;
+            display: block;
+        }
+        
+        .cabecera > span {
+            display: inline-block;
+            font-size: 22pt;
+        }
+        
+        .cabecera > img {
+            width: 80px;
+            position: absolute;
+            right: 40px;
+            top: 30px;
+        }
+        
+        .cabecera > p {
+            width: 80px;
+            position: absolute;
+            right: 25px;
+            top: 80px;
+        }
+        
+        .contenedor {
+            padding-top: 20px;
+            width: 100%;
+            display: block;
+            margin-bottom: 20px;
+        }
+        
+        .datosFilial {
+            padding-top: 60px;
+            width: 40%;
+            float: left;
+        }
+        
+        .datosFilial p,
+        .datosFilial h1 {
+            font-size: 16px;
+        }
+        
+        .wrapper {
+            font-size: 12px;
+            margin-right: 40px;
+        }
+        
+        .wrapper td b,
+        .wrapper td {
+            font-size: 14px;
+        }
+        
+        .contenidoWrapper {
+            display: block;
+        }
+        
+        .descripcion {
+            width: 100%;
+            border-top: 2px solid black;
+        }
+        
+        .termsFooter {
+            margin-bottom: 20px;
+        }
+        
+        .terminosCondiciones p {
+            font-size: 16px;
+        }
+        
+        table.mi-tabla tbody tr td:nth-child(2),
+        table.mi-tabla-bancaria td,
+        .descripcion td,
+        .descripcion tr {
+            border: 1px solid black !important;
+        }
+        
+       
+        table.mi-tabla,
+        table.mi-tabla-bancaria,
+        .descripcion {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        .descripcion1{
+            border-collapse: collapse;
+            margin-bottom:10px;
+        }
+       
+    </style>
+
+
+
+
+    {{#each pagina }}
+    <div class="paginaNueva" style="page-break-after: always;position:relative; height:29cm">
+        <header>
+            <div class="cabecera " style="margin-bottom:0px;padding-bottom: 25px;">
+
+                    <div class="logotipoCabecera" style="
+                        display: inline-block;
+                        width:20%;
+
+                        ">
+                                <img src="{{servidorURL}}/serv/img/logomate" style="
+                        height: 130px;
+                        ">
+            </div>
+
+
+                
+
+            <div class="tituloCentral" style="
+    width: 50%;
+    display: inline-block;
+    text-align: center;
+    font-size: 35px;
+    font-weight: bold;
+    /* position: absolute; */
+    top: 38px;
+    vertical-align: top;
+    margin-top:25px;
+"> Solicitud de Compra
+    </div>
+
+    <div class="" style="
+    display: inline-block;
+    font-weight: bold;
+    font-size: 15px;
+                
+                ">
+
+                    <p style="margin-bottom:5px">{{parametros.0.valorParam}}</p>
+                    <p style="font-size:13px;margin-bottom:5px;">RUC {{parametros.1.valorParam}}</p>
+                    <p style="font-size:13px;margin-bottom:5px">{{direccionEmpresa}}</p>
+                    <p style="font-size:13px;margin-bottom:5px">T: {{telefonoEmpresa}}</p>
+                    <p style="font-size:13px;margin-bottom:5px">E-mail:{{correoEmpresa}}</p>
+            </div>
+
+
+
+
+            </div>
+            </header>
+
+            {{#ifCond paginaActual '==' 1}}
+
+            <header style="
+padding-top: 20px;
+padding-bottom: 20px;
+">
+                <div class="datos_generales wrapper">
+                    <div class="empresa" style="
+display: inline-block;
+width: 48%;
+float: left;
+padding-top:20px;
+padding-bottom:20px;
+">
+                        <table class="mi-tabla" style="
+/* border: 1px solid black; */
+/* border-collapse: collapse; */
+width:80%;
+">
+                            <tbody>
+                                <tr>
+                                    <td style="font-size:11px;padding-bottom: 5px;padding-left:7px;width:35%; */">SC #</td>
+                                    <td style="font-size:11px;padding-bottom: 5px;padding-left:7px;width:60%;">{{numero}}</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-size:11px;padding-bottom: 5px;padding-left:7px;">CC </td>
+                                    <td style="font-size:11px;padding-bottom: 5px;padding-left:7px;">{{centro_costo}}</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-size:11px;padding-bottom: 5px;padding-left:7px">Fecha de Pedido</td>
+                                    <td style="font-size:11px;padding-bottom: 5px;padding-left:7px">{{fecha_emision}}</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-size:11px;padding-bottom: 5px;padding-left:7px">Fecha estimada Entrega</td>
+                                    <td style="font-size:11px;padding-bottom: 5px;padding-left:7px">{{fecha_entrega}}</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-size:11px;padding-bottom: 5px;padding-left:7px">Tipo de transaccion</td>
+                                    <td style="font-size:11px;padding-bottom: 5px;padding-left:7px">{{tipo_transaccion}}</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-size:11px;padding-bottom: 5px;padding-left:7px">moneda</td>
+                                    <td style="font-size:11px;padding-bottom: 5px;padding-left:7px">{{#ifCond moneda '==' 'PEN'}} Soles {{/ifCond}}{{#ifCond moneda '==' 'USD'}} Dolares
+                                        {{/ifCond}}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="font-size:11px;padding-bottom: 5px;padding-left:7px">Presupuestado</td>
+                                    <td style="font-size:11px;padding-bottom: 5px;padding-left:7px">{{presupuestado}}</td>
+                                </tr>
+
+                            </tbody>
+                            </table>
+                </div>
+                <div class="Proveedor" style="
+                display: inline-block;
+                width: 48%;
+                float: right;
+                padding-top:20px;
+                padding-bottom:20px;
+                ">
+                    <table class="mi-tabla" style="width:100%;">
+                        <tbody>
+                            <tr style="    border: 1px solid black !important;">
+                            <th style="font-size:11px;padding-bottom: 5px;padding-left:7px;width:100%;" colspan="2">Proveedores Sugeridos</th>
+                            </tr>
+                            {{#ifCond proveedor_ruc1 '!=' ''}} 
+                            <tr>
+                                <td style=" border: 1px solid black !important;font-size:11px;padding-bottom: 5px;padding-left:7px;width:20%;">{{proveedor_ruc1}}</td>
+                                <td style="font-size:11px;padding-bottom: 5px;padding-left:7px;width:80%;">{{proveedor1}}</td>
+                            </tr>
+                             {{/ifCond}}
+                             {{#ifCond proveedor_ruc2 '!=' ''}} 
+                            <tr>
+                                <td style=" border: 1px solid black !important;font-size:11px;padding-bottom: 5px;padding-left:7px;width:20%;">{{proveedor_ruc2}}</td>
+                                <td style="font-size:11px;padding-bottom: 5px;padding-left:7px;width:80%;">{{proveedor2}}</td>
+                            </tr>
+                             {{/ifCond}}
+                             {{#ifCond proveedor_ruc3 '!=' ''}} 
+                            <tr>
+                                <td style=" border: 1px solid black !important;font-size:11px;padding-bottom: 5px;padding-left:7px;width:20%;">{{proveedor_ruc3}}</td>
+                                <td style="font-size:11px;padding-bottom: 5px;padding-left:7px;width:80%;">{{proveedor3}}</td>
+                            </tr>
+                             {{/ifCond}}
+                             {{#ifCond proveedor_ruc4 '!=' ''}} 
+                            <tr>
+                                <td style=" border: 1px solid black !important;font-size:11px;padding-bottom: 5px;padding-left:7px;width:20%;">{{proveedor_ruc4}}</td>
+                                <td style="font-size:11px;padding-bottom: 5px;padding-left:7px;width:80%;">{{proveedor4}}</td>
+                            </tr>
+                             {{/ifCond}}
+                        </tbody>
+                    </table>
+
+                    </div>
+                    </div>
+                    </header>
+                    {{/ifCond}} {{#ifCond paginaActual '==' 1}}
+                    <div class="wrapper" style="position:relative"> {{/ifCond}} {{#ifCond paginaActual '>' 1}}
+
+                        <div class="wrapper" style="border-bottom: 2px solid black;position:relative;top:5em"> {{/ifCond}} {{#if mostrarCabecera}}
+                            <table class="descripcion">
+                                <tr style="border-bottom: 2px solid black; text-align:center">
+                                    <td style="border-bottom: 2px solid black; text-align:center;width:70%;"><b>Descripción</b></td>
+                                    <td style="border-bottom: 2px solid black;text-align:center;width:10%;"><b>Cant.</b></td>
+                                    <td style="border-bottom: 2px solid black;text-align:center;width:10%;"><b>Precio U.</b></td>
+                                    <td style="border-bottom: 2px solid black;text-align:center;width:10%;"><b>Total </b></td>
+                                </tr>
+                                {{#each detalles}}
+                                <tr>
+                                    <td style="text-align:left;font-size:11px;">{{descripcion}} &nbsp;</td>
+                                    <td style="text-align:center;font-size:11px;">{{cantidad}} &nbsp;</td>
+                                    <td style="text-align:center;font-size:11px;">{{precio_unitario}} &nbsp;</td>
+                                    <td style="text-align:center;font-size:11px;">{{total}} &nbsp;</td>
+                                </tr>
+                                {{/each}}
+                                {{#times valorlineaspintar}}
+                                <tr>
+                                    <td style="text-align:left;font-size:11px;">  &nbsp;</td>
+                                    <td style="text-align:center;font-size:11px;"> &nbsp;</td>
+                                    <td style="text-align:center;font-size:11px;"> &nbsp;</td>
+                                    <td style="text-align:center;font-size:11px;"> &nbsp;</td>
+                                </tr>
+                                {{/times}}
+                            </table>
+                            {{/if}}
+
+                        </div>
+                        {{#if ultimaPagina}} {{#if mostrarCabecera}} {{#ifCond paginaActual '==' 1}}
+                        <div class="wrapper" style=""> {{/ifCond}} {{#ifCond paginaActual '>' 1}}
+                            <div class="wrapper" style=""> {{/ifCond}} {{/if}} {{#unless mostrarCabecera}}
+                                <div class="wrapper" style=""> {{/unless}}
+                                    <table class="descripcion1" style="border-collapse: collapse;width:100%">
+                                        <tr >
+                                            <td style=" text-align:center;width:60%;"></td>
+                                            <td style="text-align:center;width:20%;"></td>
+                                            <td style="border-bottom: 2px solid black;border-top: 2px solid black;border-right: 2px solid black;border-left: 2px solid black; text-align:center;width:10%;"><b>Subtotal{{#ifCond moneda '==' 'PEN'}}(S/) {{/ifCond}}{{#ifCond moneda '==' 'USD'}}(US$) {{/ifCond}}</b></td>
+                                            <td style="border-bottom: 2px solid black;border-top: 2px solid black;border-right: 2px solid black;border-left: 2px solid black;text-align:center;width:10%;font-size:8px;"><b>{{total_detalle}}</b></td>
+
+                                        </tr>
+                
+                                        </table>
+  
+                                <div class="wrapper" style="margin-top:40px;clear:both;float:right;width:40%;">
+                                    <table>
+                                        <tr>
+                                            <td width="500" style="text-align:center;">Solicitado por:</td>
+                                            <td width="500" style="text-align:center;">Autorizado por:</td>
+                                        </tr>
+                                        <tr>
+                                            <td width="500" style="text-align:center;">{{NombreAprobador1}}</td>
+
+
+                                                   {{#ifCond esAutomatico '==' 0}}
+                                            <td width="500" style="text-align:center;">{{NombreAprobador2}} </td>
+                                                    {{/ifCond}}
+                                                    {{#ifCond esAutomatico '==' 1}}
+                                            <td width="500" style="text-align:center;">Autorización automatica {{NombreAprobador2}} </td>
+                                                    {{/ifCond}}
+                                            
+                                        </tr>
+                                        <tr>
+                                            <td width="500" style="text-align:center;">{{CargoAprobador1}}</td>
+                                            {{#ifCond esAutomatico '==' 0}}
+                                            <td width="500" style="text-align:center;">{{CargoAprobador2}} </td>
+                                                    {{/ifCond}}
+                                            {{#ifCond esAutomatico '==' 1}}
+                                            <td width="500" style="text-align:center;">puesto_Aprobador2 </td>
+                                            {{/ifCond}}
+                                            
+                                        </tr>
+                                    </table>
+                                </div>
+                                </div>
+
+                               
+                                {{/if}}
+
+
+                            </div>
+
+                            {{/each}}
+
+</body>
+
+</html>

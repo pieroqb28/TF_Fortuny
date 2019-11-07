@@ -1,0 +1,138 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+	</head>
+	<body>
+		<style>
+			table
+			{
+				border-collapse: collapse;	
+			}
+			table > tbody > .tituloTabla > td
+			{
+				background-color: black;
+    			color: white;
+    			font-size: 12px;
+			}
+		</style>
+		<section>
+			<table>
+				
+				<tr class="tituloTabla">
+					<td></td>
+					<td style="font-size: 14px;font-weight: bold;">Order Intake</td>		
+					<td style="color: red;">[PO reception date]</td>
+					<td></td>
+					<td  colspan="5">Amount [without Tax]</td>		
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+					
+				<tr class="tituloTabla">
+			
+					<td>Item Customer</td>
+					<td>Customer</td>
+					<td>Order No.</td>
+					<td></td>
+					<td>EUR</td>
+					<td>PEN</td>
+					<td>USD</td>
+					<td>GBP</td>
+					<td>CHF</td>
+					<td>Year related</td>
+					<td>Month related</td>
+					<td>DETAILS</td>	
+			
+					
+				</tr>
+					
+				<tr>
+					<td>{{orderIntake.item}}</td>
+					<td>{{orderIntake.cliente}}</td>
+					<td>{{orderIntake.order_numn}}</td>
+					<td>{{orderIntake.articulo}}</td>
+					<td>{{orderIntake.Euro}}</td>
+					<td>{{orderIntake.PEN}}</td>
+					<td>{{orderIntake.USD}}</td>
+					<td>{{orderIntake.GBP}}</td>
+					<td>{{orderIntake.CHF}}</td>
+					<td>{{orderIntake.year_related}}</td>
+					<td>{{orderIntake.month_related}}</td>
+					<td>{{orderIntake.details}}</td>	
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					
+					<td  colspan="2">Total of {{orderIntake.mes}} of {{orderIntake.anio}}</td>
+					<td>S/. {{orderIntake.total_soles}}</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+			
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td>T/C </td>
+					<td>{{orderIntake.fecha_tipo_cambio}}</td>
+					<td></td>
+					<td></td>
+				</tr>
+			
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td>EURO </td>
+					<td>{{orderIntake.tipo_cambio_euro}}</td>
+					<td></td>
+					<td></td>
+				</tr>
+			
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td>GBP </td>
+					<td>{{orderIntake.tipo_cambio_gbp}}</td>
+					<td></td>
+					<td></td>
+				</tr>
+			
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td>USD </td>
+					<td>{{orderIntake.tipo_cambio_usd}}</td>
+					<td></td>
+					<td></td>
+				</tr>
+					
+				
+			</table>
+		</section>
+	</body>
+</html>

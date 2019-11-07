@@ -1,0 +1,148 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+	</head>
+	<body>
+		<style>
+		html{
+			margin: 0;
+			padding: 0;
+		}
+			body
+			{
+				font-size: 10px;
+				font-weight: normal;
+				font-family: Arial;
+				/*width: 21cm;*/
+                margin: 0;
+                padding: 0;
+
+			}
+
+            .ocultar{
+                visibility: hidden;
+            }
+
+            .factura{
+            	width: 100%;
+            	margin:0;
+            	padding: 0;
+                padding-top: 275px;
+                font-size: 10px;
+            }
+
+            .margenIzquierdo{
+                padding-left: 20px;
+                line-height: 29px;
+            }
+
+            .fecha{
+            	padding-left: 55px;
+            }
+
+            .mitad{
+            	width: 620px;
+            }
+
+            td{
+            	font-size: 12px;
+            }
+
+            .facturaContainer{
+            	width: 100%;
+            	min-height: 200px;
+            	margin-top: 30px;
+            	position: relative;
+            	display: block;
+                
+            }
+
+            .detalleFactura{
+            	width: 100%;
+            	padding-left: 20px;
+            	
+            }
+            .alineadoDerecho{
+            	text-align: right;
+            	padding-right: 50px;
+            	padding-left: 0;
+            	box-sizing: border-box;
+
+            }
+            .textoLetras{
+            	margin-top: 0px;
+            	width: 340px;
+            	padding-left: 55px;
+            	line-height: 30px;
+            	white-space: normal;
+            	display: block;
+            	height: 70px;
+            	
+            }
+            .totales{
+            	margin-top: -80px;
+            	padding-right: 50px;
+            	float:right;
+            	font-size: 12px;
+            	display: block;
+            	line-height: 30px;
+            }
+            .recordatorio{
+            	position: absolute;
+            	left:120px;
+            	bottom: 15px;
+            }
+
+		</style>
+       
+        <section class="factura">
+            <table>
+                <tr>
+                    <td colspan="2" class="margenIzquierdo fecha" ><span class="ocultar">Fecha:</span>{{fechaDia}} <span class="ocultar">de &nbsp;&nbsp;&nbsp;</span>{{fechaMes}} <span style="margin-right:245px" class="ocultar">de 20</span>16</td>
+                </tr>
+                <tr>
+                	<td class="margenIzquierdo mitad"><span class="ocultar">Señor(es): </span>{{nombreCliente}}</td><td><span class="ocultar">D.I</span>{{rucCliente}}</td>
+                </tr>
+                <tr>
+                	<td class="margenIzquierdo mitad" style="font-size:10px"><span class="ocultar" style="font-size:12px" >Direccion: </span>{{direccionCliente}}</td><td><span class="ocultar">Ciudad: </span>{{ciudadCliente}}</td>
+                </tr>
+                <tr>
+                	<td class="margenIzquierdo mitad"><span class="ocultar">Giro: </span></td><td><span class="ocultar">Telefono: </span>{{telefonoCliente}}</td>
+                </tr>              
+            </table>
+            <table>
+            	<tr>
+            		<td class="margenIzquierdo" style="width:350px"><span class="ocultar">Guía de Remision N°:</span>{{numGuiaRem}}</td>
+            		<td style="width:200px"><span class="ocultar">O.Compra:</span>{{orden_compra}}</td>
+            		<td class="margenIzquierdo"><span class="ocultar">Cond. de Venta: &nbsp;</span>{{condicion_venta}}</td>
+            	</tr>
+            </table>
+            <section class="facturaContainer">
+	            <table class="detalleFactura">
+	            	<tr class="ocultar">
+	            		<td width="150">CANTIDAD</td><td width="970">DETALLE</td><td width="200">P.UNITARIO</td><td width="200">TOTAL</td>
+	            	</tr>
+	            	{{#each detalles}}
+						<tr>
+							<td class="margenIzquierdo alineadoDerecho">{{cantidad}}</td><td>{{detalle}}</td><td class="alineadoDerecho">{{precio_unitario}}</td><td class="alineadoDerecho">{{total}}</td>
+						</tr>
+						{{/each}}
+	            </table>
+	            &nbsp;
+	            <div class="recordatorio">
+	            	OUR REFERENCE PO IS {{centro_costo_id}} </br>
+	            	SÍRVASE A PAGAR ANTES DEL DIA {{fecha_vencimiento}}
+	            </div>
+            </section>
+            <div class="textoLetras">{{total_factura_letras}}</div>
+            <div class="alineadoDerecho totales ">
+            	<div>{{total_factura}}</div>
+            </div>
+        </section>
+
+			
+	
+
+
+	</body>
+</html>

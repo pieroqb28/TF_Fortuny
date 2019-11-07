@@ -1,0 +1,1 @@
+var HISPrincipal = angular.module('HIS.Principal', [])

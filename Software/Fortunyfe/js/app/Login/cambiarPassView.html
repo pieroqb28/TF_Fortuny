@@ -1,0 +1,116 @@
+
+
+<div >
+    
+    <div class="container-fluid">
+
+      <!--  Panel de Loggeo -->
+
+       
+        <div class="panel panel-primary">
+                <div>
+                    <img class="loggin-logo" src="img/logoEmpresa.png"/>
+                    <p class="lineaRoja"></p>
+                </div>
+            <div class="panel-heading degradadoPlomo">
+                <h3 class="panel-title textoNegro"> RECUPERAR CONTRASEÑA</h3>
+            </div>
+
+            <div class="panel-body" >
+
+
+                 <!-- Formulario de ingreso-->
+       
+                  <form class="form-horizontal" name="logginFormRecuperar" novalidate>
+
+
+                    <fieldset>
+                                             
+
+                         <div  >
+
+
+
+                          
+                                <div ng-class="{ 'has-error' : logginFormRecuperar.nuevaClave.$invalid   && submitted  }">
+
+                                       <!--  <span class="input-group-addon inicial" ng-show="logginForm.$pristine || logginForm.nuevaClave.$error.required && logginForm.usuario.$error.required"><span class="glyphicon glyphicon-modal-window"></span></span>
+
+
+                                        <span class="input-group-addon error" ng-show="!logginForm.$pristine && logginForm.nuevaClave.$error.required && !logginForm.usuario.$error.required"><span class="glyphicon glyphicon-modal-window"></span></span>
+
+                                        <span class="input-group-addon correct" ng-show="!logginForm.$pristine && !logginForm.nuevaClave.$error.required"><span class="glyphicon glyphicon-modal-window"></span></span> -->
+                                        
+                                        <input  type="password" name="nuevaClave" placeholder="Ingrese nueva contraseña"class="form-control k-texbox inputLoggin" ng-model="formData.nuevaClave" required required >
+                                       
+                                       <!-- <span ng-show="!logginForm.$pristine && logginForm.password.$error.required">El campo Usuario es obligatorio</span>-->
+                                         
+                                 </div>
+                                 <div ng-class="{ 'has-error' : logginFormRecuperar.repitaNuevaClave.$invalid   && submitted  }">
+
+                                        <!-- <span class="input-group-addon inicial" ng-show="logginForm.$pristine || logginForm.repitaNuevaClave.$error.required && logginForm.usuario.$error.required"><span class="glyphicon glyphicon-modal-window"></span></span>
+
+
+                                        <span class="input-group-addon error" ng-show="!logginForm.$pristine && logginForm.repitaNuevaClave.$error.required && !logginForm.usuario.$error.required"><span class="glyphicon glyphicon-modal-window"></span></span>
+
+                                        <span class="input-group-addon correct" ng-show="!logginForm.$pristine && !logginForm.repitaNuevaClave.$error.required"><span class="glyphicon glyphicon-modal-window"></span></span> -->
+                                        
+                                        <input  type="password" name="repitaNuevaClave" placeholder="Repita nueva contraseña"class="form-control k-texbox inputLoggin" ng-model="formData.repitaNuevaClave" required required >
+                                       
+                                       <!-- <span ng-show="!logginForm.$pristine && logginForm.password.$error.required">El campo Usuario es obligatorio</span>-->
+                                         
+                                 </div>
+
+                                <p class="errorText">{{erroresLoggin}}</p>
+
+                        </div>           
+                      <div >
+                      
+                            <div>
+                            <button type="submit" class="btn btn-igresar" ng-click="cambiarClaveUsuario(formData,logginFormRecuperar.$valid)"  >Cambiar contraseña</button>
+                            </div>
+                                            
+                     
+                      </div>
+                      
+                  
+
+                    </fieldset>
+                  </form>
+
+
+                  <!-- /Formulario de ingreso-->
+              
+            </div>
+        </div>
+
+      <!--  /Panel de Loggeo -->
+
+    </div>
+
+
+</div>
+
+<div class="modal fade" id="contraseniasDesiguales" tabindex="-1" role="dialog" aria-labelledby="contraseniasDesiguales" aria-hidden="true" ng-controller="nuevoPasswordController">
+         <div class="modal-dialog">
+              <div class="modal-content popUpContent" ng-click="cerrarPupUp()" >
+            
+            <div class="modal-header popUpHeader">
+                          <h4 class="modal-title popUpTitle">Ingreso Inválido</h4>
+                      </div>
+                      <div class="modal-body">
+                        <p>Los contraseñas no coinciden</p>
+                      </div>
+              </div>
+          </div>
+</div>
+
+
+
+<!-- ****************** DIRECTIVES   ************** -->
+
+<mensaje-Update-Data></mensaje-Update-Data>
+<mensajes-errores-globales></mensajes-errores-globales>
+
+
+<!-- ****************** fin DIRECTIVES   ************** -->

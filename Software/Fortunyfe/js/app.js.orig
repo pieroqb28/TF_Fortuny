@@ -1,0 +1,205 @@
+var app = angular.module('HIS', ['ngRoute',
+
+ 
+  'kendo.directives' , 
+  'ngCookies',
+  'ngResource',
+  'globalErrors',
+  'ui.bootstrap',
+  'HIS.Shared',
+  'HIS.Profile',
+  'HIS.Cotizacion',
+  'HIS.GroupUser',
+  'HIS.Clientes',
+  'HIS.Articulos'
+
+  
+  ])
+
+app.run(['$rootScope','$cookieStore','ProfileService',  function($rootScope, $cookieStore,ProfileService) {
+ 
+
+   if (localStorage.getItem("sJWT") === null){
+
+        if ($cookieStore.get('tokenActual') === null  || !$cookieStore.get('tokenActual')  ){
+                window.location= "index.html";
+        }else{
+             localStorage.setItem('sJWT', $cookieStore.get('tokenActual')); 
+
+        }
+
+   }else
+       if (localStorage.getItem("funcionalidades") === null){  
+              ProfileService.Parametros().get(function(objParametros) {
+               
+                  for(i=0;i<objParametros.length;i++)
+                  {
+                    localStorage.setItem(objParametros[i].nombreParam,JSON.stringify(objParametros[i].valorParam) ); 
+                  }
+
+              })
+
+   
+        }
+  
+}]);
+
+app.config(['$routeProvider',function($routeProvider) {
+
+ 
+
+ EvaluarAcceso=  function(valor){
+
+    if (localStorage.getItem("funcionalidades") != null){    
+     
+      var funcionPermitida=false; 
+      var paramFuncionalidades= JSON.parse(localStorage.getItem('funcionalidades'));   
+                        
+   
+       
+    for(i=0; i<paramFuncionalidades.length;i++)
+      {
+          
+                            if(paramFuncionalidades[i]==valor)
+                            {
+                              funcionPermitida=true;
+                              break;
+                            }
+       }
+
+                      if(!funcionPermitida){ 
+              
+                         
+                         window.location= "/" 
+
+                      }   
+   }  
+  };
+
+ 
+    $routeProvider
+        .when('/uploadsof', {
+            templateUrl : 'js/app/Shared/upload.html',
+             controller  : 'CUClienteController'
+         })
+
+
+         .when('/usuario/gruposUsuarios', {
+            templateUrl : 'js/app/GroupUser/groupUserView.html',
+            controller  : 'GroupUserController',
+            resolve:{
+                  "check": function(){ EvaluarAcceso('Grupo de usuarios')}
+                }
+         })
+          .when('/usuario/gruposUsuarios/nuevoGrupo', {
+            templateUrl : 'js/app/GroupUser/groupUserCUView.html',
+            controller  : 'NewGroupUserController',
+            resolve:{
+                  "check": function(){ EvaluarAcceso('Grupo de usuarios')}
+                }
+         })
+          .when('/usuario/gruposUsuarios/Grupo/:idGrupo', {
+            templateUrl : 'js/app/GroupUser/groupUserCUView.html',
+            controller  : 'NewGroupUserController',
+            resolve:{
+                  "check": function(){ EvaluarAcceso('Grupo de usuarios')}
+                }
+         })
+          .when('/cotizaciones', {
+            templateUrl : 'js/app/Cotizacion/cotizacionView.html',
+            controller  : 'CotizacionController',
+            resolve:{
+                  "check": function(){ EvaluarAcceso('Cotizaciones')}
+                }
+         })
+
+         .when('/cotizaciones/detalle/:idCotizacion', {
+            templateUrl : 'js/app/Cotizacion/detalleCotizacionView.html',
+            controller  : 'cotizacionesDetalleController',
+             resolve:{
+                 "check": function(){ EvaluarAcceso('Cotizaciones')} 
+              }
+         })
+
+         .when('/cotizaciones/nuevo', {
+            templateUrl : 'js/app/Cotizacion/detalleCotizacionView.html',
+            controller  : 'cotizacionesDetalleController',
+             resolve:{
+                 "check": function(){ EvaluarAcceso('Cotizaciones')} 
+              }
+         })
+
+         .when('/cotizaciones/textoCotizaciones', {
+            templateUrl : 'js/app/Cotizacion/textoCotizacionView.html',
+            controller  : 'textoCotizacionController',
+             resolve:{
+                 "check": function(){ EvaluarAcceso('Cotizaciones')} 
+                
+              }
+           
+         })
+         .when('/cotizaciones/textoCotizaciones/nuevoTexto', {
+            templateUrl : 'js/app/Cotizacion/textoCotizacionCUView.html',
+            controller  : 'CUTextoCotizacionController',
+            resolve:{
+                  "check": function(){ EvaluarAcceso('Cotizaciones')}
+                }
+         })
+         .when('/cotizaciones/textoCotizaciones/:idGrupo', {
+            templateUrl : 'js/app/Cotizacion/textoCotizacionCUView.html',
+            controller  : 'CUTextoCotizacionController',
+            resolve:{
+                  "check": function(){ EvaluarAcceso('Cotizaciones')}
+                }
+         })
+          .when('/clientes', {
+            templateUrl : 'js/app/Clientes/clientesView.html',
+            controller  : 'ClientesController',
+            resolve:{
+                  "check": function(){ EvaluarAcceso('Clientes')}
+                }
+         })
+          .when('/clientes/nuevo', {
+            templateUrl : 'js/app/Clientes/clientesCUView.html',
+            controller  : 'CUClienteController',
+            resolve:{
+                  "check": function(){ EvaluarAcceso('Clientes')}
+                }
+         })
+          .when('/clientes/:idCliente', {
+            templateUrl : 'js/app/Clientes/clientesCUView.html',
+            controller  : 'CUClienteController',
+            resolve:{
+                  "check": function(){ EvaluarAcceso('Clientes')}
+                }
+         })
+         
+
+         .when('/articulos', {
+            templateUrl : 'js/app/Articulos/articulosView.html',
+            controller  : 'ArticulosController',
+            resolve:{
+                  "check": function(){ EvaluarAcceso('Articulos')}
+                }
+         })
+          .when('/articulos/nuevo', {
+            templateUrl : 'js/app/Articulos/articulosCUView.html',
+            controller  : 'CUArticuloController',
+            resolve:{
+                  "check": function(){ EvaluarAcceso('Articulos')}
+                }
+         })
+          .when('/articulos/:idArticulo', {
+            templateUrl : 'js/app/Articulos/articulosCUView.html',
+            controller  : 'CUArticuloController',
+            resolve:{
+                  "check": function(){ EvaluarAcceso('Articulos')}
+                }
+         })
+
+       .otherwise({
+            redirectTo: '/uploadsof'
+        });
+    
+    
+}])

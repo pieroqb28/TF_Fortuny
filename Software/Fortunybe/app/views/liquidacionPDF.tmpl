@@ -1,0 +1,391 @@
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>{{numeroPagina numero}}</title>
+</head>
+
+<body>
+	<style>
+		html {
+			display: block;
+		}
+		
+		body {
+			font-size: 10px;
+			padding: 0px;
+			margin: 0px;
+			margin-right: 40px;
+			width: 21cm;
+			font-weight: normal;
+			font-family: Arial, "Liberation Sans";
+			height: auto;
+			overflow: hidden;
+			display: block;
+		}
+		
+		table {
+			font-size: 12px;
+		}
+		
+		h5,
+		h3 {
+			font-weight: normal;
+			font-size: 10px;
+		}
+		
+		.colIzq {
+			width: 50%;
+		}
+		
+		.colDer {
+			width: 50%;
+		}
+		
+		.tableDetail {
+			border-collapse: collapse;
+		}
+		
+		.detailHeader th {
+			padding: 2px;
+			border-bottom: 2px solid black;
+			border-top: 2px solid black;
+		}
+		
+		.detailHeader span {
+			margin-left: 20px;
+		}
+		
+		.detailSection td {
+			padding-top: 10px;
+			padding-bottom: 10px;
+		}
+		
+		.descripcionCotizacion {
+			margin-bottom: 40px;
+			margin-top: -9px;
+		}
+		
+		.descripcionCotizacion tr td p {
+			margin: 0px;
+			font-size: 13px;
+		}
+		
+		.detailRow td {
+			text-align: center;
+		}
+		
+		.paginaNueva {
+			height: 30cm;
+			position: relative;
+			padding-top: 15px;
+			margin-right: 40px;
+		}
+		
+		.piePagina {
+			position: absolute;
+			bottom: 0px;
+			width: 100%;
+		}
+		
+		.piePagina table {
+			width: 100%
+		}
+		
+		.piePaginaLeft {
+			float: left;
+			margin-top: 0px
+		}
+		
+		.piePaginaRight {
+			margin-left: 550px;
+			float: right;
+			text-align: right;
+			/*margin-top: 0px*/
+		}
+		
+		.tableCotizacion {
+			padding-bottom: 30px;
+			margin-left: 20px;
+			width: 100%
+		}
+		
+		.tableCotizacion .descripcion {
+			padding-left: 20px;
+		}
+		
+		.TableContacto {
+			margin-top: 20px;
+		}
+		
+		.tableDetail tr.detailRow:first-child td {
+			width: 5%;
+		}
+		
+		.tableDetail tr.detailRow:nth-child(2) td {
+			width: 10%;
+		}
+		
+		.tableDetail tr.detailRow:nth-child(3) td {
+			width: 10%;
+		}
+		
+		.tableDetail tr.detailRow:nth-child(4) td {
+			width: 5%;
+		}
+		
+		.tableDetail tr.detailRow:nth-child(5) td {
+			width: 10%;
+		}
+		
+		.tableDetail tr.detailRow:nth-child(6) td {
+			width: 10%;
+		}
+		
+		.regionMontos {
+			float: right;
+			margin-top: 0px;
+			border-top: 1px solid black;
+			margin-right: 0px
+		}
+		
+		hr {
+			background-color: black;
+			width: 650px;
+			float: right;
+			margin-right: 0px;
+		}
+		
+		.regionMontos .monto {
+			text-align: right
+		}
+		
+		.regionTerminos {
+			clear: both;
+			font-size: 10px;
+		}
+		
+		.regionFirmas {
+			margin-left: 20%;
+			margin-right: 20%;
+			margin-top: -100px;
+		}
+		
+		.middleSpace {
+			width: 20%;
+		}
+	</style>
+	{{#each pagina as |textoParametro|}}
+	<div class="paginaNueva" style="page-break-after: always;position:relative;">
+		<img src="http://localhost:8051/serv/img/logoman" style="position: absolute;z-index: -100;opacity: 0.15;margin: 0; padding:0; top:530px; left:27%; bottom:0; right: 0; width:400px">
+		<!-- CABECERA -->
+		<div>
+			<table style="width:100%">
+				<Tr>
+					<td class="colIzq" valign="top">
+						<!-- COL IZQUIERDA -->
+						<div style=" margin-top: 8px;font-size: 25px;">
+							<p>MAN Diesel Turbo Perú S.A.C</p>
+						</div>
+						{{#ifCond paginaActual '==' 1}}
+						<table style="padding-top: 55px;">
+							<tr>
+								<td style="font-size:16"><b>{{ClienteNombre}}</b></td>
+							</tr>
+							<tr>
+								<td style="font-size:16">{{ClienteDirec1}}</td>
+							</tr>
+							<tr>
+								<td style="font-size:16">{{ClienteDirec2}}</td>
+							</tr>
+							<tr>
+								<td></td>
+							</tr>
+							<tr>
+								<td rowspan=8><b> <u>{{ClientePais}}</u></b></td>
+							</tr>
+						</table>
+						<table class="TableContacto">
+							<tr>
+								<td>Atención</td>
+								<td>{{contactoCliente}}</td>
+							</tr>
+							<tr>
+								<td></td>
+								<td>{{contactoEmail}}</td>
+							</tr>
+						</table>
+						{{/ifCond}}
+					</td>
+					<td class="colDer">
+						<!-- COL DERECHA -->
+						<div style="text-align: right;margin-top: -5px;margin-left: 80px;">
+							<img src="http://localhost:8051/serv/img/logoman" width="90px">
+							<p style="margin: 0px;font-size: 12px;">Pág {{paginaActual}} de {{cantPaginas}}</p>
+						</div>
+						{{#ifCond paginaActual '==' 1}}
+						<br>
+						<table class="tableCotizacion">
+							<tr>
+								<td><strong>Liquidación.</strong></td>
+								<td class="descripcion"> <strong>{{OCOAK NumCotizacion}}</strong></td>
+							</tr>
+							<tr>
+								<td style="padding-bottom: 20px;"><strong>OC cliente.</strong></td>
+								<td class="descripcion" style="padding-bottom: 20px;"> <strong>{{orden_compra_cliente}}</strong></td>
+							</tr>
+
+							<tr>
+								<td>Lima</td>
+								<td class="descripcion">{{FechaCotizacion}}</td>
+							</tr>
+							<tr>
+								<td>Numero de oferta muestra</td>
+								<td class="descripcion">{{NumOferta}}</td>
+							</tr>
+							<tr>
+								<td>Numero de Cliente </td>
+								<td class="descripcion">{{ClienteNumero}}</td>
+							</tr>
+							<tr>
+								<td>Ruc del Cliente</td>
+								<td class="descripcion">{{ClienteRUC}}</td>
+							</tr>
+							<tr>
+								<td style="padding-bottom: 20px;">Dia requerimiento </td>
+								<td class="descripcion" style="padding-bottom: 20px;">{{FechaRequerimiento}}</td>
+							</tr>
+
+							<tr>
+								<td>Persona de Contacto</td>
+								<td class="descripcion">{{NombreContacto}}</td>
+							</tr>
+							<tr>
+								<td>Telefono </td>
+								<td class="descripcion">{{TelefonoContacto}}</td>
+							</tr>
+							<tr>
+								<td>Celular </td>
+								<td class="descripcion">{{CelularContacto}}</td>
+							</tr>
+							<tr>
+								<td>E-mail </td>
+								<td class="descripcion">{{CorreoContacto}}</td>
+							</tr>
+							<tr>
+								<td></td>
+								<td class="descripcion">PrimeServ-PE@mandieselturbo.com</td>
+							</tr>
+						</table>
+						{{/ifCond}}
+					</td>
+				</Tr>
+			</table>
+		</div>
+		<!-- DETALLE -->
+		<div>
+			<table class='tableDetail'>
+				<!-- <tr class='detailHeader'>
+					<th colspan="2" style="text-align: left"> <span>Embarcación-Planta:</span><span>{{Barco}}</span></th>
+					<th> <span>IMO:</span><span>{{IMO}}</span></th>
+					<th> <span>Type:</span><span>{{poducto_type}}</span></th>
+					<th colspan="3"> <span>Moneda:</span><span>{{Moneda}}</span></th>
+				</tr>-->
+				<tr class="detailHeader detailRow">
+					<th> Pos.</th>
+					<th style="padding-left: 100px;padding-right: 100px;"> Descripción</th>
+					<!-- <th> Código</th> -->
+					<th> Subtotal</th>
+					<!-- <th> Unit</th> -->
+					<!-- <th> Fecha Entrega</th> -->
+				</tr>
+				<!-- <tr class="detailSection">
+					<td></td>
+					<td colspan="6">Product ID:{{MotorId}} Product Type: {{TipoMotor}}	</td>
+				</tr> -->
+				{{#each detalles as |lineas|}}
+				<tr class="detailRow">
+					<td> {{lineas.num}}</td>
+					<td style="text-align:left"> {{lineas.descripcion_servicio}}</td>
+					<!-- <td> {{lineas.codigo}}</td> -->
+					<td> {{lineas.sub_total}}</td>
+					<!-- <td> {{lineas.unidad}}</td> -->
+					<!-- <td> {{lineas.fecha_entrega}}</td> -->
+				</tr>
+				{{/each}}
+			</table>
+		</div>
+		<!-- SUM Montos -->
+		<br>
+		<br>
+		<br><br>
+		<br>
+		<br> {{#if ultimaPagina}}
+		<div style="position: absolute;top: 750px;">
+			<hr>
+			<div class=" col-lg-12 regionTerminos">
+				{{#each Terminos}} {{Terminos.termino}} {{/each}}
+			</div>
+			<br>
+			<!-- FIRMAS -->
+			<div class="col-lg-12">
+				<p style=" font-size: 13px;"> <strong> MAN Diesel & Turbo Peru SAC </strong> <br><span> <span style=" color: red;"> PrimeServ </span> -Perú </span>
+				</p>
+				<!-- TERMINOS -->
+				<br>
+				<br>
+				<br>
+			</div class="col-lg-12">
+			<br><br><br><br>
+			<div class="regionFirmas">
+				<table width=100%>
+					<tr>
+						<td class="colIzq">
+							<table width=100%>
+								<tr>
+									<td><img width="190px" src='http://localhost:8051/serv/img/firma{{idAprovador1}}'></td>
+								</tr>
+								<tr>
+									<span><td><p style="margin-top:-20px; text-align:center">{{NombreAprobador1}}<br>{{CargoAprobador1}}</p></td>
+									</tr>
+								
+								</table>
+							</td>
+							<td class="middleSpace">  </td>
+							<td class="colDer">
+								<table  width=100% >
+									<tr>
+										<td><img  width="200px" src='http://localhost:8051/serv/img/firma{{idAprovador2}}'></td>
+									</tr>	
+									<tr >
+										<td><p style="margin-top:-20px; text-align:center">{{NombreAprobador2}} <br> {{CargoAprobador2}}</p></td>
+									</tr>
+									
+								</table>
+							</td>
+						</tr>
+					</table>
+				</div>
+		</div>	
+		{{/if}} 
+		<div class="piePagina">
+			<table>
+				<tr>
+					<td class="piePaginaLeft">
+						<span>MAN Diesel Turbo PERU S.A.C </span><br>
+									<span>Av. Enrique Palacios 335</span><br>
+									<span>Miraflores, Lima 18-Perú</span>
+						</td>
+						<td class="piePaginaRight">
+							<span>Tel:+51 (1)6284753 </span><br>
+							<span>PrimeServ-pe@mandieselturbo.com</span><br>
+							<span>RUC: 20563282381</span>
+						</td>
+						</tr>
+						</table>
+			</div>
+		</div>
+		{{/each}}
+</body>
+
+</html>

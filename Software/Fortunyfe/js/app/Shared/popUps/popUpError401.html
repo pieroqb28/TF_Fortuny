@@ -1,0 +1,61 @@
+<div class="modal fade" id="popupError401" tabindex="-1" role="dialog" aria-labelledby="popupError401" aria-hidden="true" ng-controller="reLoginController">
+         <div class="modal-dialog">
+              <div class="modal-content popUpContent" ng-click="cerrarPupUp()" >
+    				
+    				<div class="modal-header popUpHeader">
+                          <h4 class="modal-title popUpTitle">Acceso  Inválido</h4>
+                      </div>
+                      <div class="modal-body">
+                        <p>Hubo un problema con su acceso, por favor vuelva a ingresar.</p>
+                      </div>
+                      
+                  <form class="form-horizontal" name="logginForm" novalidate ng-submit="submitForm(logginForm.$valid)" >
+
+
+                          <div  >
+
+
+
+                                <div class="input-group" ng-class="{ 'has-error' : logginForm.usuario.$invalid   && submitted  }">
+                                        <span class="input-group-addon inicial "> 
+                                        <span class="glyphicon glyphicon-user">  </span>
+                                        </span>
+   
+                                        <input type="email" name="usuario" class="form-control"  placeholder="Ingrese su usuario" ng-model="formData.usuario"  required>
+                                        
+                                        <!--- <span ng-show="!logginForm.$pristine && logginForm.usuario.$error.required">El campo Usuario es obligatorio</span> -->
+                                </div>
+
+                                <div class="input-group" ng-class="{ 'has-error' : logginForm.password.$invalid   && submitted  }">
+
+                                        <span class="input-group-addon inicial" ><span class="glyphicon glyphicon-modal-window"></span></span>
+
+                                        <input  type="password" name="password" placeholder="Ingrese su contraseña"class="form-control" ng-model="formData.password"  required >
+                                       
+                                       <!-- <span ng-show="!logginForm.$pristine && logginForm.password.$error.required">El campo Usuario es obligatorio</span>-->
+                                         
+                                 </div>
+
+                                <p class="errorText">{{erroresLoggin}}</p>
+
+                        </div>           
+                      <div >
+                          <div >
+                            <div>
+                            <button type="submit" class="btn btn-igresar">Ingresar</button>
+                            </div>
+                    
+                         
+                             
+                          </div>
+                      </div>
+
+
+
+                                        </form>
+
+
+              </div>
+          </div>
+</div>
+

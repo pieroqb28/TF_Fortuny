@@ -1,0 +1,95 @@
+  <!-- navegación-->
+<div ng-controller='menuController' >
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+
+           
+
+
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#/"><img src="../img/shortIcon.png" alt="PRONOS" width="20px" ></a>
+          </div>
+
+          <div class="navbar-collapse collapse in" id="bs-example-navbar-collapse-1" aria-expanded="true">
+
+           
+                    <ul class="nav navbar-nav">
+                      
+                       <!-- Dropdown Administración -->
+                   
+                   <li class="dropdown" uib-dropdown dropdown-append-to-body ng-repeat="modulo in modulos">
+
+                      <button id="btn-append-to-body" type="button" class="btn btn-default dropdown-toggle" ng-if='modulo.nombre != "Mi Cuenta"' uib-dropdown-toggle>
+                        {{modulo.nombre}} <span class="caret"></span>
+                      </button>
+                      <ul class="dropdown-menu" role="menu" aria-labelledby="btn-append-to-body">
+                        <li role="menuitem" ng-repeat="func in modulo.funcionalidades"><a href="{{func.url}}">{{func.funcionalidad}}</a></li>
+                      </ul>
+                    </li>
+
+
+
+                      <!-- /Dropdown Administración -->
+                    </ul>
+
+                      <ul class="nav navbar-nav navbar-right">
+
+
+                        <!-- Dropdown Usuario -->
+                          <li class="dropdown" uib-dropdown dropdown-append-to-body ng-repeat="modulo in modulos">
+
+                            <button id="btn-append-to-body" type="button" class="btn btn-default dropdown-toggle" ng-if='modulo.nombre === "Mi Cuenta"' uib-dropdown-toggle>
+                              {{modulo.nombre}} <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="btn-append-to-body">
+<<<<<<< HEAD
+                              <li role="menuitem" ng-repeat="func in modulo.funcionalidades" ng-if='func.funcionalidad != "Cerrar Sesion"'><a href="{{func.url}}">{{func.funcionalidad}}</a></li>
+                              <li role="menuitem" ng-repeat="func in modulo.funcionalidades" ng-click="cerrarSesion()" ng-if='func.funcionalidad == "Cerrar Sesion"'><a href="{{func.url}}">{{func.funcionalidad}}</a></li>
+=======
+                              <li role="menuitem" ng-repeat="func in modulo.funcionalidades" ng-if='func.funcionalidad != "Cerrar Sesión"'><a href="{{func.url}}">{{func.funcionalidad}}</a></li>
+                              <li role="menuitem" ng-repeat="func in modulo.funcionalidades" ng-click="cerrarSesion()" ng-if='func.funcionalidad == "Cerrar Sesión"'><a href="{{func.url}}">{{func.funcionalidad}}</a></li>
+>>>>>>> hotfix/Sprint_1
+                            </ul>
+                          </li>
+                        
+
+  
+                        <!-- /Dropdown Usuario       -->
+
+                      </ul>
+           </div>
+        </div>
+      </nav>
+</div>  
+
+  <!-- /navegación-->
+
+      <div class="modal fade" id="popupCerrarSesion" tabindex="-1" role="dialog" aria-labelledby="popupCerrarSesion" aria-hidden="true">
+         <div class="modal-dialog">
+              <div class="modal-content" >
+    
+                      <h4>{{errorTittle}}</h4>
+                      <h5>{{errorMensaje}}</h5>
+
+                        <div class="modal-footer piePuppap">
+                                
+                                  <button ng-if='errorFuncion=="reanudarPantalla"' type="button" class="btn btn-default" ng-click="reanudarPantalla()" data-dismiss="modal">Aceptar</button>
+
+                                  <button ng-if='errorFuncion=="cierreDeSesion"' type="button" class="btn btn-default" ng-click="cierreDeSesion()" data-dismiss="modal">Aceptar</button>
+
+                                  <button ng-if='errorFuncion=="ningunaFuncion"' type="button" class="btn btn-default" data-dismiss="modal">Aceptar</button>
+                                 
+                        </div>
+
+                </div>
+           </div>
+        </div>
+
+
+  </div>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es" ng-app="HIS">
+
+<head>
+    <meta charset="utf-8">
+   <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+
+
+    <title>Fortuny</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/kendo.common.min.css" />
+    <link rel="stylesheet" href="css/kendo.default.min.css" />
+    <link href="css/dropzone.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/angucomplete-alt.css" />
+    <link rel="stylesheet" href="css/kendo.custom.css" />
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="icon" type="image/png" style="width: 100%" width="200px" href="img/favicom.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="img/favicon-96x47.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x33.png">
+    <link href="css/font-awesome.min.css" rel="stylesheet" />
+    <script src='node_modules/chart.js/dist/Chart.js'></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+   
+</head>
+
+<body>
+    <menu-inicio></menu-inicio>
+    <!--Grafico-->
+    <div ng-view>
+        <div loading-indicator><span><div style="height:270px;  display:block;">&nbsp;</div><img src="img/ring-alt.gif" style="width:64px; height:64px;" /><br/>Por favor espere ...</span></div>
+    </div>
+    
+    <!--Mensajes Error-->
+    <mensajes-errores-globales></mensajes-errores-globales>
+    <mensaje-error401></mensaje-error401>
+    <!--Fin Mensajes Error-->
+    <script src="js/lib/base64.min.js"></script>
+    <script src="js/lib/jquery.min.js"></script>
+    <script src="js/lib/dependencies/rsvp-3.1.0.min.js"></script>
+    <script src="js/lib/dependencies/sha-256.min.js"></script>
+    <script src="js/lib/qz-tray.js"></script>
+    <script src="js/lib/angular.min.js"></script>
+    <script src="js/lib/angular-resource.min.js"></script>
+    <script src="js/lib/jszip.min.js"></script>
+    <script src="js/lib/dropzone.js"></script>
+    <script src="js/lib/kendo.all.min.js"></script>
+    <script src="js/lib/componentesBootstrap.min.js"></script>
+    <script src="js/lib/jsrsasign-latest-all-min.js"></script>
+    <script src="js/lib/angular-cookies.js"></script>
+    <script src="js/lib/angular-hotkeys-light.js"></script>
+    <script src="js/lib/kendo.culture.es-ES.min.js"></script>
+    <script src="js/lib/angular-route.min.js"></script>
+    <script src="js/lib/ui-bootstrap-tpls-0.14.2.js"></script>
+    <script src="js/lib/kendo.custom.js"></script>
+    <script src="js/lib/angucomplete-alt.js"></script>
+    <script src="js/lib/lodash.min.js"></script>
+    <script src="js/lib/xlsx.js"></script>
+    <script src="js/lib/xlsx-reader.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>

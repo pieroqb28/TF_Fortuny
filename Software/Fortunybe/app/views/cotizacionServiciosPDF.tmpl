@@ -1,0 +1,489 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>{{numeroPagina numero}}</title>
+</head>
+
+<body>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            display: block;
+            position: relative;
+        }
+        
+        body {
+            font-size: 10px;
+            width: 21cm;
+            font-weight: normal;
+            font-family: "Liberation Sans", Arial;
+        }
+        
+        table {
+            font-size: 12px;
+        }
+        
+        h5,
+        h3 {
+            font-weight: normal;
+            font-size: 10px;
+        }
+        
+        .colIzq {
+            width: 45s%;
+        }
+        
+        .colDer {
+            width: 55%;
+        }
+        
+        .tableDetail {
+            border-collapse: collapse;
+            font-size: 12px;
+        }
+        
+        .detailHeader th {
+            padding: 2px;
+            border-bottom: 2px solid black;
+            border-top: 2px solid black;
+        }
+        
+        .detailHeader span {
+            margin-left: 20px;
+        }
+        
+        .detailSection td {
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+        
+        .descripcionCotizacion {
+            margin-bottom: 40px;
+            margin-top: -9px;
+        }
+        
+        .descripcionCotizacion tr td p {
+            margin: 0px;
+            font-size: 12px;
+        }
+        
+        .detailRow td {
+            text-align: center;
+        }
+        
+        .paginaNueva {
+            height: 31.19cm;
+            position: relative;
+            padding: 0;
+            box-sizing: border-box;
+            padding-top: 10px;
+            display: block;
+            overflow: hidden;
+            margin: 0;
+        }
+        
+        .piePagina {
+            position: absolute;
+            bottom: 0px;
+            width: 100%;
+            margin-top: -200px;
+            padding: 0px;
+        }
+        
+        .piePagina table {
+            width: 100%
+        }
+        
+        .piePaginaLeft {
+            float: left;
+        }
+        
+        .piePaginaRight {
+            margin-left: 550px;
+            float: right;
+            text-align: right;
+        }
+        
+        .tableCotizacion {
+            padding-bottom: 30px;
+            margin-left: 20px;
+            width: 100%;
+        }
+        
+        .tableCotizacion tr td {
+            font-size: 11px;
+            border-collapse: collapse;
+        }
+        
+        .tableCotizacion .descripcion {
+            padding-left: 20px;
+        }
+        
+        .TableContacto {
+            margin-top: 20px;
+        }
+        
+        .tableDetail tr.detailRow:first-child td {
+            width: 5%;
+        }
+        
+        .tableDetail tr.detailRow:nth-child(2) td {
+            width: 10%;
+        }
+        
+        .tableDetail tr.detailRow:nth-child(3) td {
+            width: 10%;
+        }
+        
+        .tableDetail tr.detailRow:nth-child(4) td {
+            width: 5%;
+        }
+        
+        .tableDetail tr.detailRow:nth-child(5) td {
+            width: 10%;
+        }
+        
+        .tableDetail tr.detailRow:nth-child(6) td {
+            width: 10%;
+        }
+        
+        .regionMontos {
+            float: right;
+            margin-top: 0px;
+            border-top: 1px solid black;
+            margin-right: 0px
+        }
+        
+        hr {
+            background-color: black;
+            width: 100%;
+            float: right;
+            margin-right: 0px;
+        }
+        
+        .regionMontos .monto {
+            text-align: right
+        }
+        
+        .regionTerminos {
+            clear: both;
+            font-size: 10px;
+        }
+        
+        .regionFirmas {
+            padding: 0;
+            margin: 0;
+            margin-left: 20%;
+            margin-right: 20%;
+            margin-top: 0;
+            display: block;
+            box-sizing: border-box;
+        }
+        
+        .detalle {
+            width: 100%;
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        
+        .subdetalle {
+            border: none;
+        }
+        
+        .detalle > tr {
+            border: 1px solid black;
+        }
+        
+        .detalle tr > td {
+            border: 1px solid black;
+            font-size: 12px;
+        }
+        
+        .detalleServicios tr:nth-child(1) td {
+            width: 10%;
+        }
+        
+        .detalleServicios tr:nth-child(2) td {
+            width: 50%;
+        }
+        
+        .detalleServicios tr:nth-child(3) td {
+            width: 10%;
+        }
+        
+        .detalleServicios tr:nth-child(4) td {
+            width: 30%;
+        }
+        
+        .middleSpace {
+            width: 20%;
+        }
+        
+        .wrapper {
+            width: 100%;
+            box-sizing: border-box;
+            display: block;
+            position: relative;
+            padding-right: 40px;
+        }
+    </style>
+    <section class="wrapper">
+        <img src="http://localhost:8051/serv/img/logoman" style="position: fixed;z-index: -100;opacity: 0.15;margin: 0; padding:0; top:530px; left:27%; bottom:0; right: 0; width:400px">        {{#each pagina }}
+        <div class="paginaNueva" style="page-break-after: always;">
+            <!-- CABECERA -->
+            <div> 
+                <table style="width:100%">
+                    <tr>
+                        <td class="colIzq" valign="top">
+                            <!--  COL IZQUIERDA -->
+                            <div style=" margin-top: 8px;font-size: 20px;">
+                                <p>MAN Diesel Turbo Perú S.A.C</p>
+                            </div>
+                            {{#ifCond paginaActual '==' 1 }}
+                            <table style="padding-top: 55px;">
+                                <tr>
+                                    <td style="font-size:12px"><b>{{ClienteNombre}}</b></td>
+                                </tr>
+                                <tr>
+                                    <td style="font-size:12px">{{ClienteDirec1}}</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-size:12px">{{ClienteDirec2}}</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td rowspan=8 style="font-size:12"><b> <u>{{ClientePais}}</u></b></td>
+                                </tr>
+                            </table>
+                            <table class="TableContacto">
+                                <tr>
+                                    <td>Atención</td>
+                                    <td>{{contactoEmail}}</td>
+                                    
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>{{contactoCliente}}</td>
+                                    
+                                </tr>
+                            </table>
+                            {{/ifCond}}
+                        </td>
+                        <td class="colDer">
+                            <div style="text-align: right;margin-top: -5px;margin-left: 80px;">
+                                <img src="http://localhost:8051/serv/img/logoman" width="90px">
+                                <p style="margin: 0px;font-size: 12px;">Pág. {{paginaActual}} de {{cantPaginas}}</p>
+                            </div>
+                            <br>
+                             {{#ifCond paginaActual '==' 1 }}
+                            <table class="tableCotizacion">
+                                <tr>
+                                    <td style="padding-bottom: 25px; font-weight:bold;">COTIZACIÓN N°.</td>
+                                    <td class="descripcion" style="padding-bottom: 20px; font-weight:bold;">
+                                        {{NumCotizacion}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Lima</td>
+                                    <td class="descripcion">{{FechaCotizacion}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Numero de oferta muestra</td>
+                                    <td class="descripcion">{{NumOferta}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Numero de Cliente </td>
+                                    <td class="descripcion">{{ClienteNumero}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Ruc del Cliente</td>
+                                    <td class="descripcion">{{ClienteRUC}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Dia requerimiento </td>
+                                    <td class="descripcion">{{FechaRequerimiento}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Persona de Contacto</td>
+                                    <td class="descripcion">{{NombreContacto}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Telefono </td>
+                                    <td class="descripcion">{{TelefonoContacto}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Celular </td>
+                                    <td class="descripcion">{{CelularContacto}}</td>
+                                </tr>
+                                <tr>
+                                    <td>E-mail </td>
+                                    <td class="descripcion">{{CorreoContacto}}</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td class="descripcion">PrimeServ-PE@mandieselturbo.com</td>
+                                </tr>
+                            </table>
+                            {{/ifCond}}
+                        </td>
+                    </Tr>
+                </table>
+                {{#ifCond paginaActual '==' 1 }}
+                <table style="margin-top:-30px">
+                    <tr>
+                        <td>Esta oferta ha sido publicada bajo nuestras Condiciones Generales de Venta</td>                        
+                    </tr>
+                    <tr>                        
+                        <td>{{nombre_servicio}}</td>
+                    </tr>
+                </table>
+                {{/ifCond}}
+            </div>
+            <div style="min-height: 200px;">
+                <table class='tableDetail' style="width:100%">
+                    <tr class='detailHeader'>
+                        <th colspan="2" style="text-align: left"><span>Embarcación-Planta:</span><span>{{Barco}}</span></th>
+                        <th> <span>IMO:</span><span>{{IMO}}</span></th>
+                        <th colspan="3"> <span>Moneda:</span><span>{{Moneda}}</span></th>
+                    </tr>
+                </table>
+                <table class='tableDetail' style="width:100%">
+                    <tr class='detailHeader'>
+                        <th style="text-align: left"><span>Tiempo entrega:</span><span>{{tiempo_entrega_servicio}}</span></th>
+                        <th> <span>Lugar:</span><span>{{lugar_servicio}}</span></th>
+                        <th> <span>Fecha Inicio:</span><span>{{fecha_inicio_servicio}}</span></th>
+                        <th> <span>Fecha Fin:</span><span>{{fecha_fin_servicio}}</span></th>
+                    </tr>
+                </table>
+                <table class='detalle' border=0>
+                    <tr class="">
+                        <th>Pos.</th>
+                        <th style="padding-left: 100px;padding-right: 100px;"> Description</th>
+                        <th>TOTAL</th>
+                    </tr>
+                    {{#each detalles as |lineas|}}
+                    <tr>
+                        <td style="font-size:12; text-align:center" valign="top"> {{lineas.posicion}}</td>
+                        <td style="font-size:12" valign="top"> {{lineas.descripcion_servicio}}<br/></td>
+                        <td style="font-size:12; text-align:right;" valign="top"> {{numeroFixed lineas.sub_total}}</td>
+                    </tr>
+                    {{/each}}
+                </table>
+            </div>
+            <!-- SUM Montos -->
+            {{#ifCond paginaActual '==' cantPaginas }}
+            <div >
+                <div class="col-lg-12 regionMontos">
+                    <table style=" width: 450px;">
+                        <tr>
+                            <td><b>SUB TOTAL</b></td>
+                            <td class="monto">{{numeroFixed SubTotal}}</td>
+                        </tr>
+                        <tr>
+                            <td><b>IGV {{Impuesto}}:</b></td>
+                            <td class="monto">{{numeroFixed MontoImpuesto}}</td>
+                        </tr>
+                        <tr>
+                            <td><b>TOTAL </b></td>
+                            <td style="position: relative;  border-top: 1px solid black;" class="monto"><span style="position: absolute;left: 0px;">{{Moneda}}</span><b>{{numeroFixed MontoTotal}}</b></td>
+                        </tr>
+                    </table>
+                </div>
+                <hr>
+               
+                <div class="col-lg-12">
+                    <p style=" font-size: 13px;"> <strong> MAN Diesel & Turbo Peru SAC </strong> <br><span> <span style=" color: red;"> PrimeServ </span>                        Lima-Perú </span>
+                    </p>
+                </div>
+                
+            </div>
+            <br/><br/>
+            
+            <div style="display:block">
+                PRECIO :
+                <ul>
+                    <li> Se entiende en Dólares Americanos (US$) más el Impuesto General a las Ventas (IGV) correspondiente.</li>
+                    <li> Para pagos en Soles, se aplicará el tipo de cambio vigente a la fecha de pago, (T.C. US$ – S/. Publicado
+                        en “El Peruano”).</li>
+                    <li> Son a cargo del cliente los montos resultantes de la creación y modificación de impuestos.</li>
+                    <li> El precio incluye materiales de consumo como trapo industrial, pegamento, lijas varias, entre otros.</li>
+                    <li> El precio no incluye trabajos de terceros.</li>
+                    <li> El precio incluye sólo gastos de traslado en Lima y Callao.</li>
+                    <li> El precio indicado en esta cotización es referencial. Se procederá a facturar las horas reales consignadas
+                        en el Time-Sheet de los técnicos.</li>
+                </ul>
+                <table style="width:100%;margin-bottom:2em">
+                    <tr>
+                        <td style="font-size:10px; vertical-align:top">FORMA DE PAGO:</td>
+                        <td style="font-size:10px"> {{terminos_condiciones}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="font-size:10px; vertical-align:top">VALIDEZ DE OFERTA:</td>
+                        <td style="font-size:10px; vertical-align:top">30 días</td>
+                </table>
+                CONDICIONES GENERALES * Si por causas no imputables a MAN Diesel&Turbo Perú S.A.C. los trabajos se interrumpieran, los tiempos
+                de espera los y/o gastos de estadía, el traslado a Lima y su consecuente retorno son por cuenta del cliente.
+                * Todo trabajo no indicado en la presente cotización será considerado como adicional y facturado por separado.
+                * Son a cargo del cliente los montos resultantes de la creación y modificación de impuestos.
+            </div>
+
+           
+            <div class="regionFirmas">
+                    <table>
+                        <tr>
+                            <td class="colIzq">
+                                <table>
+                                    <tr>
+                                        <td><img width="190px" src='http://localhost:8051/serv/img/firma{{idAprovador1}}'></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <p style="margin-top:-20px; text-align:center; vertical-align:top;">{{NombreAprobador1}}<br>{{CargoAprobador1}}</p>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                            <td class="middleSpace"> </td>
+                            <td class="colDer">
+                                <table>
+                                    <tr>
+                                        <td><img width="190px" src='http://localhost:8051/serv/img/firma{{idAprovador2}}'></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <p style="margin-top:-20px; text-align:center; vertical-align:top;">{{NombreAprobador2}} <br> {{CargoAprobador2}}</p>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                {{/ifCond}}
+            <div class="piePagina">
+                <table>
+                    <tr>
+                        <td class="piePaginaLeft">
+                            <span>MAN Diesel Turbo PERU S.A.C </span><br>
+                            <span>{{direccionEmpresa}}</span><br>
+                            <span>{{distritoEmpresa}}, Lima-Perú</span>
+                        </td>
+                        <td class="piePaginaRight">
+                            <span>Tel:{{telefonoEmpresa}}</span><br>
+                            <span>{{correoEmpresa}}</span><br>
+                            <span>RUC: 20563282381</span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        {{/each}}
+    </section>
+</body>
+
+</html>

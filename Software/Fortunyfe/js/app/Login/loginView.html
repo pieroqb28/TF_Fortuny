@@ -1,0 +1,67 @@
+	<div class="loginPronos">
+	<div class="container-fluid">
+		<!--  Panel de Loggeo -->
+		<article class="articleLogin">
+			<section class="primeraSeccion">
+			<div class="panel panel-primary">
+			<div class="contenedor-login">
+				<img class="loggin-logo" src="img/fortuny.png" />
+				<!--<p class="lineaRoja"></p>-->
+			</div>
+			<div class="complementoDeLogin"></div>
+			<div class="panel-body">
+				<!-- Formulario de ingreso-->
+				<form class="form-horizontal" name="logginForm" novalidate ng-submit="submitForm(logginForm.$valid)">
+					<fieldset>
+						<div class="inputLoginBlock">
+							<div ng-class="{ 'has-error' : logginForm.usuario.$invalid   && submitted  }">
+								<input type="email"  name="usuario" class="form-control k-texbox inputLoggin" placeholder="Ingrese su usuario" ng-model="formData.usuario"
+									required>
+								<!--- <span ng-show="!logginForm.$pristine && logginForm.usuario.$error.required">El campo Usuario es obligatorio</span> -->
+							</div>
+							<div ng-class="{ 'has-error' : logginForm.password.$invalid   && submitted  }">
+								<input type="password" name="password" class="form-control k-texbox inputLoggin" placeholder="Ingrese su contraseña" ng-model="formData.password"
+									required>
+								<!-- <span ng-show="!logginForm.$pristine && logginForm.password.$error.required">El campo Usuario es obligatorio</span>-->
+							</div>
+							<p class="errorText">{{erroresLoggin}}</p>
+						</div> 
+						<div class="inputLoginBlock2">
+							<div>
+								<div class="recuperarContrasena">
+									<label> <a href="#/recuperarClave">¿Olvidastes tu  contraseña????</a> </label>
+								</div>
+								<div class="ingresar">
+									<button type="submit" class="btn btn-ingresar">Ingresar</button>
+								</div>
+							</div>
+						</div>
+					</fieldset>
+				</form>
+				<!-- /Formulario de ingreso-->
+			</div>
+			<div class="tercerDiv"></div>
+		</div>
+
+
+			</section>
+
+		<!-- /Panel de Loggeo  -->
+		<section class="segundaSeccion">
+		<div class="imagenPronosEmoji">
+			<img src="img/segundaImagen.png" alt="">
+		</div>
+		</section>
+
+
+
+
+		</article>
+
+	</div>
+</div>
+<pwd-incorrecto></pwd-incorrecto>
+
+
+
+

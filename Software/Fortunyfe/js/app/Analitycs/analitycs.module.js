@@ -1,0 +1,1 @@
+var HISAnalitycs = angular.module('HIS.Analitycs', [])

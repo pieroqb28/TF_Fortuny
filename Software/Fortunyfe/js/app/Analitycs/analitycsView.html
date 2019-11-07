@@ -1,0 +1,334 @@
+
+<div style="display: flex;
+height: calc(100vh - 64px);">
+    <div>
+<section class="Sidebar__SidebarContainer-ki0owo-0 haxdOh" style="height: 100%;
+width: 200px;display: flex; flex-direction: column;padding-top: 24px;padding-left: 24px;padding-right: 16px;
+background: white;border-right: 1px solid rgb(237, 237, 245);">
+    <p color="#B9B8C8" size="1" class="H__Sr-dy2l6u-4 ddRObw" style="font-size: 18px;
+    font-family: Rubik, sans-serif;color: rgb(185, 184, 200);text-transform: uppercase;
+    margin: 0px; text-align: left;  margin-bottom: 24px;">
+        <span>reports</span>
+    </p>
+    <div class="TitleLinksContainer-sc-1x213he-0 imZtzu" style="margin-bottom: 48px; width: 100%;">
+        <div class="TitleLink-sc-1u5w537-0 cXMvPS" style="display: flex;
+        -webkit-box-align: center; align-items: center;margin-bottom: 8px;cursor: pointer;">
+            <p size="14" color="purpleText" class="Text__StyledText-sc-14s2wwi-0 fZhkBT" style="font-family: Rubik, sans-serif;
+            color: rgba(39, 0, 56, 0.73);font-size: 14px; font-weight: 600;
+            margin: 0px;transition: all 0.1s ease-in-out 0s;    ">
+                <span>All reports</span>
+            </p>
+        </div>
+        <div data-tip="true" data-for="cantCreateReports" class="TitleLink-sc-1u5w537-0 bpAEbO"style="display: flex;
+        -webkit-box-align: center; align-items: center;margin-bottom: 8px;cursor: pointer;">
+            <p size="14" color="purpleText" class="Text__StyledText-sc-14s2wwi-0 fZhkBT"style="font-family: Rubik, sans-serif;
+            color: rgba(39, 0, 56, 0.73);font-size: 14px; font-weight: 600;
+            margin: 0px;transition: all 0.1s ease-in-out 0s;">
+                <span>New report</span>
+            </p>
+        </div>
+    </div>
+    <p color="#B9B8C8" size="1" class="H__Sr-dy2l6u-4 ddRObw" style="font-size: 18px;
+    font-family: Rubik, sans-serif; color: rgb(185, 184, 200);text-transform: uppercase; margin: 0px; text-align: left;     margin-bottom: 24px;">
+        <span>All reports</span>
+    </p>
+    <div height="calc(100vh - 215px)" class="LinksContainer-sc-3oeh9t-0 kvbHdn" style="height: calc(100vh - 215px);
+    margin-bottom: 16px;overflow: auto;">
+        <div ng-repeat="report in reports" data-tip="true" style="    display: flex;
+        -webkit-box-pack: justify; justify-content: space-between; -webkit-box-align: center;
+        align-items: center; margin-bottom: 8px; cursor: pointer;">
+            <p size="12" color="purpleText" class="Text__StyledText-sc-14s2wwi-0 kkssvP" style="    font-family: Rubik, sans-serif;
+            color: rgba(39, 0, 56, 0.73);
+            font-size: 12px;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            margin: 0px;
+            transition: all 0.1s ease-in-out 0s;
+            overflow: hidden;">{{report.name}}</p>
+            <p size="14" color="purpleText" class="Text__StyledText-sc-14s2wwi-0 jVWGSm" style="    font-family: Rubik, sans-serif;
+            color: rgba(39, 0, 56, 0.73);
+            font-size: 14px;
+            margin: 0px;
+            transition: all 0.1s ease-in-out 0s;">{{report.post}}</p>
+        </div>
+    </div>
+
+
+</section>
+</div>
+<section id="report"  style="display: none;width: 100%;flex-direction: column;
+background: rgb(249, 249, 249);">
+        <section style="height: 100%;display: flex;flex-direction: column;
+        -webkit-box-pack: center;justify-content: center;-webkit-box-align: center;
+        align-items: center;">
+            <h3 style="font-weight: 600;">Enter a Report name</h3>
+            <form name="ListForm">
+                <div class="input-0 Input__InputStyled-sc-1245tva-0 jvlqwU ">
+                    <div class="label-warn-div">
+                    </div>
+                    <input type="text" name="name" placeholder="Report name" id="name" 
+                   style="box-sizing: border-box;width: 100%; height: 32px;
+                   background-color: rgb(255, 255, 255);font-size: 14px;
+                   border-width: 1px; border-style: solid;border-color: rgb(197, 197, 210);
+                   border-image: initial;margin: 8px 0px;padding: 8px;
+                   border-radius: 2px;" value=""  ng-model="formGrabarLista.name">
+                </div>
+                <div class="input-0 Input__InputStyled-sc-1245tva-0 jvlqwU ">
+                        <h3 style="font-weight: 600;">Add first post URL to analyze</h3>
+                        <div class="label-warn-div">
+                        </div>
+                        <input type="text" name="name" placeholder="URL" id="name" 
+                       style="box-sizing: border-box;width: 100%; height: 32px;
+                       background-color: rgb(255, 255, 255);font-size: 14px;
+                       border-width: 1px; border-style: solid;border-color: rgb(197, 197, 210);
+                       border-image: initial;margin: 8px 0px;padding: 8px;
+                       border-radius: 2px;" value="" ng-model="formGrabarLista.url">
+                </div>
+                <span class="errors"> </span>
+               
+            </form>
+            <button style="color: white;background: rgb(238, 13, 97);    font-size: 14px;
+            font-weight: 400; line-height: 14px; text-transform: uppercase;
+            padding: 9px 32px;border-width: initial; border-style: none; border-color: initial;
+            border-image: initial;border-radius: 4px" type="submit" ng-click="crearReporte(formGrabarLista,ListForm.$valid)">
+                <span>continue</span>
+            </button>
+            
+        </section>
+</section> 
+<section id="table" style="display: flex;
+width: 100%;
+flex-direction: column;
+background: rgb(249, 249, 249);">
+        <section style="position: relative;background-color: rgb(255, 255, 255);height: 57px;
+        z-index: 2;display: flex;-webkit-box-pack: center;justify-content: center;
+        -webkit-box-align: center;align-items: center;flex-shrink: 0;
+        padding: 0px 40px 0px 32px;border-bottom: 1px solid rgb(237, 237, 245);">
+            <div class="title " style="top: 0px; height: 100%;display: flex;-webkit-box-align: center;
+            align-items: center;font-size: 24px;position: absolute;left: 40px;">
+                <span></span>
+            </div>
+            <div class="middle-section" style="height: 100%;"> 
+            </div>
+            <div class="actions-section" style="position: absolute;right: 32px;display: flex;
+            top: 0px;height: 100%;-webkit-box-align: center;align-items: center;">   
+                <button class="Button__ButtonStyled-sc-1tw243m-0 umtuf
+                primary" style="font-size: 14px;font-weight: 400;line-height: 14px;
+                color: rgb(238, 13, 97);text-transform: uppercase;
+                padding: 9px 32px;border-width: initial;border-style: none;
+                border-color: initial;border-image: initial;background: rgb(238, 13, 97);
+                border-radius: 4px;" ng-click="reportView()">
+                <span><span style="font-size: 14px;font-weight: 400;line-height: 14px;
+                color:white ; text-transform: uppercase;">new report</span>
+                </span>
+                </button>
+            </div>
+       
+        </section>
+            <div>
+            <section style="display: flex;overflow-x: hidden;height: calc(100vh - 212px);padding: 40px 32px 0px;">
+                <section style="width: 100%; padding-top: 40px;position: relative;
+                background: white;border-radius: 4px;">
+                    <div id="gridOrdenCompra" class="tablaListar" kendo-grid="gridOrdenCompra" k-data-source="registrations" k-selectable="'row'"
+                    k-columns="registrationsColumns"  k-sortable="false" k-on-change="selectedItem = data" k-auto-bind="false" ></div> 
+                </section>        
+            </section>
+        </div>
+</section>
+
+</div>
+
+
+
+<!--
+<div style="display: flex;
+-webkit-box-align: center;
+align-items: center;
+height: 56px;
+flex-shrink: 0;
+background-color: rgb(255, 255, 255);
+-webkit-box-pack: justify;
+justify-content: space-between;
+padding: 0px 32px;
+border-bottom: 1px solid rgb(234, 234, 242);">
+
+    <h1 size="20" style="    font-family: Rubik, sans-serif;
+    color: rgb(39, 0, 56);
+    font-size: 20px;
+    margin: 0px;
+    transition: all 0.1s ease-in-out 0s;">Overview</h1>
+
+    <div class="Flex__StyledFlex-sc-1akhess-0 giADlB" style="
+    margin: 0px;
+   
+    display: flex;">
+       
+        <button color="primary" style="    font-family: Rubik, sans-serif;
+        box-sizing: border-box;
+        text-align: center;
+        display: flex;
+        -webkit-box-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        justify-content: center;
+        cursor: pointer;
+        font-weight: 500;
+        flex-shrink: 0;
+        -webkit-box-flex: initial;
+        flex-grow: initial;
+        line-height: 16px;
+        font-size: 14px;
+        height: 32px;
+        color: white;
+        border-radius: 4px;
+        transition: all 0.2s ease-in-out 0s;
+        background: rgb(238, 13, 97);
+        padding: 0px 16px;
+        border-width: initial;
+        border-style: none;
+        border-color: initial;
+        border-image: initial;" class="Button__StyledButton-sc-1lzph0c-0 kSkklH">
+            
+            Create influencer
+        </button>
+        <div size="8"  style="margin-bottom:0px;width: 8px; height: 100%;"></div>
+        <button color="primary" style="    font-family: Rubik, sans-serif;
+        box-sizing: border-box;
+        text-align: center;
+        display: flex;
+        -webkit-box-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        justify-content: center;
+        cursor: pointer;
+        font-weight: 500;
+        flex-shrink: 0;
+        -webkit-box-flex: initial;
+        flex-grow: initial;
+        line-height: 16px;
+        font-size: 14px;
+        height: 32px;
+        color: rgb(238, 13, 97);
+        border-radius: 4px;
+        border-width: 1px;
+        border-style: solid;
+        transition: all 0.2s ease-in-out 0s;
+        padding: 0px 16px;
+        border-color: rgb(238, 13, 97);
+        background: none !important;"class="Button__StyledButton-sc-1lzph0c-0 jMwCGD">
+            <svg color="primary" width="16px" height="16px" viewBox="0 0 1024 1024" 
+            class="Svg-sc-14aerh-0 iYKOmp">
+            </svg>Create list</button>
+        </div>
+
+
+
+</div>
+<div  style="display: flex; -webkit-box-pack: justify; justify-content: space-between;
+background-color: white; height: 100%;">
+<div style="box-shadow: rgba(0, 0, 0, 0.04) 2px 0px 4px 0px; z-index: 1;">
+
+
+    <div style="display: flex; flex-direction: column;height: 100%; flex-shrink: 0;
+    margin-right: 6px; width: 370px;padding: 24px 0px 0px 28px;">
+        <div style="display: flex; -webkit-box-pack: justify;justify-content: space-between;-webkit-box-align:center;
+        align-items: center;padding-right: 12px; padding-left: 4px;flex-shrink: 0;">
+            <p color="purpleTitle" size="3" style="    font-size: 16px;font-family: Rubik, sans-serif;
+            color: rgb(39, 0, 56);text-transform: none;font-weight: 500;margin: 0px;">
+                Influencers
+            </p>
+            <div style="display: flex;-webkit-box-align: center;align-items: center;
+            -webkit-box-pack: center;justify-content: center;">
+                <button color="default" style="font-family: Rubik, sans-serif;
+                box-sizing: border-box; text-align: center;display: flex;
+                -webkit-box-align: center; align-items: center; -webkit-box-pack: center;
+                justify-content: center; cursor: pointer; font-weight: 500; flex-shrink: 0;
+                -webkit-box-flex: initial;flex-grow: initial;font-size: 12px; height: 24px;
+                color: rgb(124, 113, 148);border-radius: 4px; transition: all 0.2s ease-in-out 0s;
+                padding: 0px 16px; border-width: initial; border-style: none;
+                border-color: initial;border-image: initial;margin: 0px; background: none !important;">
+                    <svg color="inherit" width="20px" height="20px" viewBox="0 0 1024 1024" 
+                    style="vertical-align: middle;display: flex;color: inherit;transition: all 0.1s ease-in-out 0s;">
+                    </svg>
+                </button>
+                <button color="default" style="    font-family: Rubik, sans-serif; box-sizing: border-box;
+                text-align: center; display: flex; -webkit-box-align: center;
+                align-items: center; -webkit-box-pack: center; justify-content: center; cursor: pointer;
+                font-weight: 500;flex-shrink: 0;-webkit-box-flex: initial; flex-grow: initial;
+                font-size: 12px;height: 24px;color: rgb(124, 113, 148); border-radius: 4px;
+                border-width: 1px;border-style: solid;transition: all 0.2s ease-in-out 0s;
+                padding: 0px 16px; border-color: rgb(124, 113, 148); margin: 0px;background: none !important;">
+                    See all
+                </button>
+            </div>
+        </div>
+        <div size="12" style="width: 100%;margin-bottom: 12px;">
+        </div>
+        <div style="display: flex;">
+            <div size="4" style="height: 100%;margin-bottom: 0px;width: 4px;">
+            </div>
+            <div style="display: flex;-webkit-box-align: center;align-items: center;
+            flex-direction: column; cursor: pointer;">
+                <svg color="primary" width="20px" height="20px" viewBox="0 0 1024 1024" 
+                class="Svg-sc-14aerh-0 iYKOmp">
+                </svg>
+                <p color="primary" size="12" style="    font-family: Rubik, sans-serif;color: rgb(238, 13, 97);
+                font-size: 12px;margin: 0px;transition: all 0.1s ease-in-out 0s;">
+                    Network
+                </p>
+            </div>
+            <div size="32" style="    height: 100%;margin-bottom: 0px;width: 32px;">
+            </div>
+            <div style="display: flex;-webkit-box-align: center;align-items: center;
+            flex-direction: column;cursor: pointer;">
+                <svg color="lightText" width="20px" height="20px" viewBox="0 0 1024 1024" 
+                class="Svg-sc-14aerh-0 efAQSq">
+                </svg>
+                <p color="lightText" size="12" class="Text__StyledText-sc-14s2wwi-0 GYxsE">
+                    Favorites
+                </p>
+            </div>
+        </div>
+        <div style="padding-right: 12px;margin-left: 4px;">
+            <div size="8" style="width: 100%;margin-bottom: 8px;">
+            </div>
+            <div>
+                <label for="search" style="    font-family: Rubik, sans-serif;font-size: 12px;
+                font-weight: 500;line-height: 16px;margin-bottom: 4px;
+                text-transform: capitalize;color: rgb(39, 0, 56);">
+                </label>
+                <div style="position: relative;">
+                    <svg width="20px" height="20px" viewBox="0 0 1024 1024" class="Svg-sc-14aerh-0 eLvMqY">
+                    </svg>
+                    <input type="text" name="search" value="" id="search" placeholder="Search" 
+                    style="width: 100%; box-sizing: border-box; font-size: 13px;
+                    line-height: 17px;background-color: rgb(237, 237, 243);
+                    color: rgb(150, 142, 169);height: 24px;border-radius: 3px;
+                    padding: 8px 8px 8px 24px; border-width: 0px; transition: padding 0.1s ease-in-out 0s;">
+                    <span style="font-family: Rubik, sans-serif; font-size: 10px;
+                    line-height: 16px; margin-top: 4px;color: rgb(124, 113, 148);">
+                    </span>
+                </div>
+            </div>
+            <div size="8" style="    width: 100%;margin-bottom: 8px;">
+            </div>
+        </div>
+        <div height="calc( 100vh - 262px )" style="    display: flex; flex-direction: column;
+        overflow-y: auto;height: calc(100vh - 262px);min-width: 336px;">
+        </div>
+    </div>
+
+</div>
+<div style="display: flex; flex-direction: column;-webkit-box-flex: 1;flex-grow: 1; 
+background-color: rgb(248, 248, 250); height: calc(100vh - 120px); overflow-y: auto; padding: 24px 16px;">
+
+</div>
+<div style="box-shadow: rgba(0, 0, 0, 0.04) -2px 0px 4px 0px; z-index: 1;">
+
+</div>
+
+
+  
+</div>
+<confirmar-eliminacion></confirmar-eliminacion>
+<!---->

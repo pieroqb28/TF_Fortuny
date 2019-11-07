@@ -1,0 +1,376 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<style>
+			*{
+				font-family: "Liberation Sans", Arial;
+			}
+			.mainHeader{
+				background-color:yellow;
+				width:100%;
+				margin-top: 10px;
+				border-collapse: collapse;
+				margin-bottom: 40px;
+				margin-top:10px;
+			}
+			.mainHeader > span {
+				padding-left: 10px;
+				padding-right: 10px;
+				position:relative;
+			}
+			.tableProvider{
+				width:100%;
+				border:2px solid black;
+				margin-bottom: 10px;
+				border-collapse: collapse;
+			}
+			.tableProvider  tr  td, .tableProvider tr th{
+				border: 1px solid black;
+				border-collapse: collapse;
+			}
+			.wrapperTables{
+				width:100%;
+			}
+			.tipoCambio{
+				position:absolute;
+				bottom:-20px;
+				left: 40px;
+			}
+			.generalTable{
+				vertical-align: top;
+				border: 2px solid black;
+				display: inline-block;
+				width: 60%;
+				border-collapse: collapse;
+			}
+			.generalTable tr td, .generalTable tr th, .conversionPENTable tr th, .conversionPENTable tr td {
+				border: 1px solid black;
+				border-collapse: collapse;;
+			}
+			.gapBtwTables{
+				display: inline-block;
+				width: 9.0%;
+			}
+			.conversionPENTable{
+				vertical-align: top;
+				display: inline-block;
+				width: 30%;
+				border: 2px solid black;
+				border-collapse: collapse;
+			}
+		</style>
+	</head>
+	<body style ="box-sizing:border-box; padding-right: 40px; padding-top: 10px;">
+		<span style="width:100%; display:block; text-align:center">Internal Balance Sheet</span>
+		<div class="mainHeader">
+			<span>Proyecto: {{codigoProyecto}}</span>
+			<span>T/C: USD to PEN:<span class="tipoCambio">{{tipoCambio}}</span></span>
+		</div>
+		<table class="tableProvider">
+			<tr>
+				<th></th>
+				<th>W/TVL</th>
+				<th>N/8H</th>
+				<th>OVT/N</th>
+				<th>SAT/N</th>
+				<th>SAT/OVT</th>
+				<th>SH</th>
+				<th>TOTAL HOURS</th>
+				<th>COST x HOUR</th>
+				<th>TOTAL</th>
+			</tr>
+			{{#each tablaSuperior as |item|}}
+			<tr>
+				<td>{{item.proveedor}}</td>
+				<td style="text-align:right;">{{item.WTVL}}</td>
+				<td style="text-align:right;">{{item.N8H}}</td>
+				<td style="text-align:right;">{{item.OVTN}}</td>
+				<td style="text-align:right;">{{item.SATN}}</td>
+				<td style="text-align:right;">{{item.SATOVT}}</td>
+				<td style="text-align:right;">{{item.SH}}</td>
+				<td style="text-align:right;">{{item.TotalHours}}</td>
+				<td style="text-align:right;">USD {{numeroFixed item.CostxHour}}</td>
+				<td style="text-align:right;">USD {{numeroFixed item.Total}}</td>
+			</tr>
+			{{/each}}
+		</table>
+		<div class="wrapperTables">
+			<table class="generalTable">
+				<tr>
+					<td colspan="4" >Order Cost: USD</th>
+				</tr>
+				<tr>
+					<th></th>
+					<th>Total Hours</th>
+					<th>Cost</th>
+					<th>Total</th>
+				</tr>
+				<tr>
+					<td colspan="4" style="font-weight:bolder;">1.Personnel</td>
+				</tr>
+				{{#each personnel}}
+				<tr>
+					<td style="padding-left:40px;">{{nombre}}</td>
+					<td style="text-align:right;">{{TotalHours}}</td>
+					<td style="text-align:right;"></td>
+					<td style="text-align:right;">{{numeroFixed Total}}</td>
+				</tr>
+				{{/each}}
+				<tr>
+					<td colspan="4"><b>2.Travelling Costs</b></td>
+				</tr>
+				{{#each travellingCosts as |trvc|}}
+				<tr>
+					<td style="padding-left:40px;">{{trvc.nombre}}</td>
+					<td style="text-align:right;"></td>
+					<td style="text-align:right;">{{numeroFixed trvc.dolarCost}}</td>
+					<td style="text-align:right;">{{numeroFixed trvc.dolarCost}}</td>
+				</tr>
+				{{/each}}
+				<tr>
+					<td colspan="4"><b>3.Subcontractor Service</b></td>
+				</tr>
+				
+				<tr>
+					<td colspan="4"><b>4.SubContractor Spare Parts</b></td>
+				</tr>
+				{{#each subContractorSparePartsNational as |sp1|}}
+				<tr>
+					<td style="padding-left:40px;">{{sp1.nombre}}</td>
+					<td style="text-align:right;"></td>
+					<td style="text-align:right;">{{numeroFixed sp1.dolarCost}}</td>
+					<td style="text-align:right;">{{numeroFixed sp1.dolarCost}}</td>
+				</tr>
+				{{/each}}
+				{{#each subContractorSparePartsInternational as |sp2|}}
+				<tr>
+					<td style="padding-left:40px;">{{sp2.nombre}}</td>
+					<td style="text-align:right;"></td>
+					<td style="text-align:right;">{{numeroFixed sp2.dolarCost}}</td>
+					<td style="text-align:right;">{{numeroFixed sp2.dolarCost}}</td>
+				</tr>
+				{{/each}}
+				<tr>
+					<td colspan="4"><b>5.Gastos Nacionales</b></td>
+				</tr>
+				{{#each gastosNacionales as |gn|}}
+				<tr>
+					<td style="padding-left:40px;">Aduana</td>
+					<td style="text-align:right;"></td>
+					<td style="text-align:right;">{{numeroFixed gn.dolaraduana}}</td>
+					<td style="text-align:right;">{{numeroFixed gn.dolaraduana}}</td>
+				</tr>
+			<!--	<tr>
+					<td style="padding-left:40px;">DUA</td>
+					<td style="text-align:right;"></td>
+					<td style="text-align:right;">{{numeroFixed gn.dolardua}}</td>
+					<td style="text-align:right;">{{numeroFixed gn.dolardua}}</td>
+				</tr> -->
+				<tr>
+					<td style="padding-left:40px;">Almacén</td>
+					<td style="text-align:right;"></td>
+					<td style="text-align:right;">{{numeroFixed gn.dolaralmacen}}</td>
+					<td style="text-align:right;">{{numeroFixed gn.dolaralmacen}}</td>
+				</tr>
+				<tr>
+					<td style="padding-left:40px;">Estiva / Destiva</td>
+					<td style="text-align:right;"></td>
+					<td style="text-align:right;">{{numeroFixed gn.dolarestivadestiva}}</td>
+					<td style="text-align:right;">{{numeroFixed gn.dolarestivadestiva}}</td>
+				</tr>
+				<tr>
+					<td style="padding-left:40px;">AdValorem</td>
+					<td style="text-align:right;"></td>
+					<td style="text-align:right;">{{numeroFixed gn.dolaradvalorem}}</td>
+					<td style="text-align:right;">{{numeroFixed gn.dolaradvalorem}}</td>
+				</tr>
+				<tr>
+					<td style="padding-left:40px;">Transporte</td>
+					<td style="text-align:right;"></td>
+					<td style="text-align:right;">{{numeroFixed gn.dolartransporte}}</td>
+					<td style="text-align:right;">{{numeroFixed gn.dolartransporte}}</td>
+				</tr>
+				{{/each}}
+				<!--<tr>
+					<td colspan="4"><b>6.Transport Costs</b></td>
+				</tr>
+				{{#each transportCosts as |trc|}}
+				<tr>
+					<td style="padding-left:40px;">{{trc.nombre}}</td>
+					<td style="text-align:right;"></td>
+					<td style="text-align:right;">{{numeroFixed trc.dolarCost}}</td>
+					<td style="text-align:right;">{{numeroFixed trc.dolarCost}}</td>
+				</tr>
+				{{/each}} -->
+				<tr>
+					<td colspan="4"><b>6.Consumables</b></td>
+				</tr>
+				{{#each consumables as |cons|}}
+				<tr>
+					<td style="padding-left:40px;">{{cons.nombre}}</td>
+					<td style="text-align:right;"></td>
+					<td style="text-align:right;">{{numeroFixed cons.dolarCost}}</td>
+					<td style="text-align:right;">{{numeroFixed cons.dolarCost}}</td>
+				</tr>
+				{{/each}}
+				<tr>
+					<td style="padding-left:40px;"><b>Total HK2</b></td>
+					<td></td>
+					<td></td>
+					<td style="text-align:right;">{{numeroFixed HK2.dolarCost}}</td>
+				</tr>
+				<tr>
+					<td style="padding-left:40px;"><b>TURNOVER</b></td>
+					<td></td>
+					<td></td>
+					{{#each turnover as |turn|}}
+					<td style="text-align:right;">{{numeroFixed turn.SumaDolares}}</td>
+					{{/each}}
+				</tr>
+				<tr>
+					<td style="padding-left:40px;"><b>CM2 USD</b></td>
+					<td></td>
+					<td></td>
+					<td style="text-align:right;">{{numeroFixed CM2.dolarCost}}</td>
+				</tr>
+				<tr>
+					<td style="padding-left:40px;"><b>CM2 %</b></td>
+					<td></td>
+					<td></td>
+					<td style="text-align:right;">{{numeroFixed CM2.dolarCostp}}%</td>
+				</tr>
+			</table>
+			<div class="gapBtwTables">
+				&nbsp;
+			</div>
+			<table class="conversionPENTable">
+				<tr>
+					<td colspan="3">Order Cost: PEN</th>
+					<tr>
+						<th>Total Hours</th>
+						<th>Cost</th>
+						<th>Total</th>
+					</tr>
+				<tr>
+					<td colspan="3" style="font-weight:bolder;">&nbsp;</td>
+				</tr>
+				{{#each personnel}}
+				<tr>
+					<td style="text-align:right;">{{TotalHours}}</td>
+					<td style="text-align:right;"></td>
+					<td style="text-align:right;">{{numeroFixed Cost}}</td>
+				</tr>
+				{{/each}}
+				<tr>
+					<td colspan="3">&nbsp;</td>
+				</tr>
+				{{#each travellingCosts as |trvc|}}
+				<tr>
+					<td style="text-align:right;">&nbsp;</td>
+					<td style="text-align:right;">{{numeroFixed trvc.Cost}}</td>
+					<td style="text-align:right;">{{numeroFixed trvc.Cost}}</td>
+				</tr>
+				{{/each}}
+				<tr>
+					<td colspan="3">&nbsp;</td>
+				</tr>
+				
+				<tr>
+					<td colspan="3">&nbsp;</td>
+				</tr>
+				{{#each subContractorSparePartsNational as |sp1|}}
+				<tr>
+					<td style="text-align:right;">&nbsp;</td>
+					<td style="text-align:right;">{{numeroFixed sp1.Cost}}</td>
+					<td style="text-align:right;">{{numeroFixed sp1.Cost}}</td>
+				</tr>
+				{{/each}}
+				{{#each subContractorSparePartsInternational as |sp2|}}
+				<tr>
+					<td style="text-align:right;">&nbsp;</td>
+					<td style="text-align:right;">{{numeroFixed sp2.Cost}}</td>
+					<td style="text-align:right;">{{numeroFixed sp2.Cost}}</td>
+				</tr>
+				{{/each}}
+				<tr>
+					<td colspan="3">&nbsp;</td>
+				</tr>
+				{{#each gastosNacionales as |gn|}}
+				<tr>
+					<td style="text-align:right;">&nbsp;</td>
+					<td style="text-align:right;">{{numeroFixed gn.aduana}}</td>
+					<td style="text-align:right;">{{numeroFixed gn.aduana}}</td>
+				</tr>
+				<!--<tr>
+					<td style="text-align:right;">&nbsp;</td>
+					<td style="text-align:right;">{{numeroFixed gn.dua}}</td>
+					<td style="text-align:right;">{{numeroFixed gn.dua}}</td>
+				</tr> -->
+				<tr>
+					<td style="text-align:right;">&nbsp;</td>
+					<td style="text-align:right;">{{numeroFixed gn.almacen}}</td>
+					<td style="text-align:right;">{{numeroFixed gn.almacen}}</td>
+				</tr>
+				<tr>
+					<td style="text-align:right;">&nbsp;</td>
+					<td style="text-align:right;">{{numeroFixed gn.estivadestiva}}</td>
+					<td style="text-align:right;">{{numeroFixed gn.estivadestiva}}</td>
+				</tr>
+				<tr>
+					<td style="text-align:right;">&nbsp;</td>
+					<td style="text-align:right;">{{numeroFixed gn.advalorem}}</td>
+					<td style="text-align:right;">{{numeroFixed gn.advalorem}}</td>
+				</tr>
+				<tr>
+					<td style="text-align:right;">&nbsp;</td>
+					<td style="text-align:right;">{{numeroFixed gn.transporte}}</td>
+					<td style="text-align:right;">{{numeroFixed gn.transporte}}</td>
+				</tr>
+				{{/each}}
+				<!--<tr>
+					<td colspan="3">&nbsp;</td>
+				</tr>
+				{{#each transportCosts as |trc|}}
+				<tr>
+					<td style="text-align:right;"></td>
+					<td style="text-align:right;">{{numeroFixed trc.Cost}}</td>
+					<td style="text-align:right;">{{numeroFixed trc.Cost}}</td>
+				</tr>
+				{{/each}} -->
+				<tr>
+					<td colspan="3">&nbsp;</td>
+				</tr>
+				{{#each consumables as |cons|}}
+				<tr>
+					<td style="text-align:right;"></td>
+					<td style="text-align:right;">{{numeroFixed cons.Cost}}</td>
+					<td style="text-align:right;">{{numeroFixed cons.Cost}}</td>
+				</tr>
+				{{/each}}
+				<tr>
+					<td>&nbsp;</td>
+					<td></td>
+					<td style="text-align:right;">{{numeroFixed HK2.Cost}}</td>
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+					<td></td>
+					{{#each turnover as |turn|}}
+					<td style="text-align:right;">{{numeroFixed turn.SumaSoles}}</td>
+					{{/each}}
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+					<td></td>
+					<td style="text-align:right;">{{numeroFixed CM2.Cost}}</td>
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+					<td></td>
+					<td style="text-align:right;">{{numeroFixed CM2.dolarCostp}}%</td>
+				</tr>
+			
+			</table>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,126 @@
+<div ng-controller='menuController'>
+	<nav class="navbar navbar-default" role="navigation">
+		<!-- El logotipo y el icono que despliega el menú se agrupan
+para mostrarlos mejor en los dispositivos móviles -->
+		<div style="padding-bottom: 1em;padding-top: 1em;padding-right: 2em;    padding-left: 1em;">
+			<div class="navbar-header" style="width: 250px;
+			flex-shrink: 0;
+			display: flex;
+			flex-direction: column">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+					<span class="sr-only">Desplegar navegación</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#/"><img src="../img/fortuny.png" alt="MAN" width="70px" style="margin-right: 1em;    width: 55%;
+					margin-top: -49px;"></a>
+			</div>
+			<!-- Agrupar los enlaces de navegación, los formularios y cualquier otro elemento que se pueda ocultar al minimizar la barra -->
+			<div class="collapse navbar-collapse navbar-ex1-collapse">
+				<ul class="nav navbar-nav menu">
+					<!-- Dropdown Administración -->
+					<li  ng-repeat="modulo in modulos" style="padding-right: 10px;">
+						<button id="btn-append-to-body" type="button" class="btn botonMenu"
+						 ng-if=' modulo.nombre != "Mi Cuenta"'
+						> <a class="botonMenu" href="{{modulo.funcionalidades[0].url}}"> {{modulo.nombre}}</a>
+						</button>
+						<!--<ul class="dropdown-menu" role="menu" aria-labelledby="btn-append-to-body">
+							<li role="menuitem" ng-repeat="modulo in modulos"><a href="{{modulo.url}}">{{modulo.url}}</a></li>
+						</ul>	-->
+					</li>
+				<!--
+					<button id="btn-append-to-body" type="button" class="btn botonMenu"
+					 ng-if="!soloLectura" ng-click="tipoCambioActualizar()">Tipo Cambio </button>-->
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<!-- Dropdown Usuario -->
+					
+					<li class="dropdown" uib-dropdown dropdown-append-to-body ng-repeat="modulo in modulos">
+						<button id="btn-append-to-body" type="button" class="btn botonMenu dropdown-toggle" ng-if='modulo.nombre === "Mi Cuenta"'
+							uib-dropdown-toggle>{{modulo.nombre}} <span class="caret"></span></button>
+						<ul class="dropdown-menu" role="menu" aria-labelledby="btn-append-to-body">
+							<li role="menuitem" ng-repeat="func in modulo.funcionalidades" ng-if='func.funcionalidad != "Cerrar Sesión"'><a href="{{func.url}}">{{func.funcionalidad}}</a></li>
+							<li role="menuitem" ng-repeat="func in modulo.funcionalidades" ng-click="cerrarSesion()" ng-if='func.funcionalidad == "Cerrar Sesión"'><a href="{{func.url}}">{{func.funcionalidad}}</a></li>
+						</ul>
+					</li>
+
+				</ul>
+			</div>
+		</div>
+		<p class="lineaRoja"></p>
+	</nav>
+
+
+	<div class="modal fade" id="popupactualizarTipoCambio" tabindex="-1" role="dialog" aria-labelledby="popupactualizarTipoCambio"
+		aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title">Tipo de Cambio </h4>
+				</div>
+				<div class="modal-body">
+
+					<ul class="form-group">
+						<li class="formTitulo" style="width: 20%">
+							<span>Fecha</span>
+						</li>
+						<li class="formControl dtpicker">
+							<span>:</span><input id="dpFechaTipoCambio" ng-model="actualizarTC_fecha.fecha" ng-change="traerTipoCambio()" />
+						</li>
+					</ul>
+
+
+					<ul class="form-group">
+						<li class="formTitulo" style="width: 20%">
+							<span>Cambio a</span>
+						</li>
+						<li class="formControl dtpicker">
+							<span>:</span><select id="inputMoneda" name="inputMoneda" ng-model="actualizarTC_fecha.moneda" required style="width: 155px;"
+								ng-change="traerTipoCambio()">
+			                <option value="USD">Dolares</option>         
+			              </select>
+						</li>
+					</ul>
+
+					<ul class="form-group">
+						</li>
+						<li class="formControl dtpicker">
+							<span>:</span><input class="k-textbox" ng-model="actualizarTC_fecha.valor_tipo_cambio" />
+						</li>
+					</ul>
+
+					<!-- <p class="errorText" ng-if="tipo_cambio_vacio">Campo Obligatorio</p> -->
+				</div>
+				<div class="modal-footer">
+					<div style="position: relative;margin-bottom: 20px;margin-top: 5px;" ng-show="mostrarMensajeAviso">
+						<div class="k-widget k-notification k-notification-info" style="width:48%;padding-right: 30px;position: absolute;right: 0px;">El tipo de cambio ha sido actualizado</div>
+					</div>
+					<button type="button" class="k-button btn-aceptar" ng-click="grabarTipoCambio()">Aceptar</button>
+					<button type="button" class="k-button btn-cancelar" data-dismiss="modal">Cancelar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+</div>
+<div class="modal fade" id="popupCerrarSesion" tabindex="-1" role="dialog" aria-labelledby="popupCerrarSesion" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<h4>{{errorTittle}}</h4>
+			<h5>{{errorMensaje}}</h5>
+			<div class="modal-footer piePuppap">
+				<button ng-if='errorFuncion=="reanudarPantalla"' type="button" class="btn btn-default" ng-click="reanudarPantalla()" data-dismiss="modal">Aceptar</button>
+				<button ng-if='errorFuncion=="cierreDeSesion"' type="button" class="btn btn-default" ng-click="cierreDeSesion()" data-dismiss="modal">Aceptar</button>
+				<button ng-if='errorFuncion=="ningunaFuncion"' type="button" class="btn btn-default" data-dismiss="modal">Aceptar</button>
+			</div>
+		</div>
+	</div>
+</div>
+<script>	
+	$("#dpFechaTipoCambio").kendoDatePicker({ culture: "es-ES", format: "dd/MM/yyyy"	}); 
+</script>
+

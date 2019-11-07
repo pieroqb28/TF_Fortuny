@@ -1,0 +1,1150 @@
+<style>
+.active, .inactive {
+    font-size: 15px!important; 
+    cursor: pointer;
+    color: rgb(238, 13, 97)!important;
+    border-bottom: 4px solid;
+    
+    }
+</style>
+
+<div style="display: flex;
+height: calc(100vh - 64px);">
+    <div>
+            <section class="Sidebar__SidebarContainer-ki0owo-0 haxdOh" style="height: 100%;
+            width: 200px;display: flex; flex-direction: column;padding-top: 24px;padding-left: 24px;padding-right: 16px;
+            background: white;border-right: 1px solid rgb(237, 237, 245);">
+                <p color="#B9B8C8" size="1" class="H__Sr-dy2l6u-4 ddRObw" style="font-size: 18px;
+                font-family: Rubik, sans-serif;color: rgb(185, 184, 200);text-transform: uppercase;
+                margin: 0px; text-align: left;  margin-bottom: 24px;">
+                    <span>reports</span>
+                </p>
+                <div class="TitleLinksContainer-sc-1x213he-0 imZtzu" style="margin-bottom: 48px; width: 100%;">
+                    <div class="TitleLink-sc-1u5w537-0 cXMvPS" style="display: flex;
+                    -webkit-box-align: center; align-items: center;margin-bottom: 8px;cursor: pointer;">
+                        <p size="14" color="purpleText" class="Text__StyledText-sc-14s2wwi-0 fZhkBT" style="font-family: Rubik, sans-serif;
+                        color: rgba(39, 0, 56, 0.73);font-size: 14px; font-weight: 600;
+                        margin: 0px;transition: all 0.1s ease-in-out 0s;    ">
+                            <span>All reports</span>
+                        </p>
+                    </div>
+                    <div data-tip="true" data-for="cantCreateReports" class="TitleLink-sc-1u5w537-0 bpAEbO"style="display: flex;
+                    -webkit-box-align: center; align-items: center;margin-bottom: 8px;cursor: pointer;">
+                        <p size="14" color="purpleText" class="Text__StyledText-sc-14s2wwi-0 fZhkBT"style="font-family: Rubik, sans-serif;
+                        color: rgba(39, 0, 56, 0.73);font-size: 14px; font-weight: 600;
+                        margin: 0px;transition: all 0.1s ease-in-out 0s;">
+                            <span>New report</span>
+                        </p>
+                    </div>
+                </div>
+                <p color="#B9B8C8" size="1" class="H__Sr-dy2l6u-4 ddRObw" style="font-size: 18px;
+                font-family: Rubik, sans-serif; color: rgb(185, 184, 200);text-transform: uppercase; margin: 0px; text-align: left;     margin-bottom: 24px;">
+                    <span>All reports</span>
+                </p>
+                <div height="calc(100vh - 215px)" class="LinksContainer-sc-3oeh9t-0 kvbHdn" style="height: calc(100vh - 215px);
+                margin-bottom: 16px;overflow: auto;">
+                    <div ng-repeat="report in reportsColumn" data-tip="true" style="    display: flex;
+                    -webkit-box-pack: justify; justify-content: space-between; -webkit-box-align: center;
+                    align-items: center; margin-bottom: 8px; cursor: pointer;">
+                        <p size="12" color="purpleText" class="Text__StyledText-sc-14s2wwi-0 kkssvP" style="    font-family: Rubik, sans-serif;
+                        color: rgba(39, 0, 56, 0.73);
+                        font-size: 12px;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                        margin: 0px;
+                        transition: all 0.1s ease-in-out 0s;
+                        overflow: hidden;">{{report.name}}</p>
+                        <p size="14" color="purpleText" class="Text__StyledText-sc-14s2wwi-0 jVWGSm" style="    font-family: Rubik, sans-serif;
+                        color: rgba(39, 0, 56, 0.73);
+                        font-size: 14px;
+                        margin: 0px;
+                        transition: all 0.1s ease-in-out 0s;">{{report.post}}</p>
+                    </div>
+                </div>
+
+
+            </section>
+    </div>
+    <section style="display: flex;width: 100%;flex-direction: column; background: rgb(249, 249, 249);">
+             <div>
+                <section style="position: relative;background-color: rgb(255, 255, 255);
+                height: 57px;z-index: 2;display: flex;-webkit-box-pack: center;
+                justify-content: center; -webkit-box-align: center;align-items: center;
+                flex-shrink: 0;padding: 0px 40px 0px 32px; border-bottom: 1px solid rgb(237, 237, 245);">
+                    <div style="top: 0px;height: 100%;display: flex;
+                    -webkit-box-align: center; align-items: center; font-size: 24px;
+                    position: absolute;left: 40px;">
+                        <span>
+                            <div data-tip="true" id="report-name" currentitem="false">
+                                <span style="font-size: 15px;font-weight: 600;
+                                font-family: Rubik, sans-serif;margin: 0px;">
+                                   {{reports[0].name}}</span>
+                                <!-- <div class="__react_component_tooltip place-bottom type-dark " 
+                                    data-id="tooltip">
+                                    <span>Edit name</span>
+                                    </div>-->
+                            </div>
+                        </span>
+                    </div>
+                    <div style="height: 100%;">
+                        <div class="links-header-group" style="height: 100%;display: flex;">
+                            <div  ng-click="summary()" style="cursor: pointer;
+                            position: relative;"> 
+                                <a class="active" ng-click="" style="display: inline-block;
+                                height: 100%; color: rgb(74, 74, 74);padding: 17px 0px;
+                                margin: 0px 16px;">Summary</a>
+                            </div>
+                            <div  ng-click="performance()" style="cursor: pointer; position: relative;" >
+                                    <a class="false" ng-click=""  style="display: inline-block;
+                                    height: 100%; color: rgb(74, 74, 74);padding: 17px 0px;
+                                    margin: 0px 16px;">Performance</a>
+                            </div>
+                            <div ng-click="influencers()" style="cursor: pointer; position: relative;"> 
+                                <a class="false" ng-click=""  style="display: inline-block;
+                                height: 100%; color: rgb(74, 74, 74);padding: 17px 0px;
+                                margin: 0px 16px;">Influencers</a>
+                            </div>
+                            <div  ng-click="post()" style="cursor: pointer; position: relative;"> 
+                                <a class="false" ng-click=""  style="display: inline-block;
+                                height: 100%; color: rgb(74, 74, 74);padding: 17px 0px;
+                                margin: 0px 16px;">Posts</a>
+                            </div>                           
+                        </div>
+                    </div>
+                    <div style="position: absolute; right: 32px;display: flex;
+                    top: 0px; height: 100%;-webkit-box-align: center;
+                    align-items: center;">
+
+                    </div>
+                </section>
+            </div>
+            <div id="report"style="display: flex;flex-direction: column; height: 100%;
+            overflow-y: auto; padding: 40px 32px 150px; background: rgb(248, 248, 250)">
+                    <section>
+                        <article style="margin-bottom: 8px; position: relative;">
+                                <h2 class="kpis-title" style="font-family: Rubik, sans-serif;
+                                margin: 0px;  text-align: left;"><span>Main KPI's</span> 
+                                </h2>
+                                <div style="position: relative;">
+                                    <div style="display: flex;">
+                                        <article style="text-align: center;display: flex;
+                                        flex-direction: column; -webkit-box-pack: center;
+                                        justify-content: center;-webkit-box-align: center;
+                                        align-items: center; background-color: white;
+                                        padding: 20px 8px 8px; flex: 1 1 0%;
+                                        border-right: 1px solid rgb(249, 249, 249);">
+                                             <div class="bold-data">
+                                                 <div style="display: inline-block;">
+                                                     <span style="margin-bottom: 8px;
+                                                     font-size: 18px;font-weight: 600;
+                                                     font-family: Rubik, sans-serif;">
+                                                         0
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <span>Earned Media</span>
+                                        </article>
+                                        <article  style="text-align: center;display: flex;
+                                        flex-direction: column; -webkit-box-pack: center;
+                                        justify-content: center;-webkit-box-align: center;
+                                        align-items: center; background-color: white;
+                                        padding: 20px 8px 8px; flex: 1 1 0%;
+                                        border-right: 1px solid rgb(249, 249, 249);">
+                                          <div class="bold-data">
+                                                <div style="display: inline-block;">
+                                                    <span style="margin-bottom: 8px;
+                                                    font-size: 18px;font-weight: 600;
+                                                    font-family: Rubik, sans-serif;">
+                                                        0
+                                                   </span>
+                                               </div>
+                                           </div>
+                                           <span>Social Reach</span>
+                                        </article>
+                                        <article  style="text-align: center;display: flex;
+                                        flex-direction: column; -webkit-box-pack: center;
+                                        justify-content: center;-webkit-box-align: center;
+                                        align-items: center; background-color: white;
+                                        padding: 20px 8px 8px; flex: 1 1 0%;
+                                        border-right: 1px solid rgb(249, 249, 249);">
+                                          <div class="bold-data">
+                                                <div style="display: inline-block;">
+                                                    <span style="margin-bottom: 8px;
+                                                    font-size: 18px;font-weight: 600;
+                                                    font-family: Rubik, sans-serif;">
+                                                        0
+                                                   </span>
+                                               </div>
+                                           </div>
+                                           <span>Engagement</span>
+                                        </article>
+                                        <article  style="text-align: center;display: flex;
+                                        flex-direction: column; -webkit-box-pack: center;
+                                        justify-content: center;-webkit-box-align: center;
+                                        align-items: center; background-color: white;
+                                        padding: 20px 8px 8px; flex: 1 1 0%;
+                                        border-right: 1px solid rgb(249, 249, 249);">
+                                          <div class="bold-data">
+                                                <div style="display: inline-block;">
+                                                    <span style="margin-bottom: 8px;
+                                                    font-size: 18px;font-weight:600;
+                                                    font-family: Rubik, sans-serif;">
+                                                      {{interactions}}  
+                                                   </span>
+                                               </div>
+                                           </div>
+                                           <span>Interactions</span>
+                                        </article>
+                                        <article  style="text-align: center;display: flex;
+                                        flex-direction: column; -webkit-box-pack: center;
+                                        justify-content: center;-webkit-box-align: center;
+                                        align-items: center; background-color: white;
+                                        padding: 20px 8px 8px; flex: 1 1 0%;
+                                        border-right: 1px solid rgb(249, 249, 249);">
+                                          <div class="bold-data">
+                                                <div style="display: inline-block;">
+                                                    <span style="margin-bottom: 8px;
+                                                    font-size: 18px;font-weight: 500;
+                                                    font-family: Rubik, sans-serif;">
+                                                         {{reports[0].post}}
+                                                   </span>
+                                               </div>
+                                           </div>
+                                           <span>Posts</span>
+                                        </article>
+                                    </div>
+                                </div>
+                        </article>
+                    </section>
+                    <section style="margin-top: 32px;">
+                            <article style="margin-bottom: 8px;position: relative;">
+                                    <h2 class="kpis-title" style="font-family: Rubik, sans-serif;
+                                    margin: 0px;  text-align: left;"><span>Audience Distribution</span> 
+                                    </h2>
+                                    <div style="position: relative;">
+                                            <div style="display: flex;">
+                                                <article style="text-align: center;
+                                                display: flex;flex-direction: column; -webkit-box-pack: center;
+                                                justify-content: center;-webkit-box-align: center;
+                                                align-items: center;background-color: white;
+                                                padding: 20px 8px 8px; flex: 1 1 0%;
+                                                border-right: 1px solid rgb(249, 249, 249);">
+                                                <div class="icon-flag-container" style="height: 48px;
+                                                width: 48px;
+                                                margin-bottom: 8px; overflow: hidden; border-radius: 200px !important;">
+                                                    <img width="55px"  class="center" alt="Peru" src="/img/PE.ico" >
+                                                </div>
+                                                <div style="margin-bottom: 8px; font-size: 18px;
+                                                font-weight: 600;font-family: Rubik, sans-serif;">
+                                                    <div style="display: inline-block;">
+                                                    <span style="margin-bottom: 8px;font-size: 18px;
+                                                    font-weight: 500;font-family: Rubik, sans-serif;">
+                                                    Peru</span>
+                                                    </div>
+                                                </div>
+                                                <span>Top Country</span>
+                                                </article>
+                                                <article style="text-align: center;
+                                                display: flex;flex-direction: column; -webkit-box-pack: center;
+                                                justify-content: center;-webkit-box-align: center;
+                                                align-items: center;background-color: white;
+                                                padding: 20px 8px 8px; flex: 1 1 0%;
+                                                border-right: 1px solid rgb(249, 249, 249);">
+                                                  <div class="icon-flag-container" style="height: 48px;
+                                                  width: 48px;
+                                                  margin-bottom: 8px; overflow: hidden; border-radius: 200px !important;">
+                                                      <img width="55px"  class="center" alt="Peru" src="/img/PE.ico" >
+                                                  </div>
+                                                  <div style="margin-bottom: 8px; font-size: 18px;
+                                                  font-weight: 600;font-family: Rubik, sans-serif;">
+                                                      <div style="display: inline-block;">
+                                                      <span style="margin-bottom: 8px;font-size: 18px;
+                                                      font-weight: 500;font-family: Rubik, sans-serif;">
+                                                      Callao</span>
+                                                      </div>
+                                                  </div>
+                                                  <span>Top City</span>
+                                                </article>
+                                                <article style="text-align: center;
+                                                display: flex;flex-direction: column; -webkit-box-pack: center;
+                                                justify-content: center;-webkit-box-align: center;
+                                                align-items: center;background-color: white;
+                                                padding: 20px 8px 8px; flex: 1 1 0%;
+                                                border-right: 1px solid rgb(249, 249, 249);">
+                                                  <div class="icon-flag-container" style="height: 48px;
+                                                  width: 48px;
+                                                  margin-bottom: 8px; overflow: hidden; border-radius: 200px !important;">
+                                                      <img width="55px"  class="center" alt="Peru" src="/img/PE.ico" >
+                                                  </div>
+                                                  <div style="margin-bottom: 8px; font-size: 18px;
+                                                  font-weight: 600;font-family: Rubik, sans-serif;">
+                                                      <div style="display: inline-block;">
+                                                      <span style="margin-bottom: 8px;font-size: 18px;
+                                                      font-weight: 500;font-family: Rubik, sans-serif;">
+                                                      18-24</span>
+                                                      </div>
+                                                  </div>
+                                                  <span>Average Age</span>
+                                                </article>
+                                                <article  style="text-align: center;
+                                                display: flex;flex-direction: column; -webkit-box-pack: center;
+                                                justify-content: center;-webkit-box-align: center;
+                                                align-items: center;background-color: white;
+                                                padding: 20px 8px 8px; flex: 1 1 0%;
+                                                border-right: 1px solid rgb(249, 249, 249);">
+                                                  <div class="icon-flag-container" style="height: 48px;
+                                                  width: 48px;
+                                                  margin-bottom: 8px; overflow: hidden; border-radius: 200px !important;">
+                                                      <img width="55px"  class="center" alt="Peru" src="/img/PE.ico" >
+                                                  </div>
+                                                  <div style="margin-bottom: 8px; font-size: 18px;
+                                                  font-weight: 600;font-family: Rubik, sans-serif;">
+                                                      <div style="display: inline-block;">
+                                                      <span style="margin-bottom: 8px;font-size: 18px;
+                                                      font-weight: 500;font-family: Rubik, sans-serif;">
+                                                      68.6%Women    </span>
+                                                      </div>
+                                                  </div>
+                                                  <span>Domain Gender</span>
+                                                </article>
+
+                                            </div>
+                                    </div>
+                            </article>
+                    </section>
+                    <section class="network-kpis" style="margin-top: 32px;">
+                        <h2 style="font-family: Rubik, sans-serif;
+                        margin: 0px;  text-align: left;"><span>Results per Social Network</span></h2>
+                        <article style="margin-bottom: 8px;position: relative;">
+                            <h2 class="kpis-title">
+                                <div style="display: flex; text-transform: uppercase; font-size: 16px;
+                                font-weight: normal;margin-top: 24px;">
+                                    <img src="/img/instagram.png" 
+                                    alt="instagram icon" height="20px"><span>instagram</span>
+                                </div> 
+                            </h2>
+                            <div style="position: relative;">
+                                <div class="main-kpis-container" style="display: flex;">
+                                    <article style="text-align: center;display: flex; flex-direction: column;
+                                    -webkit-box-pack: center;justify-content: center;  -webkit-box-align: center;
+                                    align-items: center;background-color: white; padding: 20px 8px 8px;
+                                    flex: 1 1 0%; border-right: 1px solid rgb(249, 249, 249);">
+                                        <div style=" margin-bottom: 8px;
+                                        font-size: 18px; font-weight: 500; font-family: Rubik, sans-serif;">
+                                            <div class="Blocked__BlockedWrapper-t13346-1 hfpJYS">
+                                                <span class="Data-nz3r5q-0 bTdzuK">
+                                                    $<span style="margin-bottom: 8px;font-size: 18px;
+                                                    font-weight: 600; font-family: Rubik, sans-serif;">
+                                                    0</span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <span>Earned Media</span>
+                                        <div class="Kpis__TooltipPlaceholder-sc-1cj1ssh-0 gySVJq"></div>
+                                    </article>
+                                    <article style="text-align: center;display: flex; flex-direction: column;
+                                    -webkit-box-pack: center;justify-content: center;  -webkit-box-align: center;
+                                    align-items: center;background-color: white; padding: 20px 8px 8px;
+                                    flex: 1 1 0%; border-right: 1px solid rgb(249, 249, 249);" class="Kpis__KPIBlock-sc-1cj1ssh-1 gsdyrn">
+                                        <div  style=" margin-bottom: 8px;
+                                        font-size: 18px; font-weight: 500; font-family: Rubik, sans-serif;">
+                                            <div class="Blocked__BlockedWrapper-t13346-1 hfpJYS">
+                                                <span class="Data-nz3r5q-0 bTdzuK">
+                                                    <span style="margin-bottom: 8px;font-size: 18px;
+                                                    font-weight: 600; font-family: Rubik, sans-serif;">
+                                                    0</span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <span>Social Reach</span>
+                                        <div class="Kpis__TooltipPlaceholder-sc-1cj1ssh-0 gySVJq"></div>
+                                    </article>
+                                    <article style="text-align: center;display: flex; flex-direction: column;
+                                    -webkit-box-pack: center;justify-content: center;  -webkit-box-align: center;
+                                    align-items: center;background-color: white; padding: 20px 8px 8px;
+                                    flex: 1 1 0%; border-right: 1px solid rgb(249, 249, 249);" class="Kpis__KPIBlock-sc-1cj1ssh-1 gsdyrn">
+                                        <div  style=" margin-bottom: 8px;
+                                        font-size: 18px; font-weight: 500; font-family: Rubik, sans-serif;">
+                                            <div class="Blocked__BlockedWrapper-t13346-1 hfpJYS">
+                                                <span class="Data-nz3r5q-0 bTdzuK">
+                                                    <span style="margin-bottom: 8px;font-size: 18px;
+                                                    font-weight: 600; font-family: Rubik, sans-serif;">
+                                                    0</span>%
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <span>Engagement</span>
+                                        <div class="Kpis__TooltipPlaceholder-sc-1cj1ssh-0 gySVJq"></div>
+                                    </article>
+                                    <article style="text-align: center;display: flex; flex-direction: column;
+                                    -webkit-box-pack: center;justify-content: center;  -webkit-box-align: center;
+                                    align-items: center;background-color: white; padding: 20px 8px 8px;
+                                    flex: 1 1 0%; border-right: 1px solid rgb(249, 249, 249);" class="Kpis__KPIBlock-sc-1cj1ssh-1 gsdyrn">
+                                        <div  style=" margin-bottom: 8px;
+                                        font-size: 18px; font-weight: 500; font-family: Rubik, sans-serif;">
+                                            <span style="margin-bottom: 8px;font-size: 18px;
+                                            font-weight: 600; font-family: Rubik, sans-serif;">
+                                            {{interactions}}</span></div><span>Interactions</span>
+                                            <div class="Kpis__TooltipPlaceholder-sc-1cj1ssh-0 gySVJq">
+                                            </div>
+                                    </article>
+                                    <article style="text-align: center;display: flex; flex-direction: column;
+                                    -webkit-box-pack: center;justify-content: center;  -webkit-box-align: center;
+                                    align-items: center;background-color: white; padding: 20px 8px 8px;
+                                    flex: 1 1 0%; border-right: 1px solid rgb(249, 249, 249);" class="Kpis__KPIBlock-sc-1cj1ssh-1 gsdyrn">
+                                        <div  style=" margin-bottom: 8px;
+                                        font-size: 18px; font-weight: 500; font-family: Rubik, sans-serif;">
+                                            <span style="margin-bottom: 8px;font-size: 18px;
+                                            font-weight: 600; font-family: Rubik, sans-serif;">
+                                            {{likes}}</span></div><span>Likes</span>
+                                            <div class="Kpis__TooltipPlaceholder-sc-1cj1ssh-0 gySVJq">
+                                            </div>
+                                    </article>
+                                    <article style="text-align: center;display: flex; flex-direction: column;
+                                    -webkit-box-pack: center;justify-content: center;  -webkit-box-align: center;
+                                    align-items: center;background-color: white; padding: 20px 8px 8px;
+                                    flex: 1 1 0%; border-right: 1px solid rgb(249, 249, 249);" class="Kpis__KPIBlock-sc-1cj1ssh-1 gsdyrn">
+                                        <div  style=" margin-bottom: 8px;
+                                        font-size: 18px; font-weight: 500; font-family: Rubik, sans-serif;">
+                                            <span style="margin-bottom: 8px;font-size: 18px;
+                                            font-weight: 600; font-family: Rubik, sans-serif;">{{comments}}</span>
+                                        </div>
+                                        <span>Comments</span>
+                                        <div class="Kpis__TooltipPlaceholder-sc-1cj1ssh-0 gySVJq">
+                                        </div>
+                                    </article>
+                                    <article style="text-align: center;display: flex; flex-direction: column;
+                                    -webkit-box-pack: center;justify-content: center;  -webkit-box-align: center;
+                                    align-items: center;background-color: white; padding: 20px 8px 8px;
+                                    flex: 1 1 0%; border-right: 1px solid rgb(249, 249, 249);" class="Kpis__KPIBlock-sc-1cj1ssh-1 gsdyrn">
+                                        <div style ="margin-bottom: 8px;
+                                        font-size: 18px; font-weight: 500; font-family: Rubik, sans-serif;">
+                                            <span style="margin-bottom: 8px;font-size: 18px;
+                                            font-weight: 600; font-family: Rubik, sans-serif;">0</span>
+                                        </div>
+                                        <span>Video Views</span>
+                                        <div class="Kpis__TooltipPlaceholder-sc-1cj1ssh-0 gySVJq">
+                                        </div>
+                                    </article>
+                                </div>
+                            </div>
+                        </article>
+                    </section>
+                    <section class="influencers-kpis" style="margin-top: 32px;">
+                        <h2 style="font-family: Rubik, sans-serif;
+                        margin: 0px;  text-align: left;">Top Influencers</h2>
+                        <section class="influcencers-section" style="display: flex;
+                        flex-wrap: wrap;page-break-after: always;">
+                            <article ng-repeat="card in reports"style="width: 19.5%;display: flex; flex-direction: column;
+                            margin-bottom: 8px; cursor: pointer; -webkit-box-flex: 0;
+                            flex-grow: 0; flex-shrink: 0; max-width: 225px; background: white;
+                            padding: 24px 8px 16px; transition: box-shadow 0.2s ease-in-out 0s;
+                            overflow: hidden;margin-right: 17px;">
+                                <div style="position: relative;display: flex;-webkit-box-align: center;
+                                align-items: center;-webkit-box-pack: center; justify-content: center;">
+                                    <img style="height: 160px; border-radius: 50%;"  class="avatar" src="{{card.urlOwner}}" alt="influencer-avatar">
+                                    <img style="position: absolute;height: 24px;bottom: 8px;
+                                    right: 14%" class="network-icon" src="/img/instagram.png" 
+                                    alt="/static/img/icons/networks/instagram icon">
+                                </div>
+                                <div style="display: flex;flex-direction: column;padding: 8px;">
+                                    <div style="padding-bottom: 8px; font-size: 14px;
+                                    border-bottom: 1px solid rgb(237, 237, 244);">
+                                        <h3 style="font-size: 19px!important;width: 90%; white-space: nowrap;
+                                        text-overflow: ellipsis; overflow: hidden; font-weight: 700;">@{{card.owner}}</h3>
+                                        <p style="height: 20px;color: rgb(204, 204, 204);">{{card.full_name}}</p>
+                                    </div>
+                                    <div style="margin-top: 4px;">
+                                        <div style="display: flex;-webkit-box-align: center; align-items: center;
+                                        -webkit-box-pack: justify;justify-content: space-between;
+                                        margin: 4px 0px;">
+                                            <span>Interactions</span>
+                                            <div style="font-size: 13px;font-weight: 600;font-family: Rubik, sans-serif;">
+                                                <span>0</span>
+                                            </div>
+                                        </div>
+                                        <div style="display: flex;-webkit-box-align: center; align-items: center;
+                                        -webkit-box-pack: justify;justify-content: space-between;
+                                        margin: 4px 0px;">
+                                            <span>Earned Media</span>
+                                            <div class="number">
+                                                <div style="font-size: 13px;font-weight: 600;font-family: Rubik, sans-serif;">
+                                                    <span class="Data-nz3r5q-0 bTdzuK">
+                                                        $<span>0</span>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </section>
+                    </section>
+                    <section class="cards-date-group" style="margin-top: 32px;">
+                        <h2 style="font-family: Rubik, sans-serif;
+                        margin: 0px;  text-align: left;">
+                            <span>Top Posts</span>
+                        </h2>
+                        <div class="cards-group-container" style="display: flex;
+                        flex-wrap: wrap; page-break-inside: avoid;">
+                            <article ng-repeat="card in reports" style="display: flex; width: 49%;margin-bottom: 24px;
+                            min-width: 450px;background: white; page-break-inside: avoid;
+                            transition: box-shadow 0.2s ease-in-out 0s;" >
+                                <div class="card-image-container" style="background-color: rgb(197, 197, 210);
+                                position: relative;height: 250px;width: 250px;flex-shrink: 0;
+                                overflow: hidden;">
+                                    <img class="post-network-icon" style="position: absolute;
+                                    height: 24px;bottom: 16px;right: 16px;"
+                                     src="/img/instagram.png" alt="network-icon">
+                                     <div class="post-caption hide-post-caption">
+                                    </div>
+                                    <img style="display: inline-block;width: 100%;height: 100%; object-fit: cover;"
+                                    src="{{card.urlPost}}">
+                                </div>
+                                <div class="card-info-container" style="width: 100%;display: flex;
+                                flex-direction: column; padding: 16px;">
+                                    <div class="card-header" style="display: flex;-webkit-box-align: center;
+                                    align-items: center; -webkit-box-pack: start;  justify-content: flex-start;
+                                    padding-bottom: 8px;border-bottom: 1px solid rgb(237, 237, 244);">
+                                        <img style="height: 40px;
+                                        margin-right: 8px;
+                                        border-radius: 50%;" src="{{card.urlPost}}" alt="influencer avatar">
+                                        <div class="card-header-title">
+                                            <h3 class="card-user-name">@{{card.owner}}</h3>
+                                            <p>{{card.full_name}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="card-description" style="height: 126px;display: flex;
+                                    flex-direction: column;justify-content: space-around;
+                                    padding: 8px 0px;">
+                                        <div class="card-data">
+                                            <span>Earned Media</span>
+                                            <div class="number">
+                                                <div class="Blocked__BlockedWrapper-t13346-1 hfpJYS">
+                                                    <span class="Data-nz3r5q-0 bTdzuK">
+                                                        $<span>0</span>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card-data">
+                                            <span>Interactions</span>
+                                            <div class="number">
+                                                <span>465,373</span>
+                                            </div>
+                                        </div>
+                                        <div class="card-data">
+                                            <span>Social Reach</span>
+                                            <div class="number">
+                                                <div class="Blocked__BlockedWrapper-t13346-1 hfpJYS">
+                                                    <span class="Data-nz3r5q-0 bTdzuK">
+                                                        <span>2,570,183</span>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card-data">
+                                            <span>Engagement</span>
+                                            <div class="number">
+                                                <div class="Blocked__BlockedWrapper-t13346-1 hfpJYS">
+                                                    <span class="Data-nz3r5q-0 bTdzuK">
+                                                        <span>18.11</span>%
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-footer">
+                                        <span>22 August</span>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </section>
+            </div>
+            <!--PERFORMANCE-->
+            <div id="performance" style="display: none;flex-direction: column; height: 100%;
+            overflow-y: auto; padding: 40px 32px 150px; background: rgb(248, 248, 250)">
+                <!--   <section>
+                        <article style="margin-bottom: 8px; position: relative;">
+                                <h2 class="kpis-title" style="font-family: Rubik, sans-serif;
+                                margin: 0px;  text-align: left;"><span>Main KPI's</span> 
+                                </h2>
+                                <div style="position: relative;">
+                                    <div style="display: flex;">
+                                        <article style="text-align: center;display: flex;
+                                        flex-direction: column; -webkit-box-pack: center;
+                                        justify-content: center;-webkit-box-align: center;
+                                        align-items: center; background-color: white;
+                                        padding: 20px 8px 8px; flex: 1 1 0%;
+                                        border-right: 1px solid rgb(249, 249, 249);">
+                                             <div class="bold-data">
+                                                 <div style="display: inline-block;">
+                                                     <span style="margin-bottom: 8px;
+                                                     font-size: 18px;font-weight: 600;
+                                                     font-family: Rubik, sans-serif;">
+                                                         0
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <span>Earned Media</span>
+                                        </article>
+                                        <article  style="text-align: center;display: flex;
+                                        flex-direction: column; -webkit-box-pack: center;
+                                        justify-content: center;-webkit-box-align: center;
+                                        align-items: center; background-color: white;
+                                        padding: 20px 8px 8px; flex: 1 1 0%;
+                                        border-right: 1px solid rgb(249, 249, 249);">
+                                          <div class="bold-data">
+                                                <div style="display: inline-block;">
+                                                    <span style="margin-bottom: 8px;
+                                                    font-size: 18px;font-weight: 600;
+                                                    font-family: Rubik, sans-serif;">
+                                                        0
+                                                   </span>
+                                               </div>
+                                           </div>
+                                           <span>Social Reach</span>
+                                        </article>
+                                        <article  style="text-align: center;display: flex;
+                                        flex-direction: column; -webkit-box-pack: center;
+                                        justify-content: center;-webkit-box-align: center;
+                                        align-items: center; background-color: white;
+                                        padding: 20px 8px 8px; flex: 1 1 0%;
+                                        border-right: 1px solid rgb(249, 249, 249);">
+                                          <div class="bold-data">
+                                                <div style="display: inline-block;">
+                                                    <span style="margin-bottom: 8px;
+                                                    font-size: 18px;font-weight: 600;
+                                                    font-family: Rubik, sans-serif;">
+                                                        0
+                                                   </span>
+                                               </div>
+                                           </div>
+                                           <span>Engagement</span>
+                                        </article>
+                                        <article  style="text-align: center;display: flex;
+                                        flex-direction: column; -webkit-box-pack: center;
+                                        justify-content: center;-webkit-box-align: center;
+                                        align-items: center; background-color: white;
+                                        padding: 20px 8px 8px; flex: 1 1 0%;
+                                        border-right: 1px solid rgb(249, 249, 249);">
+                                          <div class="bold-data">
+                                                <div style="display: inline-block;">
+                                                    <span style="margin-bottom: 8px;
+                                                    font-size: 18px;font-weight:600;
+                                                    font-family: Rubik, sans-serif;">
+                                                      {{reports[0].interactions}}  
+                                                   </span>
+                                               </div>
+                                           </div>
+                                           <span>Interactions</span>
+                                        </article>
+                                        <article  style="text-align: center;display: flex;
+                                        flex-direction: column; -webkit-box-pack: center;
+                                        justify-content: center;-webkit-box-align: center;
+                                        align-items: center; background-color: white;
+                                        padding: 20px 8px 8px; flex: 1 1 0%;
+                                        border-right: 1px solid rgb(249, 249, 249);">
+                                          <div class="bold-data">
+                                                <div style="display: inline-block;">
+                                                    <span style="margin-bottom: 8px;
+                                                    font-size: 18px;font-weight: 500;
+                                                    font-family: Rubik, sans-serif;">
+                                                         {{reports[0].post}}
+                                                   </span>
+                                               </div>
+                                           </div>
+                                           <span>Posts</span>
+                                        </article>
+                                    </div>
+                                </div>
+                        </article>
+                    </section>
+                    <section style="margin-top: 32px;">
+                            <article style="margin-bottom: 8px;position: relative;">
+                                    <h2 class="kpis-title" style="font-family: Rubik, sans-serif;
+                                    margin: 0px;  text-align: left;"><span>Audience Distribution</span> 
+                                    </h2>
+                                    <div style="position: relative;">
+                                            <div style="display: flex;">
+                                                <article style="text-align: center;
+                                                display: flex;flex-direction: column; -webkit-box-pack: center;
+                                                justify-content: center;-webkit-box-align: center;
+                                                align-items: center;background-color: white;
+                                                padding: 20px 8px 8px; flex: 1 1 0%;
+                                                border-right: 1px solid rgb(249, 249, 249);">
+                                                <div class="icon-flag-container" style="height: 48px;
+                                                width: 48px;
+                                                margin-bottom: 8px; overflow: hidden; border-radius: 200px !important;">
+                                                    <img width="55px"  class="center" alt="Peru" src="/img/PE.ico" >
+                                                </div>
+                                                <div style="margin-bottom: 8px; font-size: 18px;
+                                                font-weight: 600;font-family: Rubik, sans-serif;">
+                                                    <div style="display: inline-block;">
+                                                    <span style="margin-bottom: 8px;font-size: 18px;
+                                                    font-weight: 500;font-family: Rubik, sans-serif;">
+                                                    Peru</span>
+                                                    </div>
+                                                </div>
+                                                <span>Top Country</span>
+                                                </article>
+                                                <article style="text-align: center;
+                                                display: flex;flex-direction: column; -webkit-box-pack: center;
+                                                justify-content: center;-webkit-box-align: center;
+                                                align-items: center;background-color: white;
+                                                padding: 20px 8px 8px; flex: 1 1 0%;
+                                                border-right: 1px solid rgb(249, 249, 249);">
+                                                  <div class="icon-flag-container" style="height: 48px;
+                                                  width: 48px;
+                                                  margin-bottom: 8px; overflow: hidden; border-radius: 200px !important;">
+                                                      <img width="55px"  class="center" alt="Peru" src="/img/PE.ico" >
+                                                  </div>
+                                                  <div style="margin-bottom: 8px; font-size: 18px;
+                                                  font-weight: 600;font-family: Rubik, sans-serif;">
+                                                      <div style="display: inline-block;">
+                                                      <span style="margin-bottom: 8px;font-size: 18px;
+                                                      font-weight: 500;font-family: Rubik, sans-serif;">
+                                                      Callao</span>
+                                                      </div>
+                                                  </div>
+                                                  <span>Top City</span>
+                                                </article>
+                                                <article style="text-align: center;
+                                                display: flex;flex-direction: column; -webkit-box-pack: center;
+                                                justify-content: center;-webkit-box-align: center;
+                                                align-items: center;background-color: white;
+                                                padding: 20px 8px 8px; flex: 1 1 0%;
+                                                border-right: 1px solid rgb(249, 249, 249);">
+                                                  <div class="icon-flag-container" style="height: 48px;
+                                                  width: 48px;
+                                                  margin-bottom: 8px; overflow: hidden; border-radius: 200px !important;">
+                                                      <img width="55px"  class="center" alt="Peru" src="/img/PE.ico" >
+                                                  </div>
+                                                  <div style="margin-bottom: 8px; font-size: 18px;
+                                                  font-weight: 600;font-family: Rubik, sans-serif;">
+                                                      <div style="display: inline-block;">
+                                                      <span style="margin-bottom: 8px;font-size: 18px;
+                                                      font-weight: 500;font-family: Rubik, sans-serif;">
+                                                      18-24</span>
+                                                      </div>
+                                                  </div>
+                                                  <span>Average Age</span>
+                                                </article>
+                                                <article  style="text-align: center;
+                                                display: flex;flex-direction: column; -webkit-box-pack: center;
+                                                justify-content: center;-webkit-box-align: center;
+                                                align-items: center;background-color: white;
+                                                padding: 20px 8px 8px; flex: 1 1 0%;
+                                                border-right: 1px solid rgb(249, 249, 249);">
+                                                  <div class="icon-flag-container" style="height: 48px;
+                                                  width: 48px;
+                                                  margin-bottom: 8px; overflow: hidden; border-radius: 200px !important;">
+                                                      <img width="55px"  class="center" alt="Peru" src="/img/PE.ico" >
+                                                  </div>
+                                                  <div style="margin-bottom: 8px; font-size: 18px;
+                                                  font-weight: 600;font-family: Rubik, sans-serif;">
+                                                      <div style="display: inline-block;">
+                                                      <span style="margin-bottom: 8px;font-size: 18px;
+                                                      font-weight: 500;font-family: Rubik, sans-serif;">
+                                                      68.6%Women    </span>
+                                                      </div>
+                                                  </div>
+                                                  <span>Domain Gender</span>
+                                                </article>
+
+                                            </div>
+                                    </div>
+                            </article>
+                    </section>
+                    <section class="network-kpis" style="margin-top: 32px;">
+                        <h2 style="font-family: Rubik, sans-serif;
+                        margin: 0px;  text-align: left;"><span>Results per Social Network</span></h2>
+                        <article style="margin-bottom: 8px;position: relative;">
+                            <h2 class="kpis-title">
+                                <div style="display: flex; text-transform: uppercase; font-size: 16px;
+                                font-weight: normal;margin-top: 24px;">
+                                    <img src="/img/instagram.png" 
+                                    alt="instagram icon" height="20px"><span>instagram</span>
+                                </div> 
+                            </h2>
+                            <div style="position: relative;">
+                                <div class="main-kpis-container" style="display: flex;">
+                                    <article style="text-align: center;display: flex; flex-direction: column;
+                                    -webkit-box-pack: center;justify-content: center;  -webkit-box-align: center;
+                                    align-items: center;background-color: white; padding: 20px 8px 8px;
+                                    flex: 1 1 0%; border-right: 1px solid rgb(249, 249, 249);">
+                                        <div style=" margin-bottom: 8px;
+                                        font-size: 18px; font-weight: 500; font-family: Rubik, sans-serif;">
+                                            <div class="Blocked__BlockedWrapper-t13346-1 hfpJYS">
+                                                <span class="Data-nz3r5q-0 bTdzuK">
+                                                    $<span style="margin-bottom: 8px;font-size: 18px;
+                                                    font-weight: 600; font-family: Rubik, sans-serif;">
+                                                    0</span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <span>Earned Media</span>
+                                        <div class="Kpis__TooltipPlaceholder-sc-1cj1ssh-0 gySVJq"></div>
+                                    </article>
+                                    <article style="text-align: center;display: flex; flex-direction: column;
+                                    -webkit-box-pack: center;justify-content: center;  -webkit-box-align: center;
+                                    align-items: center;background-color: white; padding: 20px 8px 8px;
+                                    flex: 1 1 0%; border-right: 1px solid rgb(249, 249, 249);" class="Kpis__KPIBlock-sc-1cj1ssh-1 gsdyrn">
+                                        <div  style=" margin-bottom: 8px;
+                                        font-size: 18px; font-weight: 500; font-family: Rubik, sans-serif;">
+                                            <div class="Blocked__BlockedWrapper-t13346-1 hfpJYS">
+                                                <span class="Data-nz3r5q-0 bTdzuK">
+                                                    <span style="margin-bottom: 8px;font-size: 18px;
+                                                    font-weight: 600; font-family: Rubik, sans-serif;">
+                                                    0</span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <span>Social Reach</span>
+                                        <div class="Kpis__TooltipPlaceholder-sc-1cj1ssh-0 gySVJq"></div>
+                                    </article>
+                                    <article style="text-align: center;display: flex; flex-direction: column;
+                                    -webkit-box-pack: center;justify-content: center;  -webkit-box-align: center;
+                                    align-items: center;background-color: white; padding: 20px 8px 8px;
+                                    flex: 1 1 0%; border-right: 1px solid rgb(249, 249, 249);" class="Kpis__KPIBlock-sc-1cj1ssh-1 gsdyrn">
+                                        <div  style=" margin-bottom: 8px;
+                                        font-size: 18px; font-weight: 500; font-family: Rubik, sans-serif;">
+                                            <div class="Blocked__BlockedWrapper-t13346-1 hfpJYS">
+                                                <span class="Data-nz3r5q-0 bTdzuK">
+                                                    <span style="margin-bottom: 8px;font-size: 18px;
+                                                    font-weight: 600; font-family: Rubik, sans-serif;">
+                                                    0</span>%
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <span>Engagement</span>
+                                        <div class="Kpis__TooltipPlaceholder-sc-1cj1ssh-0 gySVJq"></div>
+                                    </article>
+                                    <article style="text-align: center;display: flex; flex-direction: column;
+                                    -webkit-box-pack: center;justify-content: center;  -webkit-box-align: center;
+                                    align-items: center;background-color: white; padding: 20px 8px 8px;
+                                    flex: 1 1 0%; border-right: 1px solid rgb(249, 249, 249);" class="Kpis__KPIBlock-sc-1cj1ssh-1 gsdyrn">
+                                        <div  style=" margin-bottom: 8px;
+                                        font-size: 18px; font-weight: 500; font-family: Rubik, sans-serif;">
+                                            <span style="margin-bottom: 8px;font-size: 18px;
+                                            font-weight: 600; font-family: Rubik, sans-serif;">
+                                            {{reports[0].interactions}}</span></div><span>Interactions</span>
+                                            <div class="Kpis__TooltipPlaceholder-sc-1cj1ssh-0 gySVJq">
+                                            </div>
+                                    </article>
+                                    <article style="text-align: center;display: flex; flex-direction: column;
+                                    -webkit-box-pack: center;justify-content: center;  -webkit-box-align: center;
+                                    align-items: center;background-color: white; padding: 20px 8px 8px;
+                                    flex: 1 1 0%; border-right: 1px solid rgb(249, 249, 249);" class="Kpis__KPIBlock-sc-1cj1ssh-1 gsdyrn">
+                                        <div  style=" margin-bottom: 8px;
+                                        font-size: 18px; font-weight: 500; font-family: Rubik, sans-serif;">
+                                            <span style="margin-bottom: 8px;font-size: 18px;
+                                            font-weight: 600; font-family: Rubik, sans-serif;">
+                                            {{reports[0].likes}}</span></div><span>Likes</span>
+                                            <div class="Kpis__TooltipPlaceholder-sc-1cj1ssh-0 gySVJq">
+                                            </div>
+                                    </article>
+                                    <article style="text-align: center;display: flex; flex-direction: column;
+                                    -webkit-box-pack: center;justify-content: center;  -webkit-box-align: center;
+                                    align-items: center;background-color: white; padding: 20px 8px 8px;
+                                    flex: 1 1 0%; border-right: 1px solid rgb(249, 249, 249);" class="Kpis__KPIBlock-sc-1cj1ssh-1 gsdyrn">
+                                        <div  style=" margin-bottom: 8px;
+                                        font-size: 18px; font-weight: 500; font-family: Rubik, sans-serif;">
+                                            <span style="margin-bottom: 8px;font-size: 18px;
+                                            font-weight: 600; font-family: Rubik, sans-serif;">{{reports[0].comments}}</span>
+                                        </div>
+                                        <span>Comments</span>
+                                        <div class="Kpis__TooltipPlaceholder-sc-1cj1ssh-0 gySVJq">
+                                        </div>
+                                    </article>
+                                    <article style="text-align: center;display: flex; flex-direction: column;
+                                    -webkit-box-pack: center;justify-content: center;  -webkit-box-align: center;
+                                    align-items: center;background-color: white; padding: 20px 8px 8px;
+                                    flex: 1 1 0%; border-right: 1px solid rgb(249, 249, 249);" class="Kpis__KPIBlock-sc-1cj1ssh-1 gsdyrn">
+                                        <div style ="margin-bottom: 8px;
+                                        font-size: 18px; font-weight: 500; font-family: Rubik, sans-serif;">
+                                            <span style="margin-bottom: 8px;font-size: 18px;
+                                            font-weight: 600; font-family: Rubik, sans-serif;">0</span>
+                                        </div>
+                                        <span>Video Views</span>
+                                        <div class="Kpis__TooltipPlaceholder-sc-1cj1ssh-0 gySVJq">
+                                        </div>
+                                    </article>
+                                </div>
+                            </div>
+                        </article>
+                    </section>
+                    <section class="influencers-kpis" style="margin-top: 32px;">
+                        <h2 style="font-family: Rubik, sans-serif;
+                        margin: 0px;  text-align: left;">Top Influencers</h2>
+                        <section class="influcencers-section" style="display: flex;
+                        flex-wrap: wrap;page-break-after: always;">
+                            <article ng-repeat="card in reports"style="width: 19.5%;display: flex; flex-direction: column;
+                            margin-bottom: 8px; cursor: pointer; -webkit-box-flex: 0;
+                            flex-grow: 0; flex-shrink: 0; max-width: 225px; background: white;
+                            padding: 24px 8px 16px; transition: box-shadow 0.2s ease-in-out 0s;
+                            overflow: hidden;margin-right: 17px;">
+                                <div style="position: relative;display: flex;-webkit-box-align: center;
+                                align-items: center;-webkit-box-pack: center; justify-content: center;">
+                                    <img style="height: 160px; border-radius: 50%;"  class="avatar" src="{{card.urlOwner}}" alt="influencer-avatar">
+                                    <img style="position: absolute;height: 24px;bottom: 8px;
+                                    right: 14%" class="network-icon" src="/img/instagram.png" 
+                                    alt="/static/img/icons/networks/instagram icon">
+                                </div>
+                                <div style="display: flex;flex-direction: column;padding: 8px;">
+                                    <div style="padding-bottom: 8px; font-size: 14px;
+                                    border-bottom: 1px solid rgb(237, 237, 244);">
+                                        <h3 style="font-size: 19px!important;width: 90%; white-space: nowrap;
+                                        text-overflow: ellipsis; overflow: hidden; font-weight: 700;">@{{card.owner}}</h3>
+                                        <p style="height: 20px;color: rgb(204, 204, 204);">{{card.full_name}}</p>
+                                    </div>
+                                    <div style="margin-top: 4px;">
+                                        <div style="display: flex;-webkit-box-align: center; align-items: center;
+                                        -webkit-box-pack: justify;justify-content: space-between;
+                                        margin: 4px 0px;">
+                                            <span>Interactions</span>
+                                            <div style="font-size: 13px;font-weight: 600;font-family: Rubik, sans-serif;">
+                                                <span>0</span>
+                                            </div>
+                                        </div>
+                                        <div style="display: flex;-webkit-box-align: center; align-items: center;
+                                        -webkit-box-pack: justify;justify-content: space-between;
+                                        margin: 4px 0px;">
+                                            <span>Earned Media</span>
+                                            <div class="number">
+                                                <div style="font-size: 13px;font-weight: 600;font-family: Rubik, sans-serif;">
+                                                    <span class="Data-nz3r5q-0 bTdzuK">
+                                                        $<span>0</span>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </section>
+                    </section>
+                    <section class="cards-date-group" style="margin-top: 32px;">
+                        <h2 style="font-family: Rubik, sans-serif;
+                        margin: 0px;  text-align: left;">
+                            <span>Top Posts</span>
+                        </h2>
+                        <div class="cards-group-container" style="display: flex;
+                        flex-wrap: wrap; page-break-inside: avoid;">
+                            <article ng-repeat="card in reports" style="display: flex; width: 49%;margin-bottom: 24px;
+                            min-width: 450px;background: white; page-break-inside: avoid;
+                            transition: box-shadow 0.2s ease-in-out 0s;" >
+                                <div class="card-image-container" style="background-color: rgb(197, 197, 210);
+                                position: relative;height: 250px;width: 250px;flex-shrink: 0;
+                                overflow: hidden;">
+                                    <img class="post-network-icon" style="position: absolute;
+                                    height: 24px;bottom: 16px;right: 16px;"
+                                     src="/img/instagram.png" alt="network-icon">
+                                     <div class="post-caption hide-post-caption">
+                                    </div>
+                                    <img style="display: inline-block;width: 100%;height: 100%; object-fit: cover;"
+                                    src="{{card.urlPost}}">
+                                </div>
+                                <div class="card-info-container" style="width: 100%;display: flex;
+                                flex-direction: column; padding: 16px;">
+                                    <div class="card-header" style="display: flex;-webkit-box-align: center;
+                                    align-items: center; -webkit-box-pack: start;  justify-content: flex-start;
+                                    padding-bottom: 8px;border-bottom: 1px solid rgb(237, 237, 244);">
+                                        <img style="height: 40px;
+                                        margin-right: 8px;
+                                        border-radius: 50%;" src="{{card.urlPost}}" alt="influencer avatar">
+                                        <div class="card-header-title">
+                                            <h3 class="card-user-name">@{{card.owner}}</h3>
+                                            <p>{{card.full_name}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="card-description" style="height: 126px;display: flex;
+                                    flex-direction: column;justify-content: space-around;
+                                    padding: 8px 0px;">
+                                        <div class="card-data">
+                                            <span>Earned Media</span>
+                                            <div class="number">
+                                                <div class="Blocked__BlockedWrapper-t13346-1 hfpJYS">
+                                                    <span class="Data-nz3r5q-0 bTdzuK">
+                                                        $<span>0</span>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card-data">
+                                            <span>Interactions</span>
+                                            <div class="number">
+                                                <span>465,373</span>
+                                            </div>
+                                        </div>
+                                        <div class="card-data">
+                                            <span>Social Reach</span>
+                                            <div class="number">
+                                                <div class="Blocked__BlockedWrapper-t13346-1 hfpJYS">
+                                                    <span class="Data-nz3r5q-0 bTdzuK">
+                                                        <span>2,570,183</span>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card-data">
+                                            <span>Engagement</span>
+                                            <div class="number">
+                                                <div class="Blocked__BlockedWrapper-t13346-1 hfpJYS">
+                                                    <span class="Data-nz3r5q-0 bTdzuK">
+                                                        <span>18.11</span>%
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-footer">
+                                        <span>22 August</span>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </section>--> 
+            </div>
+            <!--INFUENCERS-->
+            <div id="influencers" style="display: none;flex-direction: column; height: 100%;
+            overflow-y: auto; padding: 40px 32px 150px; background: rgb(248, 248, 250)">
+                    <section class="influencers-kpis" style="margin-top: 32px;">
+                        <h2 style="font-family: Rubik, sans-serif;
+                        margin: 0px;  text-align: left;"> Influencers</h2>
+                        <section class="influcencers-section" style="display: flex;
+                        flex-wrap: wrap;page-break-after: always;">
+                            <article ng-repeat="card in reports"style="width: 19.5%;display: flex; flex-direction: column;
+                            margin-bottom: 8px; cursor: pointer; -webkit-box-flex: 0;
+                            flex-grow: 0; flex-shrink: 0; max-width: 225px; background: white;
+                            padding: 24px 8px 16px; transition: box-shadow 0.2s ease-in-out 0s;
+                            overflow: hidden;margin-right: 17px;">
+                                <div style="position: relative;display: flex;-webkit-box-align: center;
+                                align-items: center;-webkit-box-pack: center; justify-content: center;">
+                                    <img style="height: 160px; border-radius: 50%;"  class="avatar" src="{{card.urlOwner}}" alt="influencer-avatar">
+                                    <img style="position: absolute;height: 24px;bottom: 8px;
+                                    right: 14%" class="network-icon" src="/img/instagram.png" 
+                                    alt="/static/img/icons/networks/instagram icon">
+                                </div>
+                                <div style="display: flex;flex-direction: column;padding: 8px;">
+                                    <div style="padding-bottom: 8px; font-size: 14px;
+                                    border-bottom: 1px solid rgb(237, 237, 244);">
+                                        <h3 style="font-size: 19px!important;width: 90%; white-space: nowrap;
+                                        text-overflow: ellipsis; overflow: hidden; font-weight: 700;">@{{card.owner}}</h3>
+                                        <p style="height: 20px;color: rgb(204, 204, 204);">{{card.full_name}}</p>
+                                    </div>
+                                    <div style="margin-top: 4px;">
+                                        <div style="display: flex;-webkit-box-align: center; align-items: center;
+                                        -webkit-box-pack: justify;justify-content: space-between;
+                                        margin: 4px 0px;">
+                                            <span>Interactions</span>
+                                            <div style="font-size: 13px;font-weight: 600;font-family: Rubik, sans-serif;">
+                                                <span>0</span>
+                                            </div>
+                                        </div>
+                                        <div style="display: flex;-webkit-box-align: center; align-items: center;
+                                        -webkit-box-pack: justify;justify-content: space-between;
+                                        margin: 4px 0px;">
+                                            <span>Earned Media</span>
+                                            <div class="number">
+                                                <div style="font-size: 13px;font-weight: 600;font-family: Rubik, sans-serif;">
+                                                    <span class="Data-nz3r5q-0 bTdzuK">
+                                                        $<span>0</span>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </section>
+                    </section>
+            </div>
+            <!--POST-->
+            <div id="post" style="display: none;flex-direction: column; height: 100%;
+            overflow-y: auto; padding: 40px 32px 150px; background: rgb(248, 248, 250)">
+                    <section class="cards-date-group" style="margin-top: 32px;">
+                        <h2 style="font-family: Rubik, sans-serif;
+                        margin: 0px;  text-align: left;">
+                            <span>Posts</span>
+                        </h2>
+                        <div class="cards-group-container" style="display: flex;
+                        flex-wrap: wrap; page-break-inside: avoid;">
+                            <article ng-repeat="card in reports" style="display: flex; width: 49%;margin-bottom: 24px;
+                            min-width: 450px;background: white; page-break-inside: avoid;
+                            transition: box-shadow 0.2s ease-in-out 0s;" >
+                                <div class="card-image-container" style="background-color: rgb(197, 197, 210);
+                                position: relative;height: 250px;width: 250px;flex-shrink: 0;
+                                overflow: hidden;">
+                                    <img class="post-network-icon" style="position: absolute;
+                                    height: 24px;bottom: 16px;right: 16px;"
+                                     src="/img/instagram.png" alt="network-icon">
+                                     <div class="post-caption hide-post-caption">
+                                    </div>
+                                    <img style="display: inline-block;width: 100%;height: 100%; object-fit: cover;"
+                                    src="{{card.urlPost}}">
+                                </div>
+                                <div class="card-info-container" style="width: 100%;display: flex;
+                                flex-direction: column; padding: 16px;">
+                                    <div class="card-header" style="display: flex;-webkit-box-align: center;
+                                    align-items: center; -webkit-box-pack: start;  justify-content: flex-start;
+                                    padding-bottom: 8px;border-bottom: 1px solid rgb(237, 237, 244);">
+                                        <img style="height: 40px;
+                                        margin-right: 8px;
+                                        border-radius: 50%;" src="{{card.urlPost}}" alt="influencer avatar">
+                                        <div class="card-header-title">
+                                            <h3 class="card-user-name">@{{card.owner}}</h3>
+                                            <p>{{card.full_name}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="card-description" style="height: 126px;display: flex;
+                                    flex-direction: column;justify-content: space-around;
+                                    padding: 8px 0px;">
+                                        <div class="card-data">
+                                            <span>Earned Media</span>
+                                            <div class="number">
+                                                <div class="Blocked__BlockedWrapper-t13346-1 hfpJYS">
+                                                    <span class="Data-nz3r5q-0 bTdzuK">
+                                                        $<span>0</span>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card-data">
+                                            <span>Interactions</span>
+                                            <div class="number">
+                                                <span>465,373</span>
+                                            </div>
+                                        </div>
+                                        <div class="card-data">
+                                            <span>Social Reach</span>
+                                            <div class="number">
+                                                <div class="Blocked__BlockedWrapper-t13346-1 hfpJYS">
+                                                    <span class="Data-nz3r5q-0 bTdzuK">
+                                                        <span>2,570,183</span>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card-data">
+                                            <span>Engagement</span>
+                                            <div class="number">
+                                                <div class="Blocked__BlockedWrapper-t13346-1 hfpJYS">
+                                                    <span class="Data-nz3r5q-0 bTdzuK">
+                                                        <span>18.11</span>%
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-footer">
+                                        <span>22 August</span>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </section>
+            </div>
+    </section>
+</div>

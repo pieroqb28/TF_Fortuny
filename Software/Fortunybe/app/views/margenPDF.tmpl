@@ -1,0 +1,129 @@
+<html>
+	<head>
+	<meta charset="UTF-8">
+	</head>
+	<body>
+		<style>
+			body{
+				font-size: 10px;
+				padding:10px;
+				width:21cm;				
+				font-weight: normal;
+				font-family: Arial;
+			}
+			table{
+				width: 100%;
+			}
+			table tr td
+			{
+				font-size: 13px;
+			}
+			ul
+			{
+				width: 100%;				
+				padding:0px;
+			}
+			li
+			{
+				display: inline-block;
+				width: 33%;
+				
+			}
+			.cabeceraTable td
+			{
+				border-top: 1px solid black;
+				border-bottom: 1px solid black;
+				margin: 0px;
+				padding-top:3px;
+				padding-bottom: 3px;
+
+			}
+			.headLogo
+			{
+				text-align: center;
+			}
+			.headReport
+			{
+				font-size: 17px;
+			}
+			.headCode table tr td{
+				text-align: right;
+			}
+			.tablaDetalleMargen{
+				
+				border-collapse: collapse;
+
+			}
+			.tabla-margen
+			{
+				background-color: #333333;
+				color: white;			
+			}
+			.tabla-margen td
+			{
+				padding-top: 4px;
+				padding-bottom: 4px;				
+			}
+			.reporteMargen
+			{
+				padding-top: 15px;
+
+			}
+			
+			
+
+		</style>
+
+		<div class="reporteMargen">
+			<div class="headReport">
+				<ul>
+					<li class="headCompany">
+						<strong>MAN Diesel & Turbo Perú S.A.C</strong>
+					</li>
+					<li class="headLogo">
+						<img src="http://localhost:8051/serv/img/logoman" width="90px">	
+					</li>
+					<li class="headCode">
+						<table >
+							<tr>
+								<td>
+									Quotation No
+								</td>
+							</tr>
+							<tr>
+								<td>
+									{{numero}}
+								</td>
+							</tr>
+						</table>
+						
+					</li>
+
+				</ul>
+				
+			</div>
+			<table class="tablaDetalleMargen">
+				<tr class='cabeceraTable'>
+						<td colspan="2"> <span>Embarcación-Planta:</span><span>{{barco}}</span></td><td></td>
+						<td> IMO:</td><td>{{imo}}</td><td></td>
+						<td> MAN</td>
+				
+				</tr>
+				<tr class="cabeceraTable"><td>Pos.</td><td>Descripción</td><td></td><td></td><td></td><td></td><td>Qty.</td></tr>
+
+				<tr><td></td><td></td><td></td><td style="text-align: right">Flete +</td><td>Insurance Real</td><td>1.18</td><td></td></tr>
+
+				<tr><td></td><td>IGV</td><td>{{Flete_insurance_real}}</td><td></td><td></td><td>Dcto Fábrica</td><td>{{desc_fabrica}}</td></tr>
+				<tr><td></td><td></td><td><strong>Con IGV</strong></td><td><strong>Sin IGV</strong></td><td>REAL</td></tr>
+				<tr><td></td><td>Total Ventas</td><td>{{total_cotizacion}}</td><td>{{totalDetalle}}</td><td>{{total_cotizacion}}</td><td>Fábrica</td><td>{{total}}</td></tr>
+				<tr><td></td><td>Costo aduanas, impuesto</td><td>{{total_factor}}</td><td>{{porcvalor}}</td><td>{{porcvalor}}</td><td>Real Fábrica</td><td>{{real_fabrica}}</td></tr>
+
+				<tr><td></td><td>Costo fabrica</td><td>{{cot_fabri_igv}}</td><td>{{cot_fabri_igv}}</td><td>{{total_cargos_aduanas}}</td></tr>
+				<tr><td></td><td>Transporte a Callao</td><td>{{transp_callao}}</td><td>0.00</td><td>{{transp_callao}}</td></tr>
+				<tr><td>{{porcentajeCostFinan}}%</td><td>costo financiero</td><td>{{costo_fin_igv}}</td><td>{{costo_fin_sin_igv}}</td><td>{{costo_fin_real}}</td></tr>
+				<tr class="tabla-margen"><td ></td><td><strong>Margen</td><td>{{margen_igv}}</td><td>{{marg_sin_igv}}</td><td>{{marg_real}}</td></tr>
+				<tr><td></td><td>Porcentaje Margen</td><td>{{por_margen_igv}}</td><td>{{por_margen_sin_igv}}</td><td>{{por_margen_real}}</td></tr>
+			</table>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,697 @@
+<style>
+  .container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+</style>
+
+<div style="display:flex">
+       
+        <!--PANEL 1-->
+        
+      <div style="background-color: white; width: 372px; height: calc(100vh - 64px); display: flex;
+      flex-direction: column; box-shadow: rgba(0, 0, 0, 0.04) 2px 0px 4px 0px; flex-shrink: 0;
+      overflow: scroll; padding: 0px 32px;">
+            <!--espaciador-->
+            <div size="24" style="width: 100%; margin-bottom: 24px;"></div>
+
+            <!--foto-->
+            <div  style="display: flex;
+            -webkit-box-pack: center;
+            justify-content: center;">
+                <div style="display: flex; flex-direction: column;">
+                        <div style="display: flex;  align-items: flex-end;-webkit-box-pack: center;
+                        justify-content: center;  position: relative;  cursor: pointer;  padding: 0px 20px">
+                            <div size="64" style="display: flex;  flex-wrap: wrap;
+                            background-color: rgb(239, 239, 245); width: 64px;
+                            border-radius: 8px;overflow: hidden;">
+                                <img placeholder="/img/list_placeholder.png" 
+                                width="64" height="64" src="/img/list_placeholder.png" 
+                                 class="Image__Img-yd875y-0 bNaqEG">
+                            </div>
+                            <svg color="purpleTitle" width="20px" height="20px" viewBox="0 0 1024 1024" 
+                                class="Svg-sc-14aerh-0 iXnBJF">
+                            </svg>
+                        </div>
+                        <div size="8" style="width: 100%;margin-bottom: 8px;">
+                        </div>
+                        <div style="display: flex;  flex-direction: column;">
+                            <p color="purpleTitle" size="14" style="font-family: Rubik, sans-serif;
+                            color: rgb(39, 0, 56); font-size: 14px;text-align: center;
+                            font-weight: 600; margin: 0px; transition: all 0.1s ease-in-out 0s;">
+                                    {{lista.nombre}}</p>
+                            <p size="12" color="purpleText" style="font-family: Rubik, sans-serif;
+                            color: rgba(39, 0, 56, 0.73);font-size: 12px;
+                            text-align: center; margin: 0px; transition: all 0.1s ease-in-out 0s;">  
+
+                            </p>
+                        </div>
+                </div>
+                   
+            </div>
+             
+            <!--espaciador-->
+            <div size="24" style="width: 100%; margin-bottom: 24px;"></div>
+              <!--FALTA EL DIV DE LOS ICONOS DE BAJO DE LA FOTO-->
+            <div style="display: flex;-webkit-box-pack: center;
+            justify-content: center; flex-shrink: 0;">
+                <div style="display: flex; -webkit-box-align: center;align-items: center;">
+                    <div style="display: flex; flex-direction: column;
+                    -webkit-box-align: center; align-items: center; margin: 0px 8px 0px 0px;">
+                        <a class="RoundedButton__IconWrapper-gddcsg-0 kJCulP">
+                              <svg color="purpleTitle" width="24px" height="24px" 
+                              viewBox="0 0 1024 1024" class="Svg-sc-14aerh-0 llfPyk">
+                              </svg>
+                        </a>
+                        <div size="4" class="Spacing__StyledSpacing-sc-1vai9yd-0 hijVnY">
+                        </div>
+                        <p color="lightText" size="12" style="font-family: Rubik, sans-serif;
+                        color: rgb(150, 142, 169);font-size: 12px;
+                        margin: 0px; transition: all 0.1s ease-in-out 0s;">
+                            Print</p>
+                    </div>
+                    <div style="display: flex; flex-direction: column;
+                    -webkit-box-align: center; align-items: center; margin: 0px 8px;">
+                        <a class="RoundedButton__IconWrapper-gddcsg-0 kJCulP">
+                            <svg color="purpleTitle" width="24px" height="24px" viewBox="0 0 1024 1024" 
+                            class="Svg-sc-14aerh-0 llfPyk">
+                           </svg>
+                        </a>
+                        <div size="4" class="Spacing__StyledSpacing-sc-1vai9yd-0 hijVnY">
+                        </div>
+                        <p style="font-family: Rubik, sans-serif;
+                        color: rgb(150, 142, 169);font-size: 12px;
+                        margin: 0px; transition: all 0.1s ease-in-out 0s;" 
+                        color="lightText" size="12" >
+                            Share</p>
+                    </div>
+                </div>
+            </div>
+            <!--espaciador-->
+            <div size="24" style="width: 100%; margin-bottom: 24px;"></div>
+            <!--MENU -->
+            <div style="display: flex;-webkit-box-pack: center;justify-content: center;
+            margin-left: -28px; border-bottom: 1px solid rgb(234, 234, 242);">
+                <div ng-click="influencer()" style="cursor: pointer; position: relative;">
+                    <p id="influencerName" color="lightText" size="12" style="font-family: Rubik, sans-serif;
+                    font-size: 12px;font-weight: 600;color: rgb(39, 0, 56); margin: 0px;
+                    padding: 8px;transition: all 0.2s ease-in-out 0s;">
+                        Influencers</p>
+                </div>
+                 <div ng-click="resume()" style="cursor: pointer; position: relative;">
+                    <p id="resumeName"color="lightText" size="12" style="font-family: Rubik, sans-serif;
+                    font-size: 12px;font-weight: 600;color: rgb(150, 142, 169); margin: 0px;
+                    padding: 8px;transition: all 0.2s ease-in-out 0s;">
+                        Resume</p>
+                </div>
+            </div>
+            <!--LISTA DE INFLUENCER-->
+            <div id="influencer" style="display: initial;">
+                <div style="display: flex; flex-direction: column;">
+                        <div size="24" style="width: 100%; margin-bottom: 8px;"></div>
+                        <div style="display: flex; -webkit-box-align: center;
+                        align-items: center; -webkit-box-pack: justify;justify-content: space-between;">
+                            <p size="14" color="purpleTitle" style="font-family: Rubik, sans-serif;
+                            color: rgb(39, 0, 56);font-size: 14px;font-weight: 600;
+                            margin: 0px 0px 0px 6px; transition: all 0.1s ease-in-out 0s;">
+                                Influencers</p>
+                            <button ng-click="influencerInList()" color="primary" style="font-family: Rubik, sans-serif;
+                            box-sizing: border-box; text-align: center;  display: flex;
+                            -webkit-box-align: center; align-items: center; -webkit-box-pack: center;
+                            justify-content: center;cursor: pointer;font-weight: 600;
+                            flex-shrink: 0;-webkit-box-flex: initial;flex-grow: initial;
+                            font-size: 12px; height: 24px;color: white;
+                            margin-right: 12px; border-radius: 4px;transition: all 0.2s ease-in-out 0s;
+                            background: rgb(238, 13, 97);padding: 0px 16px;
+                            border-width: initial; border-style: none; border-color: initial;
+                            border-image: initial;">
+                                Add influencer
+                            </button>
+                        </div>
+                        <div size="24" style="width: 100%; margin-bottom: 8px;"></div>
+                        <div style="display: flex;flex-direction: column; padding-right: 12px;
+                        padding-left: 3px;">
+                            <div>
+                             
+                                <div style="position: relative; ">
+                                    <svg width="20px" height="20px" viewBox="0 0 1024 1024" 
+                                    style="vertical-align: middle; display: flex;position: absolute;
+                                    left: 4px;color: rgb(150, 142, 169); top: 2px;
+                                    max-width: 20px;transition: all 0.1s ease-in-out 0s;">
+                                    </svg>
+                                    <input name="search" type="text" id="search" placeholder="Search" 
+                                    style="width: 100%;box-sizing: border-box; font-size: 13px;
+                                    line-height: 17px; background-color: rgb(237, 237, 243);
+                                    color: rgb(150, 142, 169);height: 24px; border-radius: 3px;
+                                    padding: 8px 8px 8px 24px; border-width: 0px;
+                                    transition: padding 0.1s ease-in-out 0s;" value="">
+                                    <span class="HelperText-sc-13orsye-0 bIoqXK"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div size="24" style="width: 100%; margin-bottom: 8px;"></div>
+                        <div height="calc( 100vh - 404px )" id=" content " style="display: flex; flex-direction: column;
+                        overflow-y: auto;height: calc(100vh - 404px);">
+                        <div  ng-repeat="all in allInfluencers | filter:test">
+                             
+                            <div  style="display: flex; flex-direction: row; height: 72px; width: 284px;
+                            box-shadow: rgb(197, 197, 210) 0px 0px 3px 0px; background-color: white;
+                            flex-shrink: 0;transform: scale(1); position: relative; cursor: pointer;
+                            border-radius: 4px; margin: 4px 6px 4px 4px; transition: all 0.1s ease-in-out 0s;">
+                            
+                            <img style="height: 70px;width: 72px; display: block; border-radius: 4px 9px 36px 9px 36px 4px;"
+                             src="{{all.profile_url}}"> 
+                             <div id="prueba"style="margin-left: 8px; margin-top: 8px;display: flex;flex-direction: column;">
+                                <p style="font-family: Rubik, sans-serif; color: rgb(39, 0, 56); font-size: 14px;
+                                text-overflow: ellipsis;
+                                text-transform: capitalize;
+                                white-space: nowrap;
+                                font-weight: 600;
+                                margin: 0px;
+                                transition: all 0.1s ease-in-out 0s;
+                                overflow: hidden;">{{all.nombre}} {{all.apellido}} </p>
+                
+                             </div>
+                            
+                            </div>
+                        </div>
+                       
+                        <div style="    display: flex;
+                        -webkit-box-flex: 1;
+                        flex-grow: 1;
+                        cursor: pointer;
+                        height: 100%;">
+                
+                        </div>
+                        </div>
+                </div>
+
+            </div>
+            <!--RESUMEEEEEEEEEEN-->
+            <div id="resume" style="display: none;">
+                <form>
+                    <div size="16" style="width: 100%; margin-bottom: 16px;">
+                    </div>
+                    <div style="display: flex;-webkit-box-align: center; align-items: center;
+                    cursor: pointer; transition: all 0.1s ease-in-out 0s;">
+                        <svg color="purpleTitle" width="16px" height="16px" viewBox="0 0 1024 1024" 
+                        style="display:none;transform: rotate(90deg);margin-right: 8px;">
+                        </svg>
+                        <p color="purpleTitle" size="12" style="font-family: Rubik, sans-serif;
+                        color: rgb(39, 0, 56); font-size: 12px;text-transform: capitalize;
+                        margin: 0px;transition: all 0.1s ease-in-out 0s;">
+                            About list</p>
+                    </div>
+                    <div size="16" style="width: 100%; margin-bottom: 16px;" >
+                    </div>
+                    <div style="display: flex;flex-direction: column;max-height: 600px;
+                    transition: all 0.2s ease-in-out 0s; overflow: auto;">
+                        <div style="display: flex; flex-direction: column;
+                        flex-shrink: 0;height: 56px;-webkit-box-pack: end; justify-content: flex-end;">
+                            <label for="name" style="font-family: Rubik, sans-serif;
+                            font-size: 12px; line-height: 16px; margin-bottom: 4px;
+                            text-transform: capitalize;color: rgb(124, 113, 148);
+                            font-weight: initial;text-align: initial;">List name*
+                            </label>
+                            <input name="name" type="text" id="name" 
+                            style="width: 100%;box-sizing: border-box ;font-size: 14px;line-height: 17px;
+                            color: rgb(39, 0, 56);border-top-width: initial;border-right-width: initial;
+                            border-left-width: initial;border-top-color: initial;border-right-color: initial;
+                            border-left-color: initial;background-color: transparent; height: 32px;
+                            outline: none;border-style: none none solid;border-image: initial;
+                            border-bottom: 1px solid transparent;transition: all 0.1s ease-in-out 0s;
+                            border-radius: 0px; padding: 8px 8px 8px 0px;" value="{{lista.nombre}}">
+                        </div>
+                        <span class="HelperText-sc-13orsye-0 bIoqXK"></span>
+                        <div size="12" style="width: 100%; margin-bottom: 12px;">
+                        </div>
+                        <div style="display: flex; flex-direction: column;
+                        flex-shrink: 0;height: 56px;-webkit-box-pack: end; justify-content: flex-end;">
+                            <label for="description" style="font-family: Rubik, sans-serif;
+                            font-size: 12px; line-height: 16px; margin-bottom: 4px;
+                            text-transform: capitalize;color: rgb(124, 113, 148);
+                            font-weight: initial;text-align: initial;">Description
+                            </label>
+                            <input name="description" type="text" id="description" 
+                            style="width: 100%;box-sizing: border-box ;font-size: 14px;line-height: 17px;
+                            color: rgb(39, 0, 56);border-top-width: initial;border-right-width: initial;
+                            border-left-width: initial;border-top-color: initial;border-right-color: initial;
+                            border-left-color: initial;background-color: transparent; height: 32px;
+                            outline: none;border-style: none none solid;border-image: initial;
+                            border-bottom: 1px solid transparent;transition: all 0.1s ease-in-out 0s;
+                            border-radius: 0px; padding: 8px 8px 8px 0px;" value="{{lista.descripcion}}">
+                        </div>
+                        <span class="HelperText-sc-13orsye-0 bIoqXK"></span>
+                        <div size="12" style="width: 100%; margin-bottom: 12px;">
+                        </div>
+                    </div>
+                </form>
+                <div size="24" class="Spacing__StyledSpacing-sc-1vai9yd-0 bELzSG">
+                </div>
+                <div class="Background-hjsojt-0 hFMYNJ">
+                    <div height="250" width="500" class="ModalWrapper-sc-1xdl4rr-0 VmeqW">
+                        <div class="Flex__StyledFlex-sc-1akhess-0 dahKgh">
+                            <div class="Flex__StyledFlex-sc-1akhess-0 bFelEE">
+                                <p color="white" size="4" class="H__Sb-dy2l6u-3 jAvnnB">
+                                     Delete list </p>
+                                <div class="IconWrapper-glnzbk-0 hmOOpU">
+                                    <svg color="white" width="24px" height="24px" 
+                                    viewBox="0 0 1024 1024" class="Svg-sc-14aerh-0 gxUcnk">
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>   
+      </div> 
+
+
+       <!--PANEL 2-->
+      <div  id="panelTwo" style="display: flex;flex-direction: column;height: calc(100vh - 64px);-webkit-box-flex: 1; flex-grow: 1;
+        overflow: auto;padding: 32px;">
+        <div style="display: flex;align-items: flex-start;flex-shrink: 0;box-shadow: rgba(124, 113, 148, 0.07) 0px 10px 20px 0px;
+        background: white; margin: 4px;" class="Flex__StyledFlex-sc-1akhess-0 ivUeOy">
+                <div style="display: flex; padding-left: 18px;flex-direction: column;
+                width: 25%; padding-top: 16px; padding-bottom: 8px;">
+                    <img width="20px" height="20px" viewBox="0 0 1024 1024" 
+                    class="Svg-sc-14aerh-0 dDCBpD"  src="https://cdn3.iconfinder.com/data/icons/faticons/32/user-01-256.png"></svg>
+                     
+                    <div size="4" style="width: 100%; margin-bottom: 8px;">
+                     </div>
+                     <p style="font-family: Rubik, sans-serif; color: rgb(39, 0, 56);
+                     font-size: 16px;font-weight: 600; margin: 0px;
+                     transition: all 0.1s ease-in-out 0s;text-align: initial;" size="16" color="purpleTitle" class="Text__StyledText-sc-14s2wwi-0 dBhnq">
+                        <span class="Number__NumberWrapper-sc-1ae33ra-0 ilxBrt">{{cantidadInfluencer}}
+                        </span>
+                     </p>
+                    <p style="font-family: Rubik, sans-serif;color: rgb(150, 142, 169);
+                    font-size: 12px;margin: 0px; transition: all 0.1s ease-in-out 0s;text-align: initial;" 
+                    size="12" color="purpleText" class="Text__StyledText-sc-14s2wwi-0 jxoxgw">
+                        Influencers</p>
+                   
+                </div>
+                <div style="display: flex; padding-left: 18px;flex-direction: column;
+                width: 25%; padding-top: 16px; padding-bottom: 8px;" class="styles__Network-sc-18xeupp-1 kCHZIr">
+                    <img src="img/instagram.png" alt="instagram icon" width="20px" 
+                    height="20px" placeholder="/static/img/placeholders/placeholder.jpg" 
+                    class="Image__Img-yd875y-0 bNaqEG">
+                    <div size="4" style="width: 100%; margin-bottom: 8px;">
+                    </div>
+                    <p size="16" color="purpleTitle" class="Text__StyledText-sc-14s2wwi-0 dBhnq" style="font-family: Rubik, sans-serif; color: rgb(39, 0, 56);
+                    font-size: 16px;font-weight: 600; margin: 0px;
+                    transition: all 0.1s ease-in-out 0s;text-align: initial;">
+                        <span class="Number__NumberWrapper-sc-1ae33ra-0 ilxBrt">
+                                {{cantidadInsta}}
+                        </span>
+                    </p>
+                    <p style="font-family: Rubik, sans-serif;color: rgb(150, 142, 169);
+                    font-size: 12px;margin: 0px; transition: all 0.1s ease-in-out 0s;text-align: initial;" size="12" color="purpleText" class="Text__StyledText-sc-14s2wwi-0 jxoxgw">
+                        Instagram Accounts</p>
+                   
+                </div>
+                <div class="styles__Divider-sc-18xeupp-0 dObkRL">
+    
+                </div>
+                <div style="display: flex; padding-left: 18px;flex-direction: column;
+                width: 25%; padding-top: 16px; padding-bottom: 8px;"class="styles__Network-sc-18xeupp-1 kCHZIr">
+                    <img src="img/youtube.png" alt="instagram icon" 
+                    width="20px" height="20px" placeholder="/static/img/placeholders/placeholder.jpg" 
+                    class="Image__Img-yd875y-0 bNaqEG">
+                    <div size="4" style="width: 100%; margin-bottom: 8px;">
+                    </div>
+                    <p style="font-family: Rubik, sans-serif; color: rgb(39, 0, 56);
+                    font-size: 16px;font-weight: 600; margin: 0px;
+                    transition: all 0.1s ease-in-out 0s;text-align: initial;" size="16" color="purpleTitle" class="Text__StyledText-sc-14s2wwi-0 dBhnq">
+                        <span class="Number__NumberWrapper-sc-1ae33ra-0 ilxBrt">
+                            0
+                        </span>
+                    </p>
+                    <p size="12" style="font-family: Rubik, sans-serif;color: rgb(150, 142, 169);
+                    font-size: 12px;margin: 0px; transition: all 0.1s ease-in-out 0s;text-align: initial;"color="purpleText" class="Text__StyledText-sc-14s2wwi-0 jxoxgw">
+                        Youtube Accounts</p>
+                    
+                </div>
+                <div class="styles__Divider-sc-18xeupp-0 dObkRL">
+    
+                </div>
+                <div style="display: flex; padding-left: 18px;flex-direction: column;
+                width: 25%; padding-top: 16px; padding-bottom: 8px;"class="styles__Network-sc-18xeupp-1 kCHZIr">
+                    <img src="img/twitter.png" 
+                    alt="instagram icon" width="20px" height="20px" 
+                    placeholder="/static/img/placeholders/placeholder.jpg"
+                     class="Image__Img-yd875y-0 bNaqEG">
+                     <div size="4" style="width: 100%; margin-bottom: 8px;">
+                    </div>
+                    <p style="font-family: Rubik, sans-serif; color: rgb(39, 0, 56);
+                    font-size: 16px;font-weight: 600; margin: 0px;
+                    transition: all 0.1s ease-in-out 0s;text-align: initial;" size="16" color="purpleTitle" class="Text__StyledText-sc-14s2wwi-0 dBhnq">
+                        <span class="Number__NumberWrapper-sc-1ae33ra-0 ilxBrt">
+                            0
+                        </span>
+                    </p>
+                      <p style="font-family: Rubik, sans-serif;color: rgb(150, 142, 169);
+                      font-size: 12px;margin: 0px; transition: all 0.1s ease-in-out 0s;text-align: initial;"size="12" color="purpleText" class="Text__StyledText-sc-14s2wwi-0 jxoxgw">
+                          Twitter Accounts</p>
+                       
+                </div>
+           
+            </div>
+           
+            <div style="width: 100%;margin-bottom: 24px;"size="24" class="Spacing__StyledSpacing-sc-1vai9yd-0 lkjTSE">
+            </div>
+            <div  class="TabContent__ContentWrapper-sc-28wuqh-0 iZLGdq" style="display: initial;">
+                <div>
+
+
+                        <div id="social" class="Flex__StyledFlex-sc-1akhess-0 ljGbma" style="display: flex;">
+                            <div class="sc-VigVT eImkeL" style="box-shadow: rgba(124, 113, 148, 0.07) 0px 10px 20px 0px;
+                            -webkit-box-flex: 1;flex-grow: 1; padding-left: 16px;width: calc(20% - 8px);
+                            min-width: calc(20% - 8px); background: white; margin: 4px">
+                                <div size="8" class="sc-kgoBCf hFLkSU" style="width: 100%;
+                                margin-bottom: 8px;">
+                                </div>
+                                <div style="width: 24px; height: 24px; display: flex;
+                                -webkit-box-pack: center; justify-content: center;
+                                -webkit-box-align: center; align-items: center;background-color: rgb(219, 46, 124);
+                                border-radius: 50%;" color="#DB2E7C" class="styles__IconWrapper-sc-8umeks-0 csKxiN">
+                                   <img color="white" width="15px" height="15px" viewBox="0 0 1024 1024" 
+                                   class="sc-htpNat bhIGMr" src="https://image.flaticon.com/icons/svg/118/118781.svg" >
+                                </div>
+                                <div size="8" class="sc-kgoBCf hFLkSU" style="width: 100%; margin-bottom: 8px">
+                                </div>
+                                <p color="purpleTitle" size="14" class="sc-kyCyAI jXbHPh" style=" font-family: Rubik, sans-serif;
+                                color: rgb(39, 0, 56); font-size: 14px; margin: 0px; transition: all 0.1s ease-in-out 0s;">
+                                    {{influencer.followers}}</p>
+                                <p size="12" color="lightText" class="sc-fEVUGC ijaEgD" style="font-family: Rubik, sans-serif;
+                                color: rgb(150, 142, 169);font-size: 12px;margin: 0px;
+                                transition: all 0.1s ease-in-out 0s;">
+                                Followers</p>
+                                <div size="8" class="sc-kgoBCf hFLkSU" style="width: 100%; margin-bottom: 8px">
+                                </div>
+                            </div>
+                            <div class="sc-VigVT eImkeL"  style="box-shadow: rgba(124, 113, 148, 0.07) 0px 10px 20px 0px;
+                            -webkit-box-flex: 1;flex-grow: 1; padding-left: 16px;width: calc(20% - 8px);
+                            min-width: calc(20% - 8px); background: white; margin: 4px">
+                                <div size="8" class="sc-kgoBCf hFLkSU" style="width: 100%;
+                                margin-bottom: 8px;">
+                                </div>
+                                <div style="width: 24px; height: 24px; display: flex;
+                                -webkit-box-pack: center; justify-content: center;
+                                -webkit-box-align: center; align-items: center;background-color: rgb(219, 46, 124);
+                                border-radius: 50%;"color="#DB2E7C" class="styles__IconWrapper-sc-8umeks-0 csKxiN">
+                                    <img color="white" width="15px" height="15px" viewBox="0 0 1024 1024" 
+                                    class="sc-htpNat bhIGMr" src="https://image.flaticon.com/icons/svg/2097/2097271.svg" >
+                                </div>
+                                <div size="8" class="sc-kgoBCf hFLkSU" style="width: 100%; margin-bottom: 8px">
+                                </div>
+                                <p color="purpleTitle" size="14" class="sc-dchYKM dtsvBB" style="font-family: Rubik, sans-serif;
+                                color: rgb(39, 0, 56); font-size: 14px; margin: 0px;
+                                transition: all 0.1s ease-in-out 0s;">
+                                    {{influencer.engagement}}%</p>
+                                <p size="12" color="lightText" class="sc-jLrYHE itJwAb" style="font-family: Rubik, sans-serif;
+                                color: rgb(150, 142, 169);font-size: 12px; margin: 0px;
+                                transition: all 0.1s ease-in-out 0s;">
+                                    Engagement</p>
+                                <div size="8" class="sc-kgoBCf hFLkSU"  style="width: 100%; margin-bottom: 8px">
+                                </div>
+                            </div>
+                            <div class="sc-VigVT eImkeL"  style="box-shadow: rgba(124, 113, 148, 0.07) 0px 10px 20px 0px;
+                            -webkit-box-flex: 1;flex-grow: 1; padding-left: 16px;width: calc(20% - 8px);
+                            min-width: calc(20% - 8px); background: white; margin: 4px">
+                                <div size="8" class="sc-kgoBCf hFLkSU" style="width: 100%;
+                                margin-bottom: 8px;">
+                                </div>
+                                <div style="width: 24px; height: 24px; display: flex;
+                                -webkit-box-pack: center; justify-content: center;
+                                -webkit-box-align: center; align-items: center;background-color: rgb(219, 46, 124);
+                                border-radius: 50%;" color="#DB2E7C" class="styles__IconWrapper-sc-8umeks-0 csKxiN">
+                                    <img color="white" width="15px" height="15px" viewBox="0 0 1024 1024" 
+                                    class="sc-htpNat bhIGMr" src="https://image.flaticon.com/icons/svg/37/37224.svg" >
+                                    </svg>
+                                </div>
+                                <div size="8" class="sc-kgoBCf hFLkSU" style="width: 100%; margin-bottom: 8px">
+                                </div>
+                                <p color="purpleTitle" size="14" class="sc-dhVevo ihSJag" style="font-family: Rubik, sans-serif;
+                                color: rgb(39, 0, 56); font-size: 14px; margin: 0px;
+                                transition: all 0.1s ease-in-out 0s;">
+                                    </p>
+                                <p size="12" color="lightText" class="sc-fqCOlO hjWJhI" style="font-family: Rubik, sans-serif;
+                                color: rgb(150, 142, 169); font-size: 12px; margin: 0px;
+                                transition: all 0.1s ease-in-out 0s;">
+                                    Earned Media</p>
+                                <div size="8" class="sc-kgoBCf hFLkSU" style="width: 100%; margin-bottom: 8px">
+                                </div>
+                            </div>
+                            <div class="sc-VigVT eImkeL"  style="box-shadow: rgba(124, 113, 148, 0.07) 0px 10px 20px 0px;
+                            -webkit-box-flex: 1;flex-grow: 1; padding-left: 16px;width: calc(20% - 8px);
+                            min-width: calc(20% - 8px); background: white; margin: 4px">
+                                <div size="8" class="sc-kgoBCf hFLkSU"  style="width: 100%;
+                                margin-bottom: 8px;">
+                                </div>
+                                <div style="width: 24px; height: 24px; display: flex;
+                                -webkit-box-pack: center; justify-content: center;
+                                -webkit-box-align: center; align-items: center;background-color: rgb(219, 46, 124);
+                                border-radius: 50%;"color="#DB2E7C" class="styles__IconWrapper-sc-8umeks-0 csKxiN">
+                                   <img color="white" width="15px" height="15px" viewBox="0 0 1024 1024" 
+                                   class="sc-htpNat bhIGMr" src="https://image.flaticon.com/icons/svg/99/99162.svg" >
+                                    </svg>
+                                </div>
+                                <div size="8" class="sc-kgoBCf hFLkSU" style="width: 100%; margin-bottom: 8px">
+                                </div>
+                                <p color="purpleTitle" size="14" class="sc-BOulX CqxMe" style="font-family: Rubik, sans-serif;
+                                color: rgb(39, 0, 56); font-size: 14px; margin: 0px;
+                                transition: all 0.1s ease-in-out 0s;">
+                                    {{influencer.interaction}}</p>
+                                <p style="font-family: Rubik, sans-serif; color: rgb(150, 142, 169);
+                                font-size: 12px; margin: 0px; transition: all 0.1s ease-in-out 0s;" size="12" color="lightText" class="sc-hAcydR dLEeLE">
+                                    Avg. Interactions</p>
+                                    <div size="8" class="sc-kgoBCf hFLkSU" style="width: 100%; margin-bottom: 8px">   
+                                    </div>
+                            </div>
+                        </div>   
+
+                        <div id="pricePanel"class="Flex__StyledFlex-sc-1akhess-0 cVWnus" style="display: none">
+                            <div class="BoxShadow-sc-1nh0sc3-0 eTxqVr">
+                                <p color="lightText" size="13" class="Text__StyledText-sc-14s2wwi-0 cRqbhM">
+                                    Prices historical</p>
+                                <div class="Flex__StyledFlex-sc-1akhess-0 giADlB">
+                                    <div class="Flex__StyledFlex-sc-1akhess-0 hUbmza" style="display: flex">
+                                        <div class="styles__CellWrapper-sc-18uksfv-0 kcCwWL" style="height: 32px;
+                                        padding: 9px;
+                                        border-bottom: 1px solid rgb(237, 237, 244); display:flex">
+                                            <p color="lightText" size="12" class="Text__StyledText-sc-14s2wwi-0 GYxsE">
+                                                Story</p>
+                                        </div>
+                                        <div class="styles__CellWrapper-sc-18uksfv-0 kcCwWL"style="height: 32px;
+                                        padding: 9px;
+                                        border-bottom: 1px solid rgb(237, 237, 244);display:flex">
+                                                <p color="lightText" size="12" class="Text__StyledText-sc-14s2wwi-0 GYxsE">
+                                                    Photo</p>
+                                        </div>
+                                        <div class="styles__CellWrapper-sc-18uksfv-0 kcCwWL"style="height: 32px;
+                                        padding: 9px;
+                                        border-bottom: 1px solid rgb(237, 237, 244);display:flex">
+                                                <p color="lightText" size="12" class="Text__StyledText-sc-14s2wwi-0 GYxsE">
+                                                    Carousel</p>
+                                        </div>
+                                        <div class="styles__CellWrapper-sc-18uksfv-0 kcCwWL"style="height: 32px;
+                                        padding: 9px;
+                                        border-bottom: 1px solid rgb(237, 237, 244);display:flex">
+                                                <p color="lightText" size="12" class="Text__StyledText-sc-14s2wwi-0 GYxsE">
+                                                    Video</p>
+                                        </div>
+                                        <div class="styles__CellWrapper-sc-18uksfv-0 kcCwWL"style="height: 32px;
+                                        padding: 9px;
+                                        border-bottom: 1px solid rgb(237, 237, 244);display:flex">
+                                                <p color="lightText" size="12" class="Text__StyledText-sc-14s2wwi-0 GYxsE">
+                                                    Updated</p>
+                                        </div>
+                                        
+                                    </div>
+                                    <div>
+                                    <div ng-repeat="price in prices" class="Flex__StyledFlex-sc-1akhess-0 hUbmza" style="display: flex" >
+                                            
+                                        <div class="styles__CellWrapper-sc-18uksfv-0 kcCwWL" style="height: 32px;
+                                        padding: 9px 18px 9px 18px;
+                                        border-bottom: 1px solid rgb(237, 237, 244);display:flex">
+                                                <p color="lightText" size="12" class="Text__StyledText-sc-14s2wwi-0 GYxsE">
+                                                    ${{price.story}}</p>
+                                            </div>
+                                            <div class="styles__CellWrapper-sc-18uksfv-0 kcCwWL"style="height: 32px;
+                                            padding: 9px 18px 9px 9px;
+                                            border-bottom: 1px solid rgb(237, 237, 244);display:flex">
+                                                    <p color="lightText" size="12" class="Text__StyledText-sc-14s2wwi-0 GYxsE">
+                                                    ${{price.photo}}</p>
+                                            </div>
+                                            <div class="styles__CellWrapper-sc-18uksfv-0 kcCwWL"style="height: 32px;
+                                            padding: 9px 18px 9px 18px;
+                                            border-bottom: 1px solid rgb(237, 237, 244);display:flex">
+                                                    <p color="lightText" size="12" class="Text__StyledText-sc-14s2wwi-0 GYxsE">
+                                                    ${{price.carousel}}</p>
+                                            </div>
+                                            <div class="styles__CellWrapper-sc-18uksfv-0 kcCwWL"style="height: 32px;
+                                            padding: 9px 18px 9px 18px;
+                                            border-bottom: 1px solid rgb(237, 237, 244);display:flex">
+                                                    <p color="lightText" size="12" class="Text__StyledText-sc-14s2wwi-0 GYxsE">
+                                                    ${{price.video}}</p>
+                                            </div>
+                                            <div class="styles__CellWrapper-sc-18uksfv-0 kcCwWL"style="height: 32px;
+                                            padding: 9px;
+                                            border-bottom: 1px solid rgb(237, 237, 244);display:flex">
+                                                    <p color="lightText" size="12" type="date" class="Text__StyledText-sc-14s2wwi-0 GYxsE">
+                                                    {{price.create_date}}</p>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>      
+                                </div>
+                            </div>
+                        </div>
+
+                </div>
+            </div>    
+      </div>
+
+<!--POPUP ADD INFLUENCER-->
+      <!--POPUP DE LA NUEVA LISTAAAAAAA-->
+    <div class="modal fade" id="popupadd" tabindex="-1" role="dialog" aria-labelledby="popupadd"
+    aria-hidden="true">
+        <div class="modal-dialog">
+         <div class="modal-content">
+            <form  name="ListForm">
+                <fieldset>
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Add Influencer To List</h4>
+                </div>
+                <div class="modal-body">
+                    <div style="display: flex;flex-direction: column; -webkit-box-flex: 1;
+                                flex-grow: 1; padding: 0px 32px 16px;">
+                                    <div style="display: flex;flex: 1 1 0%;">
+                                        <div style="display: flex; flex-direction: column;flex: 3 1 0%;">
+                                            <div style="display: flex; flex-direction: column; flex-shrink: 0;">
+                                                    <input name="search" ng-model="add" type="text" id="search" placeholder="Search" 
+                                                    style="height: 32px; width: 100%; box-sizing: border-box;font-size: 13px;
+                                                    line-height: 17px;background-color: rgb(255, 255, 255);
+                                                    color: rgb(39, 0, 56); border-radius: 3px; border-width: 1px;
+                                                    border-style: solid; padding: 8px;outline: none;
+                                                    border-color: rgb(197, 197, 210);" value="">
+                                            </div>
+                                            <div style="width: 100%;
+                                            margin-bottom: 16px"></div>
+                                            <div height="calc( 100vh - 262px )" id=" content " style="display: flex; flex-direction: column;
+                                            overflow-y: auto;height: calc(100vh - 262px);min-width: 336px;">
+                                            <div  ng-repeat="inf in influencers | filter:add">
+                                            
+                                                <div style="display: flex; flex-direction: row; height: 72px; width: 310px;
+                                                box-shadow: rgb(197, 197, 210) 0px 0px 3px 0px; background-color: white;
+                                                flex-shrink: 0;transform: scale(1); position: relative; cursor: pointer;
+                                                border-radius: 4px; margin: 4px 6px 4px 4px; transition: all 0.1s ease-in-out 0s;">
+                                                <label class="container"  >
+                                                        <input type="checkbox"  name="currency" id="chk-{{inf.id}}" ng-model="inf.isChecked"
+                                                        ng-model="options[inf.id]" ng-value="currency" ng-change="toggleCurrency($index,inf)" required>
+                                                      
+                                                <span class="checkmark" ></span>
+                                                <div style="display: -webkit-box;">
+                                                <img style="height: 70px;width: 72px; display: block; border-radius: 4px 9px 36px 9px 36px 4px;"
+                                                src="{{inf.profile_url}}" width="72px" height="70px">
+                                                
+                                                <p style="font-family: Rubik, sans-serif; color: rgb(39, 0, 56); font-size: 14px;
+                                                text-overflow: ellipsis;
+                                                text-transform: capitalize;
+                                                white-space: nowrap;
+                                                font-weight: 600;
+                                                margin: 4px 0px 0px 11px;
+                                                transition: all 0.1s ease-in-out 0s;
+                                                overflow: hidden;">{{inf.nombre}} {{inf.apellido}}</p> 
+                                                </div>
+                                                </label>
+                                                </div>
+                                            </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                </div>
+       
+            <div class="modal-footer">
+                <div style="position: relative;margin-bottom: 20px;margin-top: 5px;" ng-show="mostrarMensajeAviso">
+                    <div class="k-widget k-notification k-notification-info" style="width:48%;padding-right: 30px;position: absolute;right: 0px;">El tipo de cambio ha sido actualizado</div>
+                </div>
+                <button type="button" class="k-button btn-aceptar" ng-click="addInList()">Aceptar</button>
+                <button type="button" class="k-button btn-cancelar" data-dismiss="modal">Cancelar</button>
+            </div>
+        </fieldset>
+            </form>
+        </div>
+    </div>
+    </div>
+
+</div>
+
+
