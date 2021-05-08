@@ -15,7 +15,7 @@
     "express": "^4.13.4",
     "grunt": "^0.4.5",
     "grunt-generate": "^0.3.2",
-    "handlebars": "^4.0.5",
+    "handlebars": "^4.7.7",
     "html-docx-js": "^0.3.1",
     "jade": "^1.11.0",
     "js-base64": "^2.1.9",
